@@ -8,9 +8,12 @@ export const actPostUserLogin = (user: User) => {
         api
             .post(`/auth/signin`, user)
             .then((result) => {
+                const token = result.data.content.token;
+                result.data.content.user.token = token;
                 localStorage.setItem("data", JSON.stringify(result.data.content))
-                dispatch(actSuccess(result.data.content))
+                dispatch(actSuccess({...result.data.content, token}))
                 console.log("result.data.content",result.data.content)
+                
             })
             .catch((error) => {
                 dispatch(actFailed(error))

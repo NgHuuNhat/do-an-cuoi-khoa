@@ -8,7 +8,7 @@ export interface StateUser {
     avatar: any,
     gender: boolean,
     role: string,
-    token: string,
+    token: string | null,
 }
 
 export interface State {

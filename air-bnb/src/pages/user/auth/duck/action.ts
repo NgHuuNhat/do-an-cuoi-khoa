@@ -1,13 +1,28 @@
 import api from "../../../../utils/api-user/ApiUser";
 import * as ActionType from "./constants";
-import { Action, User } from "./types";
+import { Action, StateUser, User } from "./types";
+
+export const actPostUserReister = (user: StateUser) => {
+    return (dispatch: any) => {
+        dispatch(actReques());
+        api
+            .post(`/auth/signup`, user)
+            .then((result: any) => {
+                dispatch(actSuccess({...result.data.content}))
+                console.log("result.data.content",result.data.content)
+            })
+            .catch((error: any) => {
+                dispatch(actFailed(error))
+            })
+    }
+}
 
 export const actPostUserLogin = (user: User) => {
     return (dispatch: any) => {
         dispatch(actReques());
         api
             .post(`/auth/signin`, user)
-            .then((result) => {
+            .then((result: any) => {
                 const token = result.data.content.token;
                 result.data.content.user.token = token;
                 localStorage.setItem("data", JSON.stringify(result.data.content))
@@ -15,7 +30,7 @@ export const actPostUserLogin = (user: User) => {
                 console.log("result.data.content",result.data.content)
                 
             })
-            .catch((error) => {
+            .catch((error: any) => {
                 dispatch(actFailed(error))
             })
     }
@@ -26,11 +41,11 @@ export const actGetUserLogin = () => {
         dispatch(actReques());
         api
             .get(`/users`)
-            .then((result) => {
+            .then((result: any) => {
                 dispatch(actSuccess(result.data.content))
                 console.log("result.data.content", result.data.content)
             })
-            .catch((error) => {
+            .catch((error: any) => {
                 dispatch(actFailed(error))
             })
     }

@@ -8,8 +8,8 @@ export const actPostUserReister = (user: StateUser) => {
         api
             .post(`/auth/signup`, user)
             .then((result: any) => {
-                dispatch(actSuccess({...result.data.content}))
-                console.log("result.data.content",result.data.content)
+                dispatch(actSuccess({ ...result.data.content }))
+                console.log("result.data.content", result.data.content)
             })
             .catch((error: any) => {
                 dispatch(actFailed(error))
@@ -26,9 +26,9 @@ export const actPostUserLogin = (user: User) => {
                 const token = result.data.content.token;
                 result.data.content.user.token = token;
                 localStorage.setItem("data", JSON.stringify(result.data.content))
-                dispatch(actSuccess({...result.data.content, token}))
-                console.log("result.data.content",result.data.content)
-                
+                dispatch(actSuccess({ ...result.data.content, token }))
+                console.log("result.data.content", result.data.content)
+
             })
             .catch((error: any) => {
                 dispatch(actFailed(error))
@@ -70,3 +70,9 @@ export const actFailed = (error: any): Action => {
         payload: error,
     }
 }
+
+export const actClearError = () => {
+    return {
+        type: ActionType.CLEAR_ERROR,
+    };
+};

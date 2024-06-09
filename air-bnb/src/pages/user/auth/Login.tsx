@@ -1,7 +1,7 @@
 import React, { useEffect, useState, } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { actPostUserLogin } from './duck/action';
+import { actClearError, actPostUserLogin } from './duck/action';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,8 +10,7 @@ import Alert from './Alert';
 const schema = yup.object({
     email: yup
         .string()
-        .required('Vui lòng nhập email!')
-        .email('email không đúng định dạng!'),
+        .required('Vui lòng nhập email!'),
     password: yup
         .string()
         .required('Vui lòng nhập password!'),
@@ -21,10 +20,12 @@ export default function Login() {
     const dispatch: any = useDispatch();
     const { loading, data, error } = useSelector((state: any) => state.userReducer);
     const navigate = useNavigate();
-    const [showAlert, setShowAlert] = useState(false);
 
-    const { register, handleSubmit, formState } = useForm<any>({
-        defaultValues: { email: '', password: '' },
+    const { register, handleSubmit, formState, reset } = useForm<any>({
+        defaultValues: {
+            email: '',
+            password: ''
+        },
         // @ts-expect-error ts(2554)
         resolver: yupResolver(schema),
         criteriaMode: 'all',
@@ -34,45 +35,38 @@ export default function Login() {
     const password = register('password');
 
     useEffect(() => {
-        console.log("errors", formState.errors)
     }, [formState]);
 
     const onSubmit = (values: any) => {
-        console.log("values", values)
         dispatch(actPostUserLogin(values));
     }
-
-    // useEffect(() => {
-    //     if (error) {
-    //         // Hiển thị alert khi có lỗi
-    //         setShowAlert(true);
-    //         // Tự động ẩn alert sau 3 giây
-    //         setTimeout(() => {
-    //             setShowAlert(false);
-    //         }, 1000);
-    //     }
-    // }, [error]);
 
     useEffect(() => {
         if (data && data.user) {
             if (data.user.role === 'ADMIN') {
-                return navigate('/admin');
+                navigate('/admin');
+            } else {
+                navigate('/');
             }
-            navigate('/');
         }
     }, [data])
 
+    useEffect(() => {
+        // Xóa dữ liệu lỗi khi component unmount (chuyển trang)
+        return () => {
+            dispatch(actClearError()); // Dispatch action clearError
+        };
+    }, [dispatch]);
+
+    if (error) {
+        console.log("error", error);
+    }
+
     return (
         <>
-            {/* {showAlert && (
-                <div className="absolute top-0 left-0 bg-opacity-50 z-50 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 rounded-lg" role="alert">
-                    <span className="font-medium">Login thất bại!</span> Sai email hoặc password!.
-                </div>
-            )} */}
-            {error && <Alert message="Login thất bại!" type="error" onClose={() => { }} />}
+            {error && <Alert message="Sai email hoặc mật khẩu!" type="error" onClose={() => { }} />}
 
             <div className="bg-login flex justify-center items-center min-h-screen">
-
                 <div className="p-4 bg-white shadow-md rounded w-full max-w-md">
                     <h2 className="text-3xl font-bold mb-6 text-center text-white">
                         <span className="text-dark bg-gradient-to-r text-transparent from-blue-500 to-purple-500 bg-clip-text">

@@ -5,7 +5,7 @@ const user = localStorage.getItem("data");
 
 const initialState: State = {
     loading: false,
-    data: user? JSON.parse(user) : null,
+    data: user ? JSON.parse(user) : null,
     error: null,
 }
 
@@ -31,6 +31,10 @@ export const userReducer = (state = initialState, action: Action) => {
             state.error = action.payload;
             return { ...state };
         }
+
+        case 'CLEAR_ERROR':
+            state.error = null;
+            return { ...state };
 
         default:
             return { ...state };

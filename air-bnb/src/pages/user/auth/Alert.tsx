@@ -14,7 +14,7 @@ export default function Alert(props: any) {
         const timer = setTimeout(() => {
             setShowAlert(false);
             onClose();
-        }, 1500);
+        }, 3000);
 
         return () => clearTimeout(timer);
     }, [onClose]);
@@ -22,8 +22,14 @@ export default function Alert(props: any) {
     return (
         <>
             {showAlert && (
-                <div className={`absolute top-1 left-1 bg-opacity-50 z-50 p-4 mb-4 text-sm text-${type === 'success' ? 'green' : 'red'}-800 rounded-lg bg-${type === 'success' ? 'green' : 'red'}-50 dark:bg-gray-800 dark:text-${type === 'success' ? 'green' : 'red'}-400`} role="alert">
-                    <span className="font-medium">{type === 'success' ? 'Success!' : 'Error!'}</span> {message}
+                <div className={`absolute top-1 left-1 bg-opacity-50 z-50 p-4 mb-4 text-sm 
+                text-${type === 'success' ? 'green' : 'red'}-800 rounded-lg 
+                bg-${type === 'success' ? 'green' : 'red'}-50 dark:bg-gray-800 
+                dark:text-${type === 'success' ? 'green' : 'red'}-400`} role="alert">
+                    <span className="font-medium">
+                        {type === 'success' ? 'Success! ' : 'Error! '}
+                    </span>
+                    {message}
                 </div>
             )}
         </>

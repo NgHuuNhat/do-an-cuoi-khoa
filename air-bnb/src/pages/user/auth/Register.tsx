@@ -82,7 +82,7 @@ export default function Register() {
       {data && <Alert message="Đăng ký thành công!" type="success" onClose={() => { }} />}
 
       <section className="bg-gray-50 dark:bg-gray-900">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen">
           <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img className="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
             Flowbite
@@ -123,22 +123,23 @@ export default function Register() {
                   <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.phone?.message as any}</span>
 
                 </div>
-                <div className='my-0'>
-                  <label htmlFor="birthday" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
-                  <input {...register('birthday')} type="date" name="birthday" id="birthday" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
-                  <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.birthday?.message as any}</span>
-
+                <div className="my-0 grid grid-cols-2 gap-4">
+                  <div className="my-0 w-100 col-span-1">
+                    <label htmlFor="birthday" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
+                    <input {...register('birthday')} type="date" name="birthday" id="birthday" className="h-10 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
+                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.birthday?.message as any}</span>
+                  </div>
+                  <div className="my-0 max-w-sm mx-auto w-100 col-span-1">
+                    <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
+                    <select {...register('gender')} defaultValue='' name="gender" id="gender" className="h-10 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                      <option value='' disabled hidden></option>
+                      <option value='true'>Nam</option>
+                      <option value='false'>Nữ</option>
+                    </select>
+                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.gender?.message as any}</span>
+                  </div>
                 </div>
-                <div className='my-0 max-w-sm mx-auto'>
-                  <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
-                  <select {...register('gender')} defaultValue='' name="gender" id="gender" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
-                    <option value='' disabled hidden></option>
-                    <option value='true'>Nam</option>
-                    <option value='false'>Nữ</option>
-                  </select>
-                  <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.gender?.message as any}</span>
 
-                </div>
 
                 <div className="my-0 flex items-start">
                   <div className="flex items-center h-5">

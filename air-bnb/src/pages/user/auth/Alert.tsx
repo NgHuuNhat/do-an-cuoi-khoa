@@ -14,7 +14,7 @@ export default function Alert(props: any) {
         const timer = setTimeout(() => {
             setShowAlert(false);
             onClose();
-        }, 3000000);
+        }, 3000);
 
         return () => clearTimeout(timer);
     }, [onClose]);

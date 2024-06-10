@@ -11,11 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.min-width-50 {
-  min-width: 50%;
-}
-
-.bg-login {
-  background-color: #f9fafb;
-}

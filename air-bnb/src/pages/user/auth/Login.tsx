@@ -10,7 +10,8 @@ import Alert from './Alert';
 const schema = yup.object({
     email: yup
         .string()
-        .required('Vui lòng nhập email!'),
+        .required('Vui lòng nhập email!')
+        .email('email không đúng định dạng!'),
     password: yup
         .string()
         .required('Vui lòng nhập password!'),
@@ -52,9 +53,8 @@ export default function Login() {
     }, [data])
 
     useEffect(() => {
-        // Xóa dữ liệu lỗi khi component unmount (chuyển trang)
         return () => {
-            dispatch(actClearError()); // Dispatch action clearError
+            dispatch(actClearError());
         };
     }, [dispatch]);
 
@@ -64,66 +64,55 @@ export default function Login() {
 
     return (
         <>
-            {error && <Alert message="Sai email hoặc mật khẩu!" type="error" onClose={() => { }} />}
+            {error && <Alert message="Sai email hoặc password!" type="error" onClose={() => { }} />}
 
-            <div className="bg-login flex justify-center items-center min-h-screen">
-                <div className="p-4 bg-white shadow-md rounded w-full max-w-md">
-                    <h2 className="text-3xl font-bold mb-6 text-center text-white">
-                        <span className="text-dark bg-gradient-to-r text-transparent from-blue-500 to-purple-500 bg-clip-text">
-                            Login
-                        </span>
-                    </h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="mb-6">
-                            <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-                                <i className="fas fa-envelope mr-2" />Email
-                            </label>
-                            <div>
-                                <input id="email" type="text"
-                                    {...register('email')}
-                                    className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your email" />
-                                {formState.errors.email?.message && (<span className='text-danger pl-1'>{formState.errors.email?.message as any}</span>)}
-                            </div>
-                        </div>
-                        <div className="mb-6">
-                            <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
-                                <i className="fas fa-lock mr-2" />Password
-                            </label>
-                            <div>
-                                <input id="password" type="password"
-                                    {...register('password')}
-                                    className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your password" />
-                                {formState.errors.password?.message && (<span className='text-danger pl-1'>{formState.errors.password?.message as any}</span>)}
+            <section className="bg-gray-50 dark:bg-gray-900">
+                <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                    <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                        <img className="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
+                        Flowbite
+                    </a>
+                    <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                Login
+                            </h1>
+                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6" action="#">
+                                <div className=''>
+                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                                    <input {...register('email')} type="text" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" />
+                                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.email?.message as any}</span>
 
-                            </div>
-                        </div>
-                        <div className="flex items-center justify-center">
-                            <button disabled={loading} type="submit" className="bg-dark from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-                                {loading ? (<div className="spinner-border"></div>) : 'Login'}
-                            </button>
-                        </div>
-                        <div className="text-center mt-4">
-                            <a href="#" className="text-gray-600 hover:underline">Forgot password?</a>
-                        </div>
-                    </form>
-                    <p className="text-center text-gray-600 mt-6">Don't have an account? <NavLink to="/register" className="text-blue-500 hover:underline">Sign up</NavLink></p>
-                    <div className="mt-4">
-                        <p className="text-center text-gray-600">Or log in with:</p>
-                        <div className="flex justify-center mt-2">
-                            <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2">
-                                <i className="fab fa-facebook-f" />
-                            </a>
-                            <a href="#" className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded mx-2">
-                                <i className="fab fa-twitter" />
-                            </a>
-                            <a href="#" className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-2">
-                                <i className="fab fa-google" />
-                            </a>
+                                </div>
+                                <div className='my-0'>
+                                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                    <input {...register('password')} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.password?.message as any}</span>
+
+                                </div>
+                                <div className="my-0 flex items-center justify-between">
+                                    <div className="flex items-start">
+                                        <div className="flex items-center h-5">
+                                            <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" />
+                                        </div>
+                                        <div className="ml-3 text-sm">
+                                            <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
+                                </div>
+                                <button type="submit" className="bg-dark w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                    {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Login'}
+                                </button>
+                                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                                    Don’t have an account yet? <NavLink to="/register" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</NavLink>
+                                </p>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
+            </section>
 
+        </>
     )
 }

@@ -76,3 +76,9 @@ export const actClearError = () => {
         type: ActionType.CLEAR_ERROR,
     };
 };
+
+export const actClearSuccess = () => {
+    return {
+        type: ActionType.CLEAR_SUCCESS,
+    };
+};

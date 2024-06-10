@@ -32,9 +32,15 @@ export const userReducer = (state = initialState, action: Action) => {
             return { ...state };
         }
 
-        case 'CLEAR_ERROR':
+        case ActionType.CLEAR_ERROR: {
             state.error = null;
             return { ...state };
+        }
+
+        case ActionType.CLEAR_SUCCESS: {
+            state.data = null;
+            return { ...state };
+        }
 
         default:
             return { ...state };

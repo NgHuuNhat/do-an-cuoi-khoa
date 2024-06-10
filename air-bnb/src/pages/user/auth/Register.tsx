@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { actClearError, actPostUserReister } from './duck/action';
+import { actClearError, actClearSuccess, actPostUserReister } from './duck/action';
 import Alert from './Alert';
 
 const schema = yup.object({
@@ -34,7 +34,6 @@ const schema = yup.object({
 export default function Register() {
   const dispatch: any = useDispatch();
   const { loading, data, error } = useSelector((state: any) => state.userReducer);
-  const navigate = useNavigate();
 
   const { register, handleSubmit, formState, reset } = useForm<any>({
     defaultValues: {
@@ -60,21 +59,18 @@ export default function Register() {
   useEffect(() => {
   }, [formState]);
 
-  useEffect(() => {
-    return () => {
-      dispatch(actClearError());
-    };
-  }, [dispatch]);
-
   const onSubmit = (values: any) => {
     const { confirmPassword, ...user } = values;
     console.log("user", user);
     dispatch(actPostUserReister(user));
   }
 
-  if (error) {
-    console.log("error", error);
-  }
+  useEffect(() => {
+    return () => {
+      dispatch(actClearError());
+      dispatch(actClearSuccess());
+    };
+  }, [dispatch]);
 
   return (
     <>

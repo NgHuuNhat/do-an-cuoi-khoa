@@ -58,10 +58,6 @@ export default function Login() {
         };
     }, [dispatch]);
 
-    if (error) {
-        console.log("error", error);
-    }
-
     return (
         <>
             {error && <Alert message="Sai email hoặc password!" type="error" onClose={() => { }} />}

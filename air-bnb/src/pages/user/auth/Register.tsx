@@ -97,47 +97,42 @@ export default function Register() {
                   <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                   <input {...register('email')} type="text" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" />
                   <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.email?.message as any}</span>
-
                 </div>
-                <div className='my-0'>
-                  <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                  <input {...register('password')} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                  <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.password?.message as any}</span>
-
-                </div>
-                <div className='my-0'>
-                  <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                  <input {...register('confirmPassword')} type="password" name="confirmPassword" id="confirm-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                  <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.confirmPassword?.message as any}</span>
-
+                <div className='my-0 grid grid-cols-2 gap-1'>
+                  <div className='my-0 col-span-1 w-100'>
+                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                    <input {...register('password')} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.password?.message as any}</span>
+                  </div>
+                  <div className='my-0 col-span-1 w-100'>
+                    <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
+                    <input {...register('confirmPassword')} type="password" name="confirmPassword" id="confirm-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.confirmPassword?.message as any}</span>
+                  </div>
                 </div>
                 <div className='my-0'>
                   <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                   <input {...register('name')} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
                   <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.name?.message as any}</span>
-
                 </div>
                 <div className='my-0'>
                   <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
                   <input {...register('phone')} type="text" name="phone" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
                   <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.phone?.message as any}</span>
-
                 </div>
-                <div className="my-0 flex gap-1">
-                  <div className="my-0 flex-grow">
-                    <label htmlFor="birthday" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
-                    <input {...register('birthday')} type="date" name="birthday" id="birthday" className="h-14 bg-gray-50 border border-gray-300 text-gray-900 test-xs sm:text-xs rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
-                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.birthday?.message as any}</span>
-                  </div>
-                  <div className="my-0 flex-shrink">
-                    <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
-                    <select {...register('gender')} defaultValue='' name="gender" id="gender" className="h-14 bg-gray-50 border border-gray-300 text-gray-900 test-xs sm:text-xs rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
-                      <option value='' disabled hidden></option>
-                      <option value='true'>Nam</option>
-                      <option value='false'>Nữ</option>
-                    </select>
-                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.gender?.message as any}</span>
-                  </div>
+                <div className="my-0">
+                  <label htmlFor="birthday" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
+                  <input {...register('birthday')} type="date" name="birthday" id="birthday" className="bg-gray-50 border border-gray-300 text-gray-900 test-xs sm:text-xs rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
+                  <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.birthday?.message as any}</span>
+                </div>
+                <div className="my-0">
+                  <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
+                  <select {...register('gender')} defaultValue='' name="gender" id="gender" className="bg-gray-50 border border-gray-300 text-gray-900 test-xs sm:text-xs rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value='' disabled hidden></option>
+                    <option value='true'>Nam</option>
+                    <option value='false'>Nữ</option>
+                  </select>
+                  <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.gender?.message as any}</span>
                 </div>
 
                 <div className="my-0 flex items-start">

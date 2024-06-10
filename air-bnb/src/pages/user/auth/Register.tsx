@@ -122,12 +122,12 @@ export default function Register() {
                 </div>
                 <div className="my-0 w-100">
                   <label htmlFor="birthday" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
-                  <input {...register('birthday')} type="date" name="birthday" id="birthday" className="bg-gray-50 border border-gray-300 text-gray-900 test-xs sm:text-xs rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
+                  <input {...register('birthday')} type="date" name="birthday" id="birthday" className="w-100 bg-gray-50 border border-gray-300 text-gray-900 test-xs sm:text-xs rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
                   <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.birthday?.message as any}</span>
                 </div>
                 <div className="my-0 w-100">
                   <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
-                  <select {...register('gender')} defaultValue='' name="gender" id="gender" className="bg-gray-50 border border-gray-300 text-gray-900 test-xs sm:text-xs rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                  <select {...register('gender')} defaultValue='' name="gender" id="gender" className="w-100 bg-gray-50 border border-gray-300 text-gray-900 test-xs sm:text-xs rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
                     <option value='' disabled hidden></option>
                     <option value='true'>Nam</option>
                     <option value='false'>Nữ</option>

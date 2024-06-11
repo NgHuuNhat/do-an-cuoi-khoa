@@ -25,7 +25,7 @@ export default function Alert(props: any) {
                 <div className={
                     `
                     w-60 text-center
-                    fixed top-0 mt-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                    fixed top-10 mt-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                     bg-opacity-100 z-50 py-3 px-0 text-sm 
                     text-${type === 'success' ? 'green' : 'red'}-800 rounded-lg 
                     bg-${type === 'success' ? 'green' : 'red'}-300 dark:bg-gray-800 

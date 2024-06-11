@@ -1,31 +1,39 @@
+// app.tsx
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import IndexUser from './pages/user';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/user/home';
-import Login from './pages/user/auth/Login';
-import Register from './pages/user/auth/Register';
+import DangNhap from './pages/user/auth/login/DangNhap';
+import DangKy from './pages/user/auth/register/DangKy';
 import IndexAdmin from './pages/admin';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* user */}
-        <Route path="/" element={<IndexUser />}>
+    <Router>
+        <Routes>
           <Route path="/" element={<Home />} />
-          <Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Route>
-        </Route>
-
-        {/* admin */}
-        <Route path="/admin" element={<IndexAdmin />} />
-
-      </Routes>
-    </BrowserRouter>
+          <Route path="/login" element={<LoginOverlay />} />
+          <Route path="/register" element={<RegisterOverlay />} />
+          <Route path="/admin" element={<IndexAdmin />} />
+        </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+// Component để hiển thị Login đè lên Home
+const LoginOverlay = () => (
+  <div>
+    <Home />
+    <DangNhap />
+  </div>
+);
+
+// Component để hiển thị Register đè lên Home
+const RegisterOverlay = () => (
+  <div>
+    <Home />
+    <DangKy />
+  </div>
+);

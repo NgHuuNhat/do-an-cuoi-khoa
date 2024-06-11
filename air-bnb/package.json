@@ -3,13 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@hookform/resolvers": "^3.3.1",
-    "@mui/icons-material": "^5.15.19",
-    "@mui/material": "^5.15.19",
+    "@hookform/resolvers": "^3.6.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -17,17 +14,13 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "antd": "^5.17.2",
-    "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
     "bootstrap": "^4.6.2",
     "cra-template-typescript": "1.2.0",
     "dayjs": "^1.11.11",
     "formik": "^2.4.6",
     "iquery": "^0.0.2",
-    "lodash": "^4.17.21",
     "popper.js": "^1.16.1",
-    "postcss": "^8.4.38",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.3.1",
@@ -37,9 +30,7 @@
     "react-scripts": "5.0.1",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
-    "shortid": "^2.2.16",
     "typescript": "^4.4.2",
-    "uuid": "^9.0.1",
     "web-vitals": "^2.1.0",
     "yup": "^1.4.0"
   },
@@ -69,7 +60,6 @@
   },
   "devDependencies": {
     "@types/shortid": "^0.0.32",
-    "@types/uuid": "^9.0.8",
-    "tailwindcss": "^3.4.4"
+    "@types/uuid": "^9.0.8"
   }
 }

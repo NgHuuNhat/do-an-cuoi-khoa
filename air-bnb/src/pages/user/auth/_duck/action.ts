@@ -10,9 +10,11 @@ export const actPostUserReister = (user: StateUser) => {
             .then((result: any) => {
                 dispatch(actSuccess({ ...result.data.content }))
                 console.log("result.data.content", result.data.content)
+                dispatch(actClearSuccess)
             })
             .catch((error: any) => {
                 dispatch(actFailed(error))
+                dispatch(actClearSuccess)
             })
     }
 }
@@ -28,10 +30,11 @@ export const actPostUserLogin = (user: User) => {
                 localStorage.setItem("data", JSON.stringify(result.data.content))
                 dispatch(actSuccess({ ...result.data.content, token }))
                 console.log("result.data.content", result.data.content)
-
+                dispatch(actClearSuccess)
             })
             .catch((error: any) => {
                 dispatch(actFailed(error))
+                dispatch(actClearSuccess)
             })
     }
 }

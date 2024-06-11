@@ -1,0 +1,38 @@
+/* Thiết bị nhỏ (sm) */
+@media only screen and (max-width: 575px) {
+    /* Thêm các quy tắc CSS cho thiết bị nhỏ ở đây */
+    body {
+        background-color: lightblue;
+    }
+
+    .ml-auto{
+        margin-left: 0 !important;
+        margin: auto !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    .m-sm-auto{
+        margin: auto;
+    }
+
+    .text-sm-center{
+        text-align: center;
+    }
+}
+
+/* Thiết bị trung bình (md) */
+@media only screen and (min-width: 576px) and (max-width: 991px) {
+    /* Thêm các quy tắc CSS cho thiết bị trung bình ở đây */
+    body {
+        background-color: lightgreen;
+    }
+}
+
+/* Thiết bị lớn (lg) */
+@media only screen and (min-width: 992px) {
+    /* Thêm các quy tắc CSS cho thiết bị lớn ở đây */
+    body {
+        background-color: lightyellow;
+    }
+}

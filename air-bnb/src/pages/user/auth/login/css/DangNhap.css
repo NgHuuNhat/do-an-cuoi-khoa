@@ -1,0 +1,25 @@
+/* Nhat.css */
+.dangnhap-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+    color: white; /* Màu chữ trắng */
+    z-index: 2; /* Thiết lập z-index cao hơn để hiển thị đè lên Home */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }

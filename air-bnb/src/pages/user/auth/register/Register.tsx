@@ -7,16 +7,16 @@ export default function Register() {
             {/* <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalRegister">
                 Register
             </button> */}
-            <li className="nav-item" data-toggle="modal" data-target="#exampleModalRegister">
+            {/* <li className="nav-item" data-toggle="modal" data-target="#exampleModalRegister">
                 <a className="nav-link" href="#">Register</a>
-            </li>
+            </li> */}
 
             <div className="modal fade" id="exampleModalRegister" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <button id='btn-close' type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>

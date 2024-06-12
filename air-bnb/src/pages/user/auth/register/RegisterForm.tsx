@@ -3,6 +3,7 @@ import React from 'react'
 export default function RegisterForm() {
     return (
         <form action="/action_page.php">
+            <h1>Register</h1>
             <div className="form-group">
                 <label htmlFor="email">Email address:</label>
                 <input type="email" className="form-control" placeholder="Enter email" id="emailRegister" />
@@ -16,7 +17,7 @@ export default function RegisterForm() {
                     <input className="form-check-input" type="checkbox" /> Remember me
                 </label>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary" data-dismiss="modal">Submit</button>
         </form>
     )
 }

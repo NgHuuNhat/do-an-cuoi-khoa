@@ -22,7 +22,7 @@ export default function LoginForm() {
     const location = useLocation();
     const { loading, data, error } = useSelector((state: any) => state.userReducer);
     const navigate = useNavigate();
-    const [loginSuccess, setLoginSuccess] = useState(false); // State để xác định trạng thái đăng nhập thành công
+    // const [loginSuccess, setLoginSuccess] = useState(false); // State để xác định trạng thái đăng nhập thành công
 
     useEffect(() => {
         // Xóa dữ liệu đăng ký khi chuyển sang trang mới
@@ -43,10 +43,11 @@ export default function LoginForm() {
     const onSubmit = (values: any) => {
         dispatch(actPostUserLogin(values));
     }
-
     useEffect(() => {
         if (data && data.user) {
-            setLoginSuccess(true); // Đánh dấu đăng nhập thành công
+            // setLoginSuccess(true); // Đánh dấu đăng nhập thành công
+            let abc = document.getElementById('nhat') // 
+            abc?.click()
             if (data.user.role === 'ADMIN') {
                 navigate('/admin');
             } else {
@@ -55,20 +56,10 @@ export default function LoginForm() {
         }
     }, [data, navigate])
 
-    useEffect(() => {
-        // Khi trạng thái đăng nhập thành công thay đổi, thực hiện xóa class và style
-        if (loginSuccess) {
-            document.body.classList.remove('modal-open');
-            document.body.style.paddingRight = '';
-            const modalBackdrop = document.querySelector('.modal-backdrop');
-            if (modalBackdrop) {
-                modalBackdrop.remove();
-            }
-        }
-    }, [loginSuccess]);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} action="/action_page.php">
+            <h1>Login</h1>
             <div className="form-group">
                 <label htmlFor="email">Email address:</label>
                 <input {...register('email')} type="text" className="form-control" placeholder="Enter email" id="emailLogin" />
@@ -84,7 +75,16 @@ export default function LoginForm() {
                     <input className="form-check-input" type="checkbox" /> Remember me
                 </label>
             </div>
-            <button type="submit" className="btn btn-primary">
+            {/* {data ? (
+                <button type="submit" className="btn btn-primary" data-dismiss="modal" >
+                    {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Submit'}
+                </button>
+            ) : (
+                <button type="submit" className="btn btn-primary"  >
+                    {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Submit'}
+                </button>
+            )} */}
+            <button id='nhat' type="submit" className="btn btn-primary" data-dismiss={data ? "modal" : ''} >
                 {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Submit'}
             </button>
         </form>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/Footer.css';
 
 export default function Footer() {
   return (
@@ -36,7 +37,7 @@ export default function Footer() {
       {/* Section: Social media */}
       {/* Section: Links  */}
       <section className=''>
-        <div className="container text-center text-md-start mt-5">
+        <div className="container text-left text-md-start mt-5">
           {/* Grid row */}
           <div className="row mt-3">
             {/* Grid column */}
@@ -111,7 +112,7 @@ export default function Footer() {
       {/* Section: Links  */}
       {/* Footer */}
       <div className="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2021 Company, Inc.
+        Nguyen Huu Nhat © 2024 Company, Inc.
       </div>
       {/* Footer */}
     </footer>

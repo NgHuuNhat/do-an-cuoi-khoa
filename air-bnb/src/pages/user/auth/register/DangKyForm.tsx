@@ -40,7 +40,7 @@ export default function DangKyForm() {
         // Xóa dữ liệu đăng ký khi chuyển sang trang mới
         dispatch(actClearError());
         dispatch(actClearSuccess());
-    }, [dispatch, location.pathname]); 
+    }, [dispatch, location.pathname]);
 
     const { register, handleSubmit, formState, reset } = useForm<any>({
         defaultValues: {

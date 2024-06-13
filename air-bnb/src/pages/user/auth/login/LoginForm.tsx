@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actClearError, actClearSuccess, actPostUserLogin } from '../_duck/action';
 import { useNavigate } from 'react-router-dom';
@@ -22,10 +22,8 @@ export default function LoginForm() {
     const location = useLocation();
     const { loading, data, error } = useSelector((state: any) => state.userReducer);
     const navigate = useNavigate();
-    // const [loginSuccess, setLoginSuccess] = useState(false); // State để xác định trạng thái đăng nhập thành công
 
     useEffect(() => {
-        // Xóa dữ liệu đăng ký khi chuyển sang trang mới
         dispatch(actClearError());
         dispatch(actClearSuccess());
     }, [dispatch, location.pathname]);
@@ -43,11 +41,11 @@ export default function LoginForm() {
     const onSubmit = (values: any) => {
         dispatch(actPostUserLogin(values));
     }
+
     useEffect(() => {
         if (data && data.user) {
-            // setLoginSuccess(true); // Đánh dấu đăng nhập thành công
-            let abc = document.getElementById('nhat') // 
-            abc?.click()
+            let btnClose = document.getElementById('btn-close')
+            btnClose?.click()
             if (data.user.role === 'ADMIN') {
                 navigate('/admin');
             } else {
@@ -56,16 +54,14 @@ export default function LoginForm() {
         }
     }, [data, navigate])
 
-
     return (
-        <form onSubmit={handleSubmit(onSubmit)} action="/action_page.php">
-            <h1>Login</h1>
-            <div className="form-group">
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-group mb-0">
                 <label htmlFor="email">Email address:</label>
                 <input {...register('email')} type="text" className="form-control" placeholder="Enter email" id="emailLogin" />
                 <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.email?.message as any}</span>
             </div>
-            <div className="form-group">
+            <div className="form-group mb-0">
                 <label htmlFor="pwd">Password:</label>
                 <input {...register('password')} type="password" className="form-control" placeholder="Enter password" id="pwdLogin" />
                 <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.password?.message as any}</span>
@@ -75,16 +71,7 @@ export default function LoginForm() {
                     <input className="form-check-input" type="checkbox" /> Remember me
                 </label>
             </div>
-            {/* {data ? (
-                <button type="submit" className="btn btn-primary" data-dismiss="modal" >
-                    {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Submit'}
-                </button>
-            ) : (
-                <button type="submit" className="btn btn-primary"  >
-                    {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Submit'}
-                </button>
-            )} */}
-            <button id='nhat' type="submit" className="btn btn-primary" data-dismiss={data ? "modal" : ''} >
+            <button type="submit" className="btn btn-primary w-100" >
                 {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Submit'}
             </button>
         </form>

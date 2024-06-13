@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actClearError, actClearSuccess, actPostUserLogin } from '../_duck/action';
+import { actPostUserLogin } from '../_duck/action';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useLocation } from 'react-router-dom';
 
 const schema = yup.object({
     email: yup
@@ -19,14 +18,8 @@ const schema = yup.object({
 
 export default function LoginForm() {
     const dispatch: any = useDispatch();
-    const location = useLocation();
-    const { loading, data, error } = useSelector((state: any) => state.userReducer);
+    const { loading, data } = useSelector((state: any) => state.userReducer);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        dispatch(actClearError());
-        dispatch(actClearSuccess());
-    }, [dispatch, location.pathname]);
 
     const { register, handleSubmit, formState, reset } = useForm<any>({
         defaultValues: {
@@ -51,6 +44,7 @@ export default function LoginForm() {
             } else {
                 navigate('/');
             }
+            reset();
         }
     }, [data, navigate])
 

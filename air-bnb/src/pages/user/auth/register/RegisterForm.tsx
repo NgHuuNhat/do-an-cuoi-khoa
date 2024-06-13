@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actClearError, actClearSuccess, actPostUserReister } from '../_duck/action';
-
+import { actPostUserReister } from '../_duck/action';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -33,13 +32,7 @@ const schema = yup.object({
 
 export default function RegisterForm() {
     const dispatch: any = useDispatch();
-    const location = useLocation();
-    const { loading, data, error } = useSelector((state: any) => state.userReducer);
-
-    useEffect(() => {
-        dispatch(actClearError());
-        dispatch(actClearSuccess());
-    }, [dispatch, location.pathname]);
+    const { loading, data } = useSelector((state: any) => state.userReducer);
 
     const { register, handleSubmit, formState, reset } = useForm<any>({
         defaultValues: {
@@ -67,16 +60,14 @@ export default function RegisterForm() {
 
     const onSubmit = (values: any) => {
         const { confirmPassword, ...user } = values;
-        console.log("user", user);
         dispatch(actPostUserReister(user));
     }
 
     useEffect(() => {
         if (data) {
-            console.log("data", data)
             let btnClosee = document.getElementById('btn-closee');
-            console.log(btnClosee)
             btnClosee?.click();
+            reset();
         }
     }, [data])
 

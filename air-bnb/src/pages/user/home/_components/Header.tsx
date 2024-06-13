@@ -66,14 +66,6 @@ export default function Header(props: any) {
     }
   }, [data, error, dataLocal]);
 
-
-
-  // console.log(dataLocal)
-  console.log("error", error)
-  console.log("status", error?.response.status)
-
-  console.log("data", data)
-
   return (
     <>
       {contextHolder}
@@ -88,7 +80,6 @@ export default function Header(props: any) {
             ) : (
               <span><i className="far fa-user-circle mr-2 text-dark text-l"></i></span>
             )
-            // <span><img className='w-8 h-8 rounded-circle' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></span>
           ) : (
             <span><i className="fa fa-bars text-dark" /></span>
           )}

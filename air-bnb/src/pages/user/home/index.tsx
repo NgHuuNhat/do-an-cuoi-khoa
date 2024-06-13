@@ -6,10 +6,10 @@ import Carousel from './outlet/Carousel';
 export default function Home() {
 
     return (
-        <div className="home-container">
+        <>
             <Header />
             <Carousel />
             <Footer />
-        </div>
+        </>
     )
 }

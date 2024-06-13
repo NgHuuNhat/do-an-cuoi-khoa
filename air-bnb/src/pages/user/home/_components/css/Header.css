@@ -30,6 +30,10 @@
     body {
         background-color: lightgreen;
     }
+
+    /* nav{
+        background-color: #ffffff;
+    } */
 }
 
 /* Thiết bị lớn (lg) laptop */
@@ -37,6 +41,10 @@
     body {
         background-color: lightyellow;
     }
+
+    /* nav{
+        background-color: #ffffff;
+    } */
 
 
 }

@@ -47,7 +47,7 @@ export default function Header(props: any) {
     <>
       {contextHolder}
 
-      <nav className="navbar navbar-expand-md navbar-dark">
+      <nav className="navbar navbar-expand-md navbar-dark fixed-top">
         <a className="navbar-brand text-dark" href="#">Instagram</a>
 
         <button id='btn-menu' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -98,7 +98,7 @@ export default function Header(props: any) {
             {dataLocal ? (
               <>
                 <li className="nav-item d-flex align-items-center">
-                <span className='w-7'><img className='w-5 h-5 rounded-circle' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></span>
+                  <span className='w-7'><img className='w-5 h-5 rounded-circle' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></span>
                   {/* <span><i className="far fa-user-circle mr-2"></i></span> */}
                   <a className="nav-link w-100 text-dark" href="#">{dataLocalParse.user.name}</a>
                 </li>
@@ -118,11 +118,10 @@ export default function Header(props: any) {
               </>
             )}
           </ul>
-
         </div>
-        <Login />
-        <Register />
       </nav >
+      <Login />
+      <Register />
     </>
   )
 }

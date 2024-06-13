@@ -70,7 +70,7 @@ export default function Header(props: any) {
     <>
       {contextHolder}
 
-      <nav className="navbar navbar-expand-md navbar-dark fixed-top">
+      <nav id='header' className="navbar navbar-expand-md navbar-dark fixed-top py-0">
         <a id='logo' className="navbar-brand text-dark" href="#">AirBnb</a>
 
         <button id='btn-menu' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -87,7 +87,7 @@ export default function Header(props: any) {
 
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
 
-          <ul id='ul-menu-sm' className="navbar-nav rounded px-2 ml-auto">
+          <ul id='ul-menu' className="navbar-nav rounded px-2 ml-auto">
 
             <li className="nav-item d-flex align-items-center">
               {/* <span className='w-7'><i className="fa-solid fa-house"></i></span> */}

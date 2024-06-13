@@ -1,14 +1,6 @@
 /* Thiết bị nhỏ (sm) iphone */
 @media only screen and (max-width: 575px) {
-    body {
-        background-color: #ffffff;
-    }
-
-    nav{
-        background-color: #ffffff;
-    }
-
-    #ul-menu-sm {
+    #ul-menu {
         background-color: #efefef;
     }
 
@@ -27,24 +19,13 @@
 
 /* Thiết bị trung bình (md) ipad */
 @media only screen and (min-width: 576px) and (max-width: 991px) {
-    body {
-        background-color: lightgreen;
-    }
-
-    nav {
-        background-color: lightgreen;
-    }
 
 }
 
 /* Thiết bị lớn (lg) laptop */
 @media only screen and (min-width: 992px) {
-    body {
-        background-color: lightyellow;
-    }
-
     nav {
-        background-color: lightyellow;
+        border-bottom: 1px solid;
     }
 
     #logo {
@@ -52,4 +33,31 @@
         font-size: x-large;
     }
 
+    #ul-menu li a{
+        padding: 20px;
+        border-bottom: 4px solid #ffffff;
+        font-weight: 500;
+        font-size: larger;
+        /* background: red; */
+    }
+
+    #ul-menu li a:hover {
+        border-bottom: 4px solid black;
+        background-color: #F7F7F7;
+        cursor: pointer;
+    }
+
+    #ul-menu li a:focus {
+        border-bottom: 4px solid black;
+    }
+
+    #ul-profile li button{
+        font-weight: 500;
+        font-size: large;
+    }
+
+}
+
+nav{
+    background-color: #ffffff;
 }

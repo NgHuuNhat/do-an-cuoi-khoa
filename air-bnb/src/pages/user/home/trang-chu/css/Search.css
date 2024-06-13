@@ -1,0 +1,24 @@
+/* Thiết bị nhỏ (sm) iphone */
+@media only screen and (max-width: 575px) {
+    body {
+        /* background-color: lightblue; */
+    }
+}
+
+/* Thiết bị trung bình (md) ipad */
+@media only screen and (min-width: 576px) and (max-width: 991px) {
+    body {
+        /* background-color: lightgreen; */
+    }
+}
+
+/* Thiết bị lớn (lg) laptop */
+@media only screen and (min-width: 992px) {
+    body {
+        /* background-color: lightyellow; */
+    }
+
+    #search {
+        background-color: red;
+    }
+}

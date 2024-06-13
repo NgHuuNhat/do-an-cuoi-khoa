@@ -47,35 +47,32 @@ export default function Header(props: any) {
     <>
       {contextHolder}
 
-      <nav className="navbar navbar-expand-md bg-dark navbar-dark">
-        <a className="navbar-brand" href="#">Navbar</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <nav className="navbar navbar-expand-md navbar-dark">
+        <a className="navbar-brand text-dark" href="#">Instagram</a>
+
+        <button id='btn-menu' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           {dataLocal ? (
             <span><img className='w-8 h-8 rounded-circle' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></span>
           ) : (
-            <span className="navbar-toggler-icon" />
+            <span><i className="fa fa-bars text-dark" /></span>
           )}
         </button>
+
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
 
-          <ul className="navbar-nav w-100">
+          <ul id='ul-menu-sm' className="navbar-nav rounded px-2">
 
-            {/* <span className='px-2'> */}
             <li className="nav-item">
-              <a className="nav-link" href="#">Chỗ ở</a>
+              <a className="nav-link text-dark" href="#">Chỗ ở</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Trải nghiệm</a>
+              <a className="nav-link text-dark" href="#">Trải nghiệm</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Trải nghiệm trực tuyến</a>
+              <a className="nav-link text-dark" href="#">Trải nghiệm trực tuyến</a>
             </li>
-            {/* </span> */}
 
-            <hr className='bg-light m-0' />
-
-            {dataLocal ? (
-              // <span className='px-2'>
+            {/* {dataLocal ? (
               <>
                 <li className="nav-item">
                   <a className="nav-link" href="#">{dataLocalParse.user.name}</a>
@@ -84,9 +81,7 @@ export default function Header(props: any) {
                   <a className="nav-link" href="#" onClick={handleLogout}>Đăng xuất</a>
                 </li>
               </>
-              // </span>
             ) : (
-              // <span className='px-2'>
               <>
                 <li className="nav-item">
                   <button className="nav-link" data-toggle="modal" data-target="#exampleModalLogin" >Login</button>
@@ -95,13 +90,39 @@ export default function Header(props: any) {
                   <button className="nav-link" data-toggle="modal" data-target="#exampleModalRegister">Register</button>
                 </li>
               </>
-              // </span>
+            )} */}
+
+          </ul>
+
+          <ul id='ul-profile' className="navbar-nav rounded px-2 ml-auto">
+            {dataLocal ? (
+              <>
+                <li className="nav-item d-flex align-items-center">
+                <span className='w-7'><img className='w-5 h-5 rounded-circle' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></span>
+                  {/* <span><i className="far fa-user-circle mr-2"></i></span> */}
+                  <a className="nav-link w-100 text-dark" href="#">{dataLocalParse.user.name}</a>
+                </li>
+                <li className="nav-item d-flex align-items-center">
+                  <span className='w-7'><i className="fa fa-sign-out mr-2 text-l"></i></span>
+                  <a className="nav-link w-100 text-dark" href="#" onClick={handleLogout}>Đăng xuất</a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <button className="nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalLogin" >Login</button>
+                </li>
+                <li className="nav-item" >
+                  <button className="nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalRegister">Register</button>
+                </li>
+              </>
             )}
           </ul>
+
         </div>
         <Login />
         <Register />
-      </nav>
+      </nav >
     </>
   )
 }

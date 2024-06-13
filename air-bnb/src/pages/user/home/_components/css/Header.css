@@ -1,8 +1,28 @@
 /* Thiết bị nhỏ (sm) iphone */
 @media only screen and (max-width: 575px) {
     body {
-        background-color: lightblue;
+        background-color: #ffffff;
     }
+
+    nav{
+        background-color: #ffffff;
+    }
+
+    #ul-menu-sm {
+        background-color: #efefef;
+    }
+
+    #ul-profile {
+        margin-top: 0.5rem;
+        background-color: #efefef;
+    }
+
+    .btn-profile-sm {
+        width: 100%;
+        text-align: left;
+    }
+
+
 }
 
 /* Thiết bị trung bình (md) ipad */
@@ -18,5 +38,5 @@
         background-color: lightyellow;
     }
 
-    
+
 }

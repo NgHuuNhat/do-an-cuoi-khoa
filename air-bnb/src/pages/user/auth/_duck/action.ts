@@ -8,6 +8,7 @@ export const actPostUserReister = (user: StateUser) => {
         api
             .post(`/auth/signup`, user)
             .then((result: any) => {
+                localStorage.setItem("isRegister", "true");
                 dispatch(actSuccess({ ...result.data.content }))
                 console.log("result.data.content", result.data.content)
                 dispatch(actClearSuccess)
@@ -25,6 +26,7 @@ export const actPostUserLogin = (user: User) => {
         api
             .post(`/auth/signin`, user)
             .then((result: any) => {
+                localStorage.setItem("isLogin", "true");
                 const token = result.data.content.token;
                 result.data.content.user.token = token;
                 localStorage.setItem("data", JSON.stringify(result.data.content))

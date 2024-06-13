@@ -22,7 +22,7 @@ export default function Header(props: any) {
   const successLogin = () => {
     messageApi.open({
       type: 'success',
-      content: 'Success',
+      content: 'Đăng nhập thành công',
     });
   };
   const errorLogin = () => {
@@ -32,6 +32,12 @@ export default function Header(props: any) {
     });
   };
 
+  const successRegister = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'Đăng ký thành công',
+    });
+  };
   const errorRegister = () => {
     messageApi.open({
       type: 'error',
@@ -40,17 +46,26 @@ export default function Header(props: any) {
   };
 
   useEffect(() => {
+    const isLogin = localStorage.getItem("isLogin");
+    const isRegister = localStorage.getItem("isRegister");
+
     if (data) {
-      successLogin();
+      if (isLogin === "true") {
+        successLogin();
+      } else if (isRegister === "true") {
+        successRegister();
+      }
+      localStorage.removeItem("isLogin");
+      localStorage.removeItem("isRegister");
     } else {
-      if (error?.response.data.content === 'Email hoặc mật khẩu không đúng !') {
+      if (error?.response?.data?.content === 'Email hoặc mật khẩu không đúng !') {
         errorLogin();
-      } else if (error?.response.data.content === 'Email đã tồn tại !') {
+      } else if (error?.response?.data?.content === 'Email đã tồn tại !') {
         errorRegister();
       }
-
     }
-  }, [data, error])
+  }, [data, error, dataLocal]);
+
 
 
   // console.log(dataLocal)

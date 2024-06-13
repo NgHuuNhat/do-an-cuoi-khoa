@@ -111,7 +111,7 @@ export default function Footer() {
       </section>
       {/* Section: Links  */}
       {/* Footer */}
-      <div className="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+      <div className="text-center p-4 border-top" style={{ backgroundColor: '#f7f7f7' }}>
         Nguyen Huu Nhat © 2024 Company, Inc.
       </div>
       {/* Footer */}

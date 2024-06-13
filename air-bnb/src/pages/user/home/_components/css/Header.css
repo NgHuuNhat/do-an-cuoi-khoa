@@ -31,9 +31,10 @@
         background-color: lightgreen;
     }
 
-    /* nav{
-        background-color: #ffffff;
-    } */
+    nav {
+        background-color: lightgreen;
+    }
+
 }
 
 /* Thiết bị lớn (lg) laptop */
@@ -42,9 +43,8 @@
         background-color: lightyellow;
     }
 
-    /* nav{
-        background-color: #ffffff;
-    } */
-
+    nav {
+        background-color: lightyellow;
+    }
 
 }

@@ -52,7 +52,12 @@ export default function Header(props: any) {
 
         <button id='btn-menu' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           {dataLocal ? (
-            <span><img className='w-8 h-8 rounded-circle' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></span>
+            dataLocalParse.avatar ? (
+              <span><img className='w-8 h-8 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
+            ) : (
+              <span><i className="far fa-user-circle mr-2 text-dark text-l"></i></span>
+            )
+            // <span><img className='w-8 h-8 rounded-circle' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></span>
           ) : (
             <span><i className="fa fa-bars text-dark" /></span>
           )}
@@ -62,35 +67,18 @@ export default function Header(props: any) {
 
           <ul id='ul-menu-sm' className="navbar-nav rounded px-2">
 
-            <li className="nav-item">
+            <li className="nav-item d-flex align-items-center">
+              {/* <span className='w-7'><i className="fa-solid fa-house"></i></span> */}
               <a className="nav-link text-dark" href="#">Chỗ ở</a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item d-flex align-items-center">
+              {/* <span className='w-7'><i className="fa-solid fa-house"></i></span> */}
               <a className="nav-link text-dark" href="#">Trải nghiệm</a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item d-flex align-items-center">
+              {/* <span className='w-7'><i className="fa-solid fa-house"></i></span> */}
               <a className="nav-link text-dark" href="#">Trải nghiệm trực tuyến</a>
             </li>
-
-            {/* {dataLocal ? (
-              <>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">{dataLocalParse.user.name}</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#" onClick={handleLogout}>Đăng xuất</a>
-                </li>
-              </>
-            ) : (
-              <>
-                <li className="nav-item">
-                  <button className="nav-link" data-toggle="modal" data-target="#exampleModalLogin" >Login</button>
-                </li>
-                <li className="nav-item" >
-                  <button className="nav-link" data-toggle="modal" data-target="#exampleModalRegister">Register</button>
-                </li>
-              </>
-            )} */}
 
           </ul>
 
@@ -98,12 +86,15 @@ export default function Header(props: any) {
             {dataLocal ? (
               <>
                 <li className="nav-item d-flex align-items-center">
-                  <span className='w-7'><img className='w-5 h-5 rounded-circle' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></span>
-                  {/* <span><i className="far fa-user-circle mr-2"></i></span> */}
+                  {dataLocalParse.avatar ? (
+                    <span className='w-7'><img className='w-5 h-5 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
+                  ) : (
+                    <span><i className="far fa-user-circle mr-2 text-dark"></i></span>
+                  )}
                   <a className="nav-link w-100 text-dark" href="#">{dataLocalParse.user.name}</a>
                 </li>
                 <li className="nav-item d-flex align-items-center">
-                  <span className='w-7'><i className="fa fa-sign-out mr-2 text-l"></i></span>
+                  <span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>
                   <a className="nav-link w-100 text-dark" href="#" onClick={handleLogout}>Đăng xuất</a>
                 </li>
               </>

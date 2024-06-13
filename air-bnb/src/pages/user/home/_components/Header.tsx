@@ -87,7 +87,7 @@ export default function Header(props: any) {
 
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
 
-          <ul id='ul-menu-sm' className="navbar-nav rounded px-2">
+          <ul id='ul-menu-sm' className="navbar-nav rounded px-2 ml-auto">
 
             <li className="nav-item d-flex align-items-center">
               {/* <span className='w-7'><i className="fa-solid fa-house"></i></span> */}

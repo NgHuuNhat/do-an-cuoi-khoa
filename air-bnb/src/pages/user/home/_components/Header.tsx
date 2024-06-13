@@ -28,27 +28,43 @@ export default function Header(props: any) {
   const errorLogin = () => {
     messageApi.open({
       type: 'error',
-      content: 'Error',
+      content: 'Email hoặc mật khẩu không đúng',
+    });
+  };
+
+  const errorRegister = () => {
+    messageApi.open({
+      type: 'error',
+      content: 'Email đã tồn tại !',
     });
   };
 
   useEffect(() => {
     if (data) {
-      successLogin()
-    }
-    else if (error) {
-      errorLogin()
+      successLogin();
+    } else {
+      if (error?.response.data.content === 'Email hoặc mật khẩu không đúng !') {
+        errorLogin();
+      } else if (error?.response.data.content === 'Email đã tồn tại !') {
+        errorRegister();
+      }
+
     }
   }, [data, error])
 
-  console.log(dataLocal)
+
+  // console.log(dataLocal)
+  console.log("error", error)
+  console.log("status", error?.response.status)
+
+  console.log("data", data)
 
   return (
     <>
       {contextHolder}
 
       <nav className="navbar navbar-expand-md navbar-dark fixed-top">
-        <a className="navbar-brand text-dark" href="#">Instagram</a>
+        <a id='logo' className="navbar-brand text-dark" href="#">AirBnb</a>
 
         <button id='btn-menu' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           {dataLocal ? (

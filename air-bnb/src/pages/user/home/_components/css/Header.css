@@ -47,4 +47,9 @@
         background-color: lightyellow;
     }
 
+    #logo {
+        font-weight: 500;
+        font-size: x-large;
+    }
+
 }

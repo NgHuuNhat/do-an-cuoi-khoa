@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actClearSuccess } from '../../auth/_duck/action';
 import Login from '../../auth/login/Login';
 import Register from '../../auth/register/Register';
-import { Button, message, Alert, Space } from 'antd';
+import { message } from 'antd';
 
 export default function Header(props: any) {
   const dispatch: any = useDispatch();
-  const { loading, data, error } = useSelector((state: any) => state.userReducer);
+  const { data, error } = useSelector((state: any) => state.userReducer);
   const dataLocal = localStorage.getItem('data');
   const dataLocalParse = dataLocal ? JSON.parse(dataLocal) : null;
   const [messageApi, contextHolder] = message.useMessage();

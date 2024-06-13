@@ -41,7 +41,7 @@ export default function Footer() {
           {/* Grid row */}
           <div className="row mt-3">
             {/* Grid column */}
-            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <div className="col-md-12 col-lg-12 col-xl-12 mx-auto mb-4">
               {/* Content */}
               <h6 className="text-uppercase fw-bold mb-4">
                 <i className="fas fa-gem me-3" />Company name
@@ -53,7 +53,7 @@ export default function Footer() {
             </div>
             {/* Grid column */}
             {/* Grid column */}
-            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div className="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">
                 Products
@@ -73,7 +73,7 @@ export default function Footer() {
             </div>
             {/* Grid column */}
             {/* Grid column */}
-            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div className="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">
                 Useful links
@@ -93,7 +93,7 @@ export default function Footer() {
             </div>
             {/* Grid column */}
             {/* Grid column */}
-            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <div className="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
               <p><i className="fas fa-home me-3" /> New York, NY 10012, US</p>

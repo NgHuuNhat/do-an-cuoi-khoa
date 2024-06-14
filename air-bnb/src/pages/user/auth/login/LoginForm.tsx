@@ -65,8 +65,8 @@ export default function LoginForm() {
                     <input className="form-check-input" type="checkbox" /> Remember me
                 </label>
             </div>
-            <button type="submit" className="btn btn-primary w-100" >
-                {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Submit'}
+            <button type="submit" className="btn btn-dark w-100" style={{backgroundColor: '#fe6b6e', border: 'none'}}>
+                {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Đăng nhập'}
             </button>
         </form>
     )

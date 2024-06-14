@@ -17,15 +17,16 @@ code {
 }
 
 #header {
-  /* background-color: #ffffff; */
-  background-color: lightgreen;
+  background-color: #ffffff;
+  /* background-color: lightgreen !important; */
 }
 
 footer {
-  /* background-color: #f7f7f7; */
-  background-color: lightblue;
+  background-color: #f7f7f7;
+  /* background-color: lightblue !important; */
 }
 
 #search {
-  background-color: yellow;
+  /* background-color: yellow !important; */
+  /* background-color: #ffffff; */
 }

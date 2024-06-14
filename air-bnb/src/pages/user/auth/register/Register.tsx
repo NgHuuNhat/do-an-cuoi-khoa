@@ -8,7 +8,7 @@ export default function Register() {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Register</h5>
+                            <h5 className="modal-title" id="exampleModalLabel" style={{ color: '#fe6b6e' }}>Đăng ký</h5>
                             <button id='btn-closee' data-dismiss="modal" type="button" className="close" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>

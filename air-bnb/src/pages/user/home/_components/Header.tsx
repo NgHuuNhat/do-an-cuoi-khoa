@@ -89,9 +89,9 @@ export default function Header(props: any) {
           <span><i className="fa fa-bars" /></span>
         </button>
 
-        <div className='d-flex'>
-          <img className='w-10 h-10' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
-          <a id='logo' className="navbar-brand text-dark" href="#">AirBnb</a>
+        <div id='logo-div' className='d-flex'>
+          <img id='logo-img' className='' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
+          <a id='logo' className="navbar-brand text-dark" href="#">airbnb</a>
         </div>
 
         <button onClick={toggleProfile} id='btn-profile' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -140,10 +140,10 @@ export default function Header(props: any) {
             ) : (
               <>
                 <li className="nav-item">
-                  <button className="btn-focus nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalLogin" >Login</button>
+                  <button className="btn-focus nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalLogin" >Đăng nhập</button>
                 </li>
                 <li className="nav-item" >
-                  <button className="btn-focus nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalRegister">Register</button>
+                  <button className="btn-focus nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalRegister">Đăng ký</button>
                 </li>
               </>
             )}

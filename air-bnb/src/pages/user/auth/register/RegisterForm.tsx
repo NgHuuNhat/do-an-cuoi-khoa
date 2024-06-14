@@ -113,8 +113,8 @@ export default function RegisterForm() {
                 <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.gender?.message as any}</span>
             </div>
 
-            <button type="submit" className="btn btn-primary w-100">
-                {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Register'}
+            <button type="submit" className="btn btn-dark w-100" style={{ backgroundColor: '#fe6b6e', border: 'none' }}>
+                {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Đăng ký'}
             </button>
         </form>
     )

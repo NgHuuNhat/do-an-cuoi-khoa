@@ -4,17 +4,27 @@
     padding: 0.5rem !important;
   }
 
+  #logo {
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+
+  #logo-img {
+    width: 2rem;
+  }
+
   .ul-menu-sm {
     position: absolute;
     left: 0;
-    width: 50%;
+    width: 100%;
     z-index: 999;
     position: fixed;
     top: 3.5rem;
   }
 
   #ul-menu {
-    background-color: #efefef;
+    background-color: #ffffff;
+    /* width: 100% !important; */
   }
 
   .ul-profile-sm {
@@ -27,7 +37,7 @@
   }
 
   #ul-profile {
-    background-color: #efefef;
+    background-color: #ffffff;
   }
 
   .btn-profile-sm {
@@ -42,36 +52,52 @@
 
 /* Thiết bị lớn (lg) laptop */
 @media only screen and (min-width: 992px) {
-  nav {
-    border-bottom: 1px solid;
+  #header {
+    padding: 0.2rem 0 !important;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+  }
+
+  #logo-div {
+    margin: auto;
   }
 
   #logo {
-    font-weight: 500;
-    font-size: x-large;
+    font-weight: 900;
+    font-size: xx-large;
     margin-bottom: 0.4rem;
+  }
+
+  #logo-img {
+    width: 3rem;
+  }
+
+  #ul-menu {
+    margin: auto;
   }
 
   #ul-menu li a {
     padding: 1rem;
-    border-bottom: 5px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
     font-weight: 500;
     font-size: larger;
   }
 
   #ul-menu li a:hover {
     color: #fe6b6e !important;
-    border-bottom: 4px solid #fe6b6e;
+    border-bottom: 3px solid #fe6b6e;
     cursor: pointer;
   }
 
   #ul-menu li a:focus {
-    border-bottom: 4px solid #fe6b6e;
+    color: #fe6b6e !important;
+    border-bottom: 3px solid #fe6b6e;
   }
 
   #ul-profile {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: auto;
   }
 
   #ul-profile li {
@@ -85,41 +111,42 @@
   #ul-profile li a {
     padding-left: 0;
     padding-right: 0;
-    padding: 1rem;
-    border-bottom: 5px solid #ffffff;
+    padding: 1.18rem;
+    border-bottom: 3px solid #ffffff;
   }
 
   #ul-profile li a:hover {
     color: #fe6b6e !important;
     cursor: pointer;
-    border-bottom: 5px solid #fe6b6e;
+    border-bottom: 3px solid #fe6b6e;
   }
 
   #ul-profile li button {
     width: 100%;
     font-weight: 500;
     font-size: large;
-    border-bottom: 5px solid #ffffff;
-    padding: 1rem;
+    border-bottom: 3px solid #ffffff;
+    padding: 1.09rem;
   }
 
   #ul-profile li button:hover {
     color: #fe6b6e !important;
     cursor: pointer;
-    border-bottom: 5px solid #fe6b6e;
+    border-bottom: 3px solid #fe6b6e;
   }
 }
 
 /* all */
-nav {
+
+#header {
   background-color: #ffffff;
+}
+
+#header i {
+  color: #fe6b6e !important;
 }
 
 #logo {
   color: #fe6b6e !important;
   margin-right: 0;
-}
-
-#header i {
-  color: #fe6b6e !important;
 }

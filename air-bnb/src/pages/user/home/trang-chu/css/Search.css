@@ -1,0 +1,37 @@
+@media only screen and (max-width: 568px) {
+    #search input {
+        /* background-color: #fe6b6d3b; */
+        width: 98%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #search input {
+        /* background-color: #fe6b6d3b; */
+        width: 50%;
+    }
+}
+
+#search input {
+    padding: 0.5rem 1rem;
+    margin: 0.2rem 0;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 0px 0px #fe6b6d3b;
+    border: 1px solid #fe6b6d3b;
+}
+
+#search input:focus {
+    outline: none;
+}
+
+#search {
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 9999 !important;
+}
+
+.hidden {
+    display: none;
+}

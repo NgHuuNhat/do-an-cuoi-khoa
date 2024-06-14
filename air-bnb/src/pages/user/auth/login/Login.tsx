@@ -8,7 +8,7 @@ export default function Login() {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Login</h5>
+              <h5 className="modal-title" id="exampleModalLabel" style={{ color: '#fe6b6e' }}>Đăng nhập</h5>
               <button id='btn-close' data-dismiss="modal" type="button" className="close" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>

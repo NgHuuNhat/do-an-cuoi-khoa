@@ -20,7 +20,7 @@ export default function Home() {
         <>
             <Header />
             <div id='body' style={{ marginTop: `${headerHeight}px` }}>
-                <Search />
+                <div className='container'><Search /></div>
                 <Carousel />
                 <Footer />
             </div>

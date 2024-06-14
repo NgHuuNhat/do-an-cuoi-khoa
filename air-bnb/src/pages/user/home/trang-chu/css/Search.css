@@ -1,33 +1,32 @@
 /* Thiết bị nhỏ (sm) iphone */
 @media only screen and (max-width: 575px) {
   body {
-    /* background-color: lightblue; */
+  }
+
+  #search {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .smm\:hidden {
+    display: none !important;
   }
 }
 
 /* Thiết bị trung bình (md) ipad */
 @media only screen and (min-width: 576px) and (max-width: 991px) {
   body {
-    /* background-color: lightgreen; */
   }
 }
 
 /* Thiết bị lớn (lg) laptop */
 @media only screen and (min-width: 992px) {
   body {
-    /* background-color: lightyellow; */
   }
+}
 
-  #search {
-    text-align: center;
-    width: 100%;
-    margin: auto;
-    background-color: lightblue;
-  }
-
-  .bodynhat {
-    color: red;
-    font-size: 16px;
-    border: 1px solid !important;
-  }
+#search {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  background-color: lightsalmon;
 }

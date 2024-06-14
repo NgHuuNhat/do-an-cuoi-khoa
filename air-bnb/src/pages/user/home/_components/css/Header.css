@@ -1,63 +1,115 @@
 /* Thiết bị nhỏ (sm) iphone */
 @media only screen and (max-width: 575px) {
-    #ul-menu {
-        background-color: #efefef;
-    }
+  #header {
+    padding: 0.5rem !important;
+  }
 
-    #ul-profile {
-        margin-top: 0.5rem;
-        background-color: #efefef;
-    }
+  .ul-menu-sm {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    z-index: 999;
+    position: fixed;
+    top: 3.5rem;
+  }
 
-    .btn-profile-sm {
-        width: 100%;
-        text-align: left;
-    }
+  #ul-menu {
+    background-color: #efefef;
+  }
 
+  .ul-profile-sm {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    z-index: 999;
+    position: fixed;
+    top: 3.5rem;
+  }
 
+  #ul-profile {
+    background-color: #efefef;
+  }
+
+  .btn-profile-sm {
+    width: 100%;
+    text-align: left;
+  }
+
+  .btn-focus:focus {
+    outline: none;
+  }
 }
 
 /* Thiết bị trung bình (md) ipad */
 @media only screen and (min-width: 576px) and (max-width: 991px) {
-
 }
 
 /* Thiết bị lớn (lg) laptop */
 @media only screen and (min-width: 992px) {
-    nav {
-        border-bottom: 1px solid;
-    }
+  nav {
+    border-bottom: 1px solid;
+  }
 
-    #logo {
-        font-weight: 500;
-        font-size: x-large;
-    }
+  #logo {
+    font-weight: 500;
+    font-size: x-large;
+    margin-bottom: 0.4rem;
+  }
 
-    #ul-menu li a{
-        padding: 20px;
-        border-bottom: 4px solid #ffffff;
-        font-weight: 500;
-        font-size: larger;
-        /* background: red; */
-    }
+  #ul-menu li a {
+    padding: 20px;
+    border-bottom: 4px solid #ffffff;
+    font-weight: 500;
+    font-size: larger;
+  }
 
-    #ul-menu li a:hover {
-        border-bottom: 4px solid black;
-        background-color: #F7F7F7;
-        cursor: pointer;
-    }
+  #ul-menu li a:hover {
+    color: #fe6b6e !important;
+    border-bottom: 4px solid #fe6b6e;
+    cursor: pointer;
+  }
 
-    #ul-menu li a:focus {
-        border-bottom: 4px solid black;
-    }
+  #ul-menu li a:focus {
+    border-bottom: 4px solid #fe6b6e;
+  }
 
-    #ul-profile li button{
-        font-weight: 500;
-        font-size: large;
-    }
+  #ul-profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
+  #ul-profile li {
+    margin: 0.5rem;
+    border-radius: 10px;
+  }
+
+  #ul-profile li a {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #ul-profile li a:hover {
+    color: #fe6b6e !important;
+    cursor: pointer;
+  }
+
+  #ul-profile li button {
+    width: 100%;
+    font-weight: 500;
+    font-size: large;
+  }
 }
 
-nav{
-    background-color: #ffffff;
+/* all */
+nav {
+  background-color: #ffffff;
+}
+
+#logo {
+  color: #fe6b6e !important;
+  margin-right: 0;
+}
+
+#header i {
+  color: #fe6b6e !important;
 }

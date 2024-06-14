@@ -2,33 +2,33 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 /* Thiết bị nhỏ (sm) iphone */
 @media only screen and (max-width: 575px) {
   body {
-      background-color: lightblue;
+    background-color: #ffffff;
   }
 
   #header {
-    background-color: lightblue !important;
+    background-color: #ffffff !important;
   }
 }
 
 /* Thiết bị trung bình (md) ipad */
 @media only screen and (min-width: 576px) and (max-width: 991px) {
   body {
-      background-color: lightgreen;
+    background-color: lightgreen;
   }
 
   #header {

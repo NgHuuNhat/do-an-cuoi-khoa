@@ -3,8 +3,6 @@
     body {
         background-color: lightblue;
     }
-
-
 }
 
 /* Thiết bị trung bình (md) ipad */
@@ -21,6 +19,8 @@
     }
 
     #header {
-        background-color: lightcoral !important;
+        /* background-color: lightcoral !important; */
+        
     }
 }
+

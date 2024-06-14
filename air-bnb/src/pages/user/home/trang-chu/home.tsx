@@ -5,23 +5,21 @@ import Carousel from './Carousel';
 import Search from './Search';
 
 export default function Home() {
-    const [headerHeight, setHeaderHeight] = useState(0); // State để lưu chiều cao của header
+    const [headerHeight, setHeaderHeight] = useState(0);
 
-    // Sử dụng useEffect để lấy chiều cao của header khi component được mount
+    // Chỉ chạy một lần sau khi component mount
     useEffect(() => {
-        const header = document.getElementById('header'); // Lấy element của header bằng id
+        const header = document.getElementById('header');
         if (header) {
-            const height = header.clientHeight; // Lấy chiều cao của header
-            setHeaderHeight(height); // Lưu chiều cao vào state
+            const height = header.clientHeight;
+            setHeaderHeight(height);
         }
-    }, []); // Chỉ chạy một lần sau khi component mount
+    }, [])
 
     return (
         <>
             <Header />
-            {/* Sử dụng margin-top với chiều cao của header */}
             <div id='body' style={{ marginTop: `${headerHeight}px` }}>
-                {/* Nội dung của trang */}
                 <Search />
                 <Carousel />
                 <Footer />

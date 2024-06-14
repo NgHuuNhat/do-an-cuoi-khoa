@@ -5,6 +5,7 @@ import { actClearSuccess } from '../../auth/_duck/action';
 import Login from '../../auth/login/Login';
 import Register from '../../auth/register/Register';
 import { message } from 'antd';
+import Search from '../trang-chu/Search';
 
 export default function Header(props: any) {
   const dispatch: any = useDispatch();
@@ -72,7 +73,6 @@ export default function Header(props: any) {
 
       <nav id='header' className="navbar navbar-expand-md navbar-dark fixed-top py-0">
         <a id='logo' className="navbar-brand text-dark" href="#">AirBnb</a>
-
         <button id='btn-menu' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           {dataLocal ? (
             dataLocalParse.avatar ? (
@@ -84,26 +84,18 @@ export default function Header(props: any) {
             <span><i className="fa fa-bars text-dark" /></span>
           )}
         </button>
-
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
-
           <ul id='ul-menu' className="navbar-nav rounded px-2 ml-auto">
-
             <li className="nav-item d-flex align-items-center">
-              {/* <span className='w-7'><i className="fa-solid fa-house"></i></span> */}
               <a className="nav-link text-dark" href="#">Chỗ ở</a>
             </li>
             <li className="nav-item d-flex align-items-center">
-              {/* <span className='w-7'><i className="fa-solid fa-house"></i></span> */}
               <a className="nav-link text-dark" href="#">Trải nghiệm</a>
             </li>
             <li className="nav-item d-flex align-items-center">
-              {/* <span className='w-7'><i className="fa-solid fa-house"></i></span> */}
               <a className="nav-link text-dark" href="#">Trải nghiệm trực tuyến</a>
             </li>
-
           </ul>
-
           <ul id='ul-profile' className="navbar-nav rounded px-2 ml-auto">
             {dataLocal ? (
               <>
@@ -133,6 +125,7 @@ export default function Header(props: any) {
           </ul>
         </div>
       </nav >
+
       <Login />
       <Register />
     </>

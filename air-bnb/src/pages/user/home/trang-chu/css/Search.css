@@ -28,8 +28,8 @@
     width: 100%;
     text-align: center;
     background-color: #ffffff;
-    position: fixed;
-    z-index: 9999 !important;
+    /* position: fixed; */
+    /* z-index: 9 !important; */
 }
 
 .hidden {

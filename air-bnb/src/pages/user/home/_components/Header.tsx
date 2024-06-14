@@ -202,6 +202,8 @@ export default function Header(props: any) {
 
       <Login />
       <Register />
+
+      {/* <Search /> */}
     </>
   )
 }

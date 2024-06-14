@@ -57,8 +57,8 @@
   }
 
   #ul-menu li a {
-    padding: 20px;
-    border-bottom: 4px solid #ffffff;
+    padding: 1rem;
+    border-bottom: 5px solid #ffffff;
     font-weight: 500;
     font-size: larger;
   }
@@ -79,24 +79,43 @@
   }
 
   #ul-profile li {
-    margin: 0.5rem;
-    border-radius: 10px;
+    margin: 0 0.5rem;
+    /* border-bottom: 5px solid #ffffff; */
+  }
+
+  #ul-profile li:hover {
+    /* border-bottom: 5px solid #fe6b6e; */
+    cursor: pointer;
   }
 
   #ul-profile li a {
     padding-left: 0;
     padding-right: 0;
+    padding: 1rem;
+    border-bottom: 5px solid #ffffff;
   }
 
   #ul-profile li a:hover {
     color: #fe6b6e !important;
     cursor: pointer;
+    border-bottom: 5px solid #fe6b6e;
   }
 
   #ul-profile li button {
     width: 100%;
     font-weight: 500;
     font-size: large;
+    /* background-color: #fe6b6d8a; */
+    /* border-radius: 0.5rem; */
+    border-bottom: 5px solid #ffffff;
+    padding: 1rem;
+  }
+
+  #ul-profile li button:hover {
+    /* background-color: #fe6b6d8a; */
+    color: #fe6b6e !important;
+    cursor: pointer;
+    border-bottom: 5px solid #fe6b6e;
   }
 }
 

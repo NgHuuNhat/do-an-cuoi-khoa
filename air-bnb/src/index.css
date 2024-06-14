@@ -39,10 +39,10 @@ code {
 /* Thiết bị lớn (lg) laptop */
 @media only screen and (min-width: 992px) {
   body {
-    background-color: lightyellow;
+    background-color: #ffffff;
   }
 
   #header {
-    background-color: lightyellow !important;
+    background-color: #ffffff !important;
   }
 }

@@ -7,7 +7,6 @@ import Search from './Search';
 export default function Home() {
     const [headerHeight, setHeaderHeight] = useState(0);
 
-    // Chỉ chạy một lần sau khi component mount
     useEffect(() => {
         const header = document.getElementById('header');
         if (header) {

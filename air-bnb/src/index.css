@@ -1,3 +1,4 @@
+/* 568 568-991 992 */
 body {
   margin: 0;
   padding: 0;
@@ -7,6 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
 }
 
 code {
@@ -14,35 +16,16 @@ code {
     monospace;
 }
 
-/* Thiết bị nhỏ (sm) iphone */
-@media only screen and (max-width: 575px) {
-  body {
-    background-color: #ffffff;
-  }
-
-  #header {
-    background-color: #ffffff !important;
-  }
+#header {
+  /* background-color: #ffffff; */
+  background-color: lightgreen;
 }
 
-/* Thiết bị trung bình (md) ipad */
-@media only screen and (min-width: 576px) and (max-width: 991px) {
-  body {
-    background-color: lightgreen;
-  }
-
-  #header {
-    background-color: lightgreen !important;
-  }
+footer {
+  /* background-color: #f7f7f7; */
+  background-color: lightblue;
 }
 
-/* Thiết bị lớn (lg) laptop */
-@media only screen and (min-width: 992px) {
-  body {
-    background-color: #ffffff;
-  }
-
-  #header {
-    background-color: #ffffff !important;
-  }
+#search {
+  background-color: yellow;
 }

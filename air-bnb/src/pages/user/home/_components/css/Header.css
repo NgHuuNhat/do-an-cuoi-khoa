@@ -1,5 +1,5 @@
 /* Thiết bị nhỏ (sm) iphone */
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 568px) {
   #header {
     padding: 0.5rem !important;
   }
@@ -40,10 +40,6 @@
   }
 }
 
-/* Thiết bị trung bình (md) ipad */
-@media only screen and (min-width: 576px) and (max-width: 991px) {
-}
-
 /* Thiết bị lớn (lg) laptop */
 @media only screen and (min-width: 992px) {
   nav {
@@ -80,11 +76,9 @@
 
   #ul-profile li {
     margin: 0 0.5rem;
-    /* border-bottom: 5px solid #ffffff; */
   }
 
   #ul-profile li:hover {
-    /* border-bottom: 5px solid #fe6b6e; */
     cursor: pointer;
   }
 
@@ -105,14 +99,11 @@
     width: 100%;
     font-weight: 500;
     font-size: large;
-    /* background-color: #fe6b6d8a; */
-    /* border-radius: 0.5rem; */
     border-bottom: 5px solid #ffffff;
     padding: 1rem;
   }
 
   #ul-profile li button:hover {
-    /* background-color: #fe6b6d8a; */
     color: #fe6b6e !important;
     cursor: pointer;
     border-bottom: 5px solid #fe6b6e;

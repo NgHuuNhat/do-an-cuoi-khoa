@@ -92,7 +92,7 @@ export default function Header(props: any) {
           <a id='logo' className="navbar-brand text-dark" href="#">airbnb</a>
         </div>
 
-        <button onClick={toggleProfile} id='btn-profile' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button onClick={toggleProfile} id='btn-profile' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarMenu">
           {dataLocal ? (
             dataLocalParse.avatar ? (
               <span><img className='w-8 h-8 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
@@ -118,7 +118,7 @@ export default function Header(props: any) {
           </ul>
         </div>
 
-        <div className="ul-profile-sm collapse navbar-collapse" id="collapsibleNavbar">
+        <div className="ul-profile-sm collapse navbar-collapse" id="collapsibleNavbarMenu">
           <ul id='ul-profile' className="navbar-nav px-2 ml-auto">
             {dataLocal ? (
               <>
@@ -133,6 +133,9 @@ export default function Header(props: any) {
                 <li className="nav-item d-flex align-items-center">
                   <span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>
                   <a className="nav-link w-100 text-dark" href="#" onClick={handleLogout}>Đăng xuất</a>
+                </li>
+                <li className="nav-item d-flex align-items-center">
+                  <a className="nav-link text-dark w-100" href="#">-</a>
                 </li>
               </>
             ) : (

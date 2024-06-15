@@ -24,7 +24,13 @@
 
   #ul-menu {
     background-color: #ffffff;
+    padding-left: 1rem !important;
     /* width: 100% !important; */
+  }
+
+  #ul-menu li a:focus {
+    color: #fe6b6e !important;
+    /* border-bottom: 3px solid #fe6b6e; */
   }
 
   .ul-profile-sm {

@@ -9,11 +9,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 const schema = yup.object({
     email: yup
         .string()
-        .required('Vui lòng nhập email!')
-        .email('email không đúng định dạng!'),
+        .required('Vui lòng nhập email')
+        .email('email không đúng định dạng'),
     password: yup
         .string()
-        .required('Vui lòng nhập password!'),
+        .required('Vui lòng nhập password'),
 });
 
 export default function LoginForm() {

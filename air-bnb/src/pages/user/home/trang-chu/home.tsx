@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../_components/Header'
 import Footer from '../_components/Footer'
 import Carousel from './Carousel';
@@ -18,10 +18,7 @@ export default function Home() {
     return (
         <>
             <Header />
-            <div id='body' 
-            style={{ marginTop: `${headerHeight}px` }}
-            // style={{ marginTop: `100px` }}
-            >
+            <div id='body' style={{ marginTop: `${headerHeight}px` }}>
                 <Search />
                 <Carousel />
                 <Footer />

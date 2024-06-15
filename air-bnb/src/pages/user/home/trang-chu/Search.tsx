@@ -20,17 +20,14 @@ export default function Search() {
       } else if (isAtTop || isScrollingUp) {
         setHidden(false);
       }
-
       setY(yNew);
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [y]);
-
 
   return (
     <>

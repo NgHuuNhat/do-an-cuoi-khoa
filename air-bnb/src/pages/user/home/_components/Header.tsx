@@ -5,7 +5,6 @@ import { actClearSuccess } from '../../auth/_duck/action';
 import Login from '../../auth/login/Login';
 import Register from '../../auth/register/Register';
 import { message } from 'antd';
-import Search from '../trang-chu/Search';
 
 export default function Header(props: any) {
   const dispatch: any = useDispatch();
@@ -84,7 +83,6 @@ export default function Header(props: any) {
 
       <nav id='header' className="navbar navbar-expand-md navbar-dark fixed-top py-0">
         {/* <a id='logo' className="navbar-brand text-dark" href="#">AirBnb</a> */}
-
         <button onClick={toggleMenu} id='btn-menu' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarMenu">
           <span><i className="fa fa-bars" /></span>
         </button>
@@ -149,61 +147,10 @@ export default function Header(props: any) {
             )}
           </ul>
         </div>
-
       </nav >
-
-      {/* {showMenu ? ( */}
-      {/* <div className="ul-menu-sm collapse navbar-collapse" id="collapsibleNavbarMenu">
-        <ul id='ul-menu' className="navbar-nav rounded px-2">
-          <li className="nav-item d-flex align-items-center">
-            <a className="nav-link text-dark w-100" href="#">Chỗ ở</a>
-          </li>
-          <li className="nav-item d-flex align-items-center">
-            <a className="nav-link text-dark w-100" href="#">Trải nghiệm</a>
-          </li>
-          <li className="nav-item d-flex align-items-center">
-            <a className="nav-link text-dark w-100" href="#">Trải nghiệm trực tuyến</a>
-          </li>
-        </ul>
-      </div> */}
-      {/* ) : ''} */}
-
-      {/* {showProfile ? ( */}
-      {/* <div className="ul-profile-sm collapse navbar-collapse" id="collapsibleNavbar">
-        <ul id='ul-profile' className="navbar-nav rounded px-2 ml-auto">
-          {dataLocal ? (
-            <>
-              <li className="nav-item d-flex align-items-center">
-                {dataLocalParse.avatar ? (
-                  <span className='w-7'><img className='w-5 h-5 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
-                ) : (
-                  <span><i className="far fa-user-circle mr-2 text-dark"></i></span>
-                )}
-                <a className="nav-link w-100 text-dark" href="#">{dataLocalParse.user.name}</a>
-              </li>
-              <li className="nav-item d-flex align-items-center">
-                <span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>
-                <a className="nav-link w-100 text-dark" href="#" onClick={handleLogout}>Đăng xuất</a>
-              </li>
-            </>
-          ) : (
-            <>
-              <li className="nav-item">
-                <button className="btn-focus nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalLogin" >Login</button>
-              </li>
-              <li className="nav-item" >
-                <button className="btn-focus nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalRegister">Register</button>
-              </li>
-            </>
-          )}
-        </ul>
-      </div> */}
-      {/* ) : ''} */}
 
       <Login />
       <Register />
-
-      {/* <Search /> */}
     </>
   )
 }

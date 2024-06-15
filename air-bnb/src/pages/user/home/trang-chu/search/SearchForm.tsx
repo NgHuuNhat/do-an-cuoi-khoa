@@ -62,7 +62,7 @@ export default function SearchForm() {
                 <div className="form-group mb-0">
                     <label htmlFor="diaDiem">Địa điểm</label>
                     <select {...register('diaDiem')} defaultValue='' className="form-control" id="diaDiem">
-                        <option value='' disabled hidden>Chọn địa điểm</option>
+                        <option value='' disabled hidden>Chọn</option>
                         {data?.map((item: ViTri, index: number) => (
                             <option key={index} value={item.id}>{item.tinhThanh}</option>
                         ))}

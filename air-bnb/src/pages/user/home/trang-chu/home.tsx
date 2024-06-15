@@ -18,7 +18,10 @@ export default function Home() {
     return (
         <>
             <Header />
-            <div id='body' style={{ marginTop: `${headerHeight}px` }}>
+            <div id='body' 
+            style={{ marginTop: `${headerHeight}px` }}
+            // style={{ marginTop: `100px` }}
+            >
                 <Search />
                 <Carousel />
                 <Footer />

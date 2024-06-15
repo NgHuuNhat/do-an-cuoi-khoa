@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../_components/Header'
 import Footer from '../_components/Footer'
 import Carousel from './Carousel';
-import Search from './Search';
+import Search from './search/Search';
 
 export default function Home() {
     const [headerHeight, setHeaderHeight] = useState(0);

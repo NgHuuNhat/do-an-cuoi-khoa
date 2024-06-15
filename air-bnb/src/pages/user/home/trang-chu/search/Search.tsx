@@ -56,7 +56,7 @@ export default function Search() {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Tìm kiếm</h5>
+              <h5 className="modal-title" id="exampleModalLabel" style={{ color: '#fe6b6e' }}>Tìm kiếm</h5>
               <button id='btn-closenhat' type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>

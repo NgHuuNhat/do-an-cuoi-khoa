@@ -105,7 +105,7 @@ export default function Header(props: any) {
         </button>
 
         <div className="ul-menu-sm collapse navbar-collapse" id="collapsibleNavbarMenu">
-          <ul id='ul-menu' className="navbar-nav rounded px-2">
+          <ul id='ul-menu' className="navbar-nav px-2">
             <li className="nav-item d-flex align-items-center">
               <a className="nav-link text-dark w-100" href="#">Chỗ ở</a>
             </li>
@@ -119,7 +119,7 @@ export default function Header(props: any) {
         </div>
 
         <div className="ul-profile-sm collapse navbar-collapse" id="collapsibleNavbar">
-          <ul id='ul-profile' className="navbar-nav rounded px-2 ml-auto">
+          <ul id='ul-profile' className="navbar-nav px-2 ml-auto">
             {dataLocal ? (
               <>
                 <li className="nav-item d-flex align-items-center">

@@ -1,7 +1,7 @@
 @media only screen and (max-width: 568px) {
     #search input {
         /* background-color: #fe6b6d3b; */
-        width: 98%;
+        width: 90%;
     }
 }
 
@@ -12,26 +12,32 @@
     }
 }
 
+/* all */
+#search {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    z-index: 9 !important;
+}
+
 #search input {
     padding: 0.5rem 1rem;
     margin: 0.2rem 0;
     border-radius: 2rem;
-    box-shadow: 0px 0px 0px 0px #fe6b6d3b;
+    box-shadow: 0px 0px 10px 0px #fe6b6d3b;
     border: 1px solid #fe6b6d3b;
+    transition: opacity 0.3s ease;
+    /* opacity: 0; */
 }
 
 #search input:focus {
     outline: none;
 }
 
-#search {
-    width: 100%;
-    text-align: center;
-    background-color: #ffffff;
-    /* position: fixed; */
-    /* z-index: 9 !important; */
+.bat {
+    opacity: 1 !important;
 }
 
-.hidden {
-    display: none;
+.tat {
+    opacity: 0 !important;
 }

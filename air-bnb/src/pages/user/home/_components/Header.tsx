@@ -134,9 +134,6 @@ export default function Header(props: any) {
                   <span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>
                   <a className="nav-link w-100 text-dark" href="#" onClick={handleLogout}>Đăng xuất</a>
                 </li>
-                <li className="nav-item d-flex align-items-center">
-                  <a className="nav-link text-dark w-100" href="#">-</a>
-                </li>
               </>
             ) : (
               <>

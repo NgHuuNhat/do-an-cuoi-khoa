@@ -8,7 +8,8 @@ export default function Search() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setHidden(currentScrollY > prevScrollY);
+      // setHidden(currentScrollY > prevScrollY);
+      setHidden(currentScrollY > 100 && currentScrollY > prevScrollY);
       setPrevScrollY(currentScrollY);
     };
 

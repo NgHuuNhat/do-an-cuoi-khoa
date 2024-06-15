@@ -31,8 +31,8 @@ export default function Search() {
 
   return (
     <>
-      <form id='search'>
-        <input type="text" className={hidden ? 'tat' : 'bat'} placeholder="Tìm kiếm..." name="search" />
+      <form id='search' className={hidden ? 'tat' : 'bat'}>
+        <input type="text"  placeholder="Tìm kiếm..." name="search" />
         {/* Tùy chọn, bạn có thể thêm nút tìm kiếm */}
         {/* <button type="submit"><i className="fa fa-search" /></button> */}
       </form>

@@ -5,6 +5,13 @@
     }
 }
 
+@media only screen and (min-width: 568px) and (max-width: 991px) {
+    #search input {
+        /* background-color: #fe6b6d3b; */
+        width: 90%;
+    }
+  }
+
 @media only screen and (min-width: 992px) {
     #search input {
         /* background-color: #fe6b6d3b; */

@@ -1,4 +1,4 @@
-/* Thiết bị nhỏ (sm) iphone */
+/* iphone */
 @media only screen and (max-width: 568px) {
   #header {
     padding: 0.5rem !important;
@@ -25,13 +25,10 @@
   #ul-menu {
     background-color: #ffffff;
     padding-left: 1rem !important;
-    /* width: 100% !important; */
   }
 
   #ul-menu li a:focus {
     color: #fe6b6e !important;
-    /* border-bottom: 3px solid #fe6b6e; */
-    /* background-color: red; */
   }
 
   .ul-profile-sm {
@@ -57,12 +54,19 @@
   }
 }
 
-/* Thiết bị lớn (lg) laptop */
-@media only screen and (min-width: 992px) {
+/* ipad */
+@media only screen and (min-width: 568px) and (max-width: 991px) {
   #header {
-    /* padding: 0.2rem 0 !important; */
     display: grid;
-    grid-template-columns: 30% 40% 30%;
+    grid-template-columns: 10% 60% 30% !important;
+  }
+}
+
+/* laptop */
+@media only screen and (min-width: 568px) {
+  #header {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
   }
 
   #logo-div {
@@ -88,7 +92,6 @@
   }
 
   #ul-menu li a {
-    /* padding: 1rem; */
     border-bottom: 3px solid #ffffff;
     font-weight: 500;
     font-size: medium;
@@ -106,8 +109,6 @@
   }
 
   #ul-profile {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
     margin: auto;
   }
 
@@ -120,8 +121,6 @@
   }
 
   #ul-profile li a {
-    /* padding-left: 0; */
-    /* padding-right: 0; */
     padding: 0.5rem 0;
     border-bottom: 3px solid #ffffff;
     font-size: medium;
@@ -139,7 +138,6 @@
     font-weight: 500;
     font-size: medium;
     border-bottom: 3px solid #ffffff;
-    /* padding: 1.09rem 0; */
   }
 
   #ul-profile li button:hover {
@@ -150,10 +148,8 @@
 }
 
 /* all */
-
 #header {
   background-color: #ffffff;
-  /* border-bottom: 1px solid; */
 }
 
 #header i {

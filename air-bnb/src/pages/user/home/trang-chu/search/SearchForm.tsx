@@ -63,7 +63,7 @@ export default function SearchForm() {
                     </select>
                 </div>
 
-                <button type="submit" className="btn btn-primary w-100">Gửi</button>
+                <button type="submit" className="btn btn-primary w-100" style={{backgroundColor: '#fe6b6e', border: 'none'}}>Tìm kiếm</button>
             </form>
         </>
     )

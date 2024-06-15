@@ -3,6 +3,14 @@
         /* background-color: #fe6b6d3b; */
         width: 90%;
     }
+
+    #btn-timkiem {
+        /* background-color: red;
+        padding: 0.5rem; */
+        width: 90%;
+        /* margin-top: 1px;
+        border-radius: 2rem; */
+    }
 }
 
 @media only screen and (min-width: 568px) and (max-width: 991px) {
@@ -17,6 +25,14 @@
         /* background-color: #fe6b6d3b; */
         width: 50%;
     }
+
+    #btn-timkiem {
+        /* background-color: red;
+        padding: 0.5rem; */
+        width: 50% !important;
+        /* margin-top: 1px;
+        border-radius: 2rem; */
+    }
 }
 
 /* all */
@@ -24,7 +40,7 @@
     /* width: 100%; */
     text-align: center;
     position: fixed;
-    z-index: 9 !important;
+    z-index: 99 !important;
     /* background-color: red; */
     width: 100%;
     transition: opacity 0.3s ease;
@@ -51,4 +67,17 @@
 
 .tat {
     opacity: 0 !important;
+}
+
+#btn-timkiem {
+    background-color: #ffffff;
+    padding: 0.5rem 1rem;
+    width: 90%;
+    margin-top: 1px;
+    border-radius: 2rem;
+    text-align: left;
+}
+
+#btn-timkiem:focus {
+    outline: none;
 }

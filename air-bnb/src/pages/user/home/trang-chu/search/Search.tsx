@@ -47,20 +47,18 @@ export default function Search() {
             })}
           </select>
         </div> */}
-
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Tìm kiếm...
+        <button id='btn-timkiem' type="button" className="" data-toggle="modal" data-target="#exampleModal">
+          <i className="fa fa-search mr-1" />Tìm kiếm...
         </button>
-
       </form>
 
       <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Tìm kiếm</h5>
               <button id='btn-closenhat' type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×nhat</span>
+                <span aria-hidden="true">×</span>
               </button>
             </div>
             <div className="modal-body">

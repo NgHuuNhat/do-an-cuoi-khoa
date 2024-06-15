@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actPostUserLogin } from '../_duck/action';
+import { actPostUserLogin } from '../../../../store/user-reducer/action';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -65,7 +65,7 @@ export default function LoginForm() {
                     <input className="form-check-input" type="checkbox" /> Remember me
                 </label>
             </div>
-            <button type="submit" className="btn btn-dark w-100" style={{backgroundColor: '#fe6b6e', border: 'none'}}>
+            <button type="submit" className="btn btn-dark w-100" style={{ backgroundColor: '#fe6b6e', border: 'none' }}>
                 {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Đăng nhập'}
             </button>
         </form>

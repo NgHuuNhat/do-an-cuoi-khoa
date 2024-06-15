@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Search.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { actGetViTri } from '../../_duck/action';
-import { ViTri } from '../../_duck/types';
+import { actGetViTri } from '../../../../../store/vi-tri-reducer/action';
+import { ViTri } from '../../../../../store/vi-tri-reducer/types';
 import SearchForm from './SearchForm';
 
 export default function Search() {
@@ -59,8 +59,8 @@ export default function Search() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
+              <button id='btn-closenhat' type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×nhat</span>
               </button>
             </div>
             <div className="modal-body">

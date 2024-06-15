@@ -1,45 +1,32 @@
 import * as ActionType from "./constants"
 import { Action, State } from "./types";
 
-// const user = localStorage.getItem("data");
-
 const initialState: State = {
     loading: false,
-    // data: user ? JSON.parse(user) : null,
     data: null,
     error: null,
 }
 
 export const viTriReducer = (state = initialState, action: Action) => {
     switch (action.type) {
-        case ActionType.REQUEST: {
+        case ActionType.REQUEST_VITRI: {
             state.loading = true;
             state.data = null;
             state.error = null;
             return { ...state };
         }
 
-        case ActionType.SUCCESS: {
+        case ActionType.SUCCESS_VITRI: {
             state.loading = false;
             state.data = action.payload;
             state.error = null;
             return { ...state };
         }
 
-        case ActionType.FAILED: {
+        case ActionType.FAILED_VITRI: {
             state.loading = false;
             state.data = null;
             state.error = action.payload;
-            return { ...state };
-        }
-
-        case ActionType.CLEAR_ERROR: {
-            state.error = null;
-            return { ...state };
-        }
-
-        case ActionType.CLEAR_SUCCESS: {
-            state.data = null;
             return { ...state };
         }
 

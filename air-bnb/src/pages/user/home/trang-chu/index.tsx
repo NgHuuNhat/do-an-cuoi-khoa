@@ -5,6 +5,7 @@ import Carousel from './carousel/Carousel';
 import Search from './search/Search';
 import KhamPha from './kham-pha/KhamPha';
 import OBatCuDau from './o-bat-cu-dau/OBatCuDau';
+import MoveTop from './btn-move-top/MoveTop';
 
 export default function Home() {
     const [headerHeight, setHeaderHeight] = useState(0);
@@ -26,6 +27,7 @@ export default function Home() {
                 <KhamPha />
                 <OBatCuDau />
                 <Footer />
+                <MoveTop />
             </div>
         </>
     )

@@ -1,0 +1,35 @@
+.back-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgb(254, 107, 110, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-to-top-button:hover {
+    background-color: #f16769;
+    /* Màu nền khi hover */
+    transform: scale(1.1);
+    /* Phóng to khi hover */
+}
+
+.back-to-top-icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    /* Màu sắc biểu tượng */
+    transition: fill 0.3s;
+}
+
+.back-to-top-button:hover .back-to-top-icon {
+    fill: #fff;
+    /* Màu sắc biểu tượng khi hover */
+}

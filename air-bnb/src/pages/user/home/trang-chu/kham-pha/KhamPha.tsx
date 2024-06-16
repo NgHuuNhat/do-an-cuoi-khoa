@@ -23,7 +23,7 @@ export default function KhamPha() {
                 </button>
             </div>
 
-            <div className="my-5 p-1 bg-light grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="my-5 p-1 bg-light grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="/rooms/ho-chi-minh" className="w-full ant-card ant-card-bordered ant-card-hoverable flex items-center cursor-pointer hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out css-mzwlov">
                     <div className="ant-card-body">
                         <div className="flex items-center gap-3">

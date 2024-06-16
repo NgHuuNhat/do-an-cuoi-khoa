@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="text-center text-lg-start bg-body-tertiary text-muted">
+    <footer className="text-center text-lg-start bg-body-tertiary text-muted" style={{ backgroundColor: '#f7f7f7' }}>
       {/* Section: Social media */}
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         {/* Left */}
@@ -110,7 +110,7 @@ export default function Footer() {
       </section>
       {/* Section: Links  */}
       {/* Footer */}
-      <div className="text-center p-4 border-top" style={{ backgroundColor: '#f7f7f7' }}>
+      <div className="text-center p-4 border-top">
         Nguyen Huu Nhat © 2024 Company, Inc.
       </div>
       {/* Footer */}

@@ -3,9 +3,8 @@ import './css/KhamPha.css'
 
 export default function KhamPha() {
     return (
-        // <></>
         <div id='khamPha' className='container'>
-            <div className="rounded my-5 p-1 bg-light flex flex-wrap justify-center gap-3">
+            <div className="rounded my-5 p-1 flex flex-wrap justify-center gap-3">
                 <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
                     Loại nơi ở
                 </button>
@@ -18,12 +17,12 @@ export default function KhamPha() {
                 <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
                     Phòng và phòng ngủ
                 </button>
-                <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                {/* <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
                     Bộ lọc khác
-                </button>
+                </button> */}
             </div>
 
-            <div className="rounded my-5 p-1 bg-light grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="rounded my-5 p-1 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="/rooms/ho-chi-minh" className="w-full ant-card ant-card-bordered ant-card-hoverable flex items-center cursor-pointer hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out css-mzwlov">
                     <div className="ant-card-body">
                         <div className="flex items-center gap-3">

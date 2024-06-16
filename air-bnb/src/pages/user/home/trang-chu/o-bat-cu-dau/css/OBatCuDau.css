@@ -1,0 +1,13 @@
+#oBatCuDau a:hover {
+    text-decoration: none;
+}
+
+.ant-card-meta-title {
+    color: rgba(0, 0, 0, 0.88);
+    font-weight: 600;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0.5rem 0;
+}

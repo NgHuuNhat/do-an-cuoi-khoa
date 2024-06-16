@@ -4,6 +4,7 @@ import Footer from '../_components/footer/Footer'
 import Carousel from './carousel/Carousel';
 import Search from './search/Search';
 import KhamPha from './kham-pha/KhamPha';
+import OBatCuDau from './o-bat-cu-dau/OBatCuDau';
 
 export default function Home() {
     const [headerHeight, setHeaderHeight] = useState(0);
@@ -23,6 +24,7 @@ export default function Home() {
                 <Search />
                 <Carousel />
                 <KhamPha />
+                <OBatCuDau />
                 <Footer />
             </div>
         </>

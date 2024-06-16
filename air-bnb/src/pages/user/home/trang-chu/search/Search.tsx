@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../css/Search.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { actGetViTri } from '../../../../../store/vi-tri-reducer/action';
-import { ViTri } from '../../../../../store/vi-tri-reducer/types';
+import './css/Search.css';
 import SearchForm from './SearchForm';
 
 export default function Search() {
@@ -39,14 +36,6 @@ export default function Search() {
         {/* <input type="text" placeholder="Tìm kiếm..." name="search" data-toggle="modal" data-target="#myModal" /> */}
         {/* <button type="submit"><i className="fa fa-search" /></button> */}
 
-        {/* <div className="form-group mb-0">
-          <select className="form-control" id="sel1">
-            <option>Chọn địa điểm</option>
-            {data?.map((item: ViTri, index: any) => {
-              return <option key={index}>{item.tinhThanh}</option>
-            })}
-          </select>
-        </div> */}
         <button id='btn-timkiem' type="button" className="" data-toggle="modal" data-target="#exampleModal">
           <i className="fa fa-search mr-1" />Tìm kiếm...
         </button>
@@ -64,10 +53,6 @@ export default function Search() {
             <div className="modal-body">
               <SearchForm />
             </div>
-            {/* <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
-            </div> */}
           </div>
         </div>
       </div>

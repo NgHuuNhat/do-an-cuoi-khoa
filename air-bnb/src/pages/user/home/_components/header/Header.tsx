@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './css/Header.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { actClearSuccess } from '../../../../store/user-reducer/action';
-import Login from '../../auth/login/Login';
-import Register from '../../auth/register/Register';
+import { actClearSuccess } from '../../../../../store/user-reducer/action';
+import Login from '../../../auth/login/Login';
+import Register from '../../../auth/register/Register';
 import { message } from 'antd';
 
 export default function Header(props: any) {
@@ -82,16 +82,13 @@ export default function Header(props: any) {
       {contextHolder}
 
       <nav id='header' className="navbar navbar-expand-md navbar-dark fixed-top py-0">
-        {/* <a id='logo' className="navbar-brand text-dark" href="#">AirBnb</a> */}
         <button onClick={toggleMenu} id='btn-menu' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarMenu">
           <span><i className="fa fa-bars" /></span>
         </button>
-
         <div id='logo-div' className='d-flex'>
           <img id='logo-img' className='' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
           <a id='logo' className="navbar-brand text-dark" href="#">airbnb</a>
         </div>
-
         <button onClick={toggleProfile} id='btn-profile' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarMenu">
           {dataLocal ? (
             dataLocalParse.avatar ? (
@@ -117,7 +114,6 @@ export default function Header(props: any) {
             </li>
           </ul>
         </div>
-
         <div className="ul-profile-sm collapse navbar-collapse" id="collapsibleNavbarMenu">
           <ul id='ul-profile' className="navbar-nav px-2 ml-auto">
             {dataLocal ? (

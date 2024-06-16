@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../_components/Header'
-import Footer from '../_components/Footer'
-import Carousel from './Carousel';
+import Header from '../_components/header/Header'
+import Footer from '../_components/footer/Footer'
+import Carousel from './carousel/Carousel';
 import Search from './search/Search';
+import KhamPha from './kham-pha/KhamPha';
 
 export default function Home() {
     const [headerHeight, setHeaderHeight] = useState(0);
@@ -21,6 +22,7 @@ export default function Home() {
             <div id='body' style={{ marginTop: `${headerHeight}px` }}>
                 <Search />
                 <Carousel />
+                <KhamPha />
                 <Footer />
             </div>
         </>

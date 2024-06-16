@@ -16,14 +16,11 @@ const schema = yup.object({
 export default function SearchForm() {
     const dispatch: any = useDispatch();
     const { data } = useSelector((state: any) => state.viTriReducer);
-    // const { data } = useSelector((state: any) => state.phongThueReducer);
-
     const navigator = useNavigate();
 
     useEffect(() => {
         dispatch(actGetViTri());
     }, [dispatch]);
-    // console.log(data);
 
     const { register, handleSubmit, formState, reset } = useForm<any>({
         defaultValues: {
@@ -47,11 +44,8 @@ export default function SearchForm() {
 
     const onSubmit = (values: any) => {
         const id = values.diaDiem;
-        console.log('Selected location ID:', id);
-        // Gọi action để lấy danh sách phòng với id địa điểm được chọn
         dispatch(actGetListPhongThue(id));
         let btnClose = document.getElementById('btn-closenhat');
-        console.log(btnClose);
         btnClose?.click();
         navigator(`/phong-thue/${id}`);
     }

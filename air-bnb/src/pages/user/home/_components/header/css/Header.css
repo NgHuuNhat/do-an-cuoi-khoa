@@ -24,7 +24,7 @@
 
   #ul-menu {
     background-color: #ffffff;
-    padding-left: 1rem !important;
+    padding: 0 1rem !important;
   }
 
   #ul-menu li a:focus {

@@ -89,7 +89,7 @@ export default function Header(props: any) {
           <img id='logo-img' className='' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
           <a id='logo' className="navbar-brand text-dark" href="#">airbnb</a>
         </div>
-        <button onClick={toggleProfile} id='btn-profile' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarMenu">
+        <button onClick={toggleProfile} id='btn-profile' className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarProfile">
           {dataLocal ? (
             dataLocalParse.avatar ? (
               <span><img className='w-8 h-8 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
@@ -114,7 +114,7 @@ export default function Header(props: any) {
             </li>
           </ul>
         </div>
-        <div className="ul-profile-sm collapse navbar-collapse" id="collapsibleNavbarMenu">
+        <div className="ul-profile-sm collapse navbar-collapse" id="collapsibleNavbarProfile">
           <ul id='ul-profile' className="navbar-nav px-2 ml-auto">
             {dataLocal ? (
               <>

@@ -4,20 +4,25 @@
     padding: 0.5rem !important;
   }
 
-  #logo {
+  /* #logo {
     font-size: 1.2rem;
-    font-weight: 900;
-  }
+    font-weight: 500;
+  } */
 
   #logo-img {
     width: 2rem;
+  }
+
+  #btn-menu {
+    height: 2.5rem !important;
+    /* background-color: yellow !important; */
   }
 
   .ul-menu-sm {
     position: absolute;
     left: 0;
     width: 100%;
-    z-index: 99;
+    z-index: 999;
     position: fixed;
     top: 3rem;
   }
@@ -45,6 +50,11 @@
     padding-left: 1rem !important;
   }
 
+  #btn-profile {
+    height: 2.5rem !important;
+    /* background-color: yellow !important; */
+  }
+
   .btn-profile-sm {
     width: 100%;
     text-align: left;
@@ -53,13 +63,63 @@
   .btn-focus:focus {
     outline: none;
   }
+
+  .active-li-menu {
+    color: #fe6b6e !important;
+    /* border-bottom: 3px solid #fe6b6e !important; */
+  }
 }
 
 /* ipad */
 @media only screen and (min-width: 568px) and (max-width: 991px) {
-  #header {
-    display: grid;
-    grid-template-columns: 10% 60% 30% !important;
+  .ul-profile-sm {
+    background-color: #ffffff;
+    /* background-color: red !important; */
+    right: 0rem !important;
+    width: 30% !important;
+    z-index: 999;
+    position: fixed;
+    padding: 0 1rem;
+    text-align: left;
+  }
+
+  .navbar-toggler-md {
+    display: block !important;
+  }
+
+  #abc {
+    display: none !important;
+  }
+
+  .ul-menu-sm {
+    background-color: #ffffff;
+    width: 100% !important;
+    z-index: 999;
+    position: fixed;
+    padding: 0 1rem;
+  }
+
+  .active-li-menu {
+    color: #fe6b6e !important;
+    border-bottom: none !important;
+  }
+
+  #ul-menu li a {
+    border-bottom: none !important;
+    font-weight: 500;
+    font-size: medium;
+    /* background-color: green; */
+  }
+
+  #ul-menu li a:hover {
+    color: #fe6b6e !important;
+    border-bottom: none;
+    cursor: pointer;
+  }
+
+  #ul-menu li a:focus {
+    color: #fe6b6e !important;
+    border-bottom: none;
   }
 }
 
@@ -67,7 +127,7 @@
 @media only screen and (min-width: 568px) {
   #header {
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 25% 50% 25%;
   }
 
   #logo-div {
@@ -76,8 +136,8 @@
 
   #logo {
     font-weight: 500;
-    font-size: x-large;
-    margin-bottom: 0.4rem;
+    /* font-size: x-large;
+    margin-bottom: 0.4rem; */
   }
 
   #logo-img {
@@ -113,17 +173,26 @@
     margin: auto;
   }
 
+  .ul-profile-sm {
+    background-color: #ffffff;
+    right: 3rem;
+    width: 20%;
+    z-index: 999;
+    position: fixed;
+  }
+
   #ul-profile li {
     margin: 0 0.2rem;
   }
 
   #ul-profile li:hover {
     cursor: pointer;
+    color: #fe6b6e !important;
   }
 
   #ul-profile li a {
     padding: 0.5rem 0;
-    border-bottom: 3px solid #ffffff;
+    /* border-bottom: 3px solid #ffffff; */
     font-size: medium;
     font-weight: 500;
   }
@@ -131,20 +200,25 @@
   #ul-profile li a:hover {
     color: #fe6b6e !important;
     cursor: pointer;
-    border-bottom: 3px solid #fe6b6e;
+    /* border-bottom: 3px solid #fe6b6e; */
   }
 
   #ul-profile li button {
     width: 100%;
     font-weight: 500;
     font-size: medium;
-    border-bottom: 3px solid #ffffff;
+    /* border-bottom: 3px solid #ffffff; */
   }
 
   #ul-profile li button:hover {
     color: #fe6b6e !important;
     cursor: pointer;
-    border-bottom: 3px solid #fe6b6e;
+    /* border-bottom: 3px solid #fe6b6e; */
+  }
+
+  .active-li-menu {
+    color: #fe6b6e !important;
+    border-bottom: 3px solid #fe6b6e !important;
   }
 }
 
@@ -162,7 +236,15 @@
   margin-right: 0;
 }
 
-.active-li-menu {
-  color: #fe6b6e !important;
-  border-bottom: 3px solid #fe6b6e !important;
+.navbar-toggler-lg {
+  display: block !important;
+}
+
+.fixed-top {
+  z-index: 999 !important;
+}
+
+#btn-profile {
+  height: 100%;
+  /* background-color: yellow !important; */
 }

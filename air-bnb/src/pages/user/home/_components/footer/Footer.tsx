@@ -42,8 +42,10 @@ export default function Footer() {
             {/* Grid column */}
             <div className="col-md-6 col-lg-6 col-xl-3 mx-auto mb-4">
               {/* Content */}
-              <h6 className="text-uppercase fw-bold mb-4">
-                <i className="fas fa-gem me-3" />Company name
+              <h6 className="text-uppercase fw-bold mb-4 d-flex">
+                <img id='logo-img' className='' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
+                {/* <i className="fas fa-gem me-3" /> */}
+                AirBnb
               </h6>
               <p>
                 Here you can use rows and columns to organize your footer content. Lorem ipsum

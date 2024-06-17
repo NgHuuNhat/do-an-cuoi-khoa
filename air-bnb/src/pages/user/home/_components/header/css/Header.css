@@ -179,6 +179,7 @@
     width: 20%;
     z-index: 999;
     position: fixed;
+    margin-top: 0.2rem;
   }
 
   #ul-profile li {

@@ -1,12 +1,4 @@
-#khamPha {
-    /* background-color: yellow ; */
-}
-
 #khamPha a {
-    /* CSS cho các thẻ <a> bên trong #khamPha */
-    /* color: black; */
-    /* background-color: red; */
-    /* color: green; */
     border-radius: 0.2rem;
     text-decoration: none;
 }

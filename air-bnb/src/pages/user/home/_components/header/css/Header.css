@@ -4,18 +4,12 @@
     padding: 0.5rem !important;
   }
 
-  /* #logo {
-    font-size: 1.2rem;
-    font-weight: 500;
-  } */
-
   #logo-img {
     width: 2rem;
   }
 
   #btn-menu {
     height: 2.5rem !important;
-    /* background-color: yellow !important; */
   }
 
   .ul-menu-sm {
@@ -43,8 +37,6 @@
     z-index: 999;
     position: fixed;
     top: 3.7rem;
-    /* border-radius: 0.2rem; */
-    /* background-color: red !important; */
   }
 
   #ul-profile {
@@ -54,7 +46,6 @@
 
   #btn-profile {
     height: 2.5rem !important;
-    /* background-color: yellow !important; */
   }
 
   .btn-profile-sm {
@@ -68,7 +59,6 @@
 
   .active-li-menu {
     color: #fe6b6e !important;
-    /* border-bottom: 3px solid #fe6b6e !important; */
   }
 }
 
@@ -80,7 +70,6 @@
 
   .ul-profile-sm {
     background-color: #ffffff;
-    /* background-color: red !important; */
     right: 0.12rem !important;
     width: 30% !important;
     z-index: 999;
@@ -114,7 +103,6 @@
     border-bottom: none !important;
     font-weight: 500;
     font-size: medium;
-    /* background-color: green; */
   }
 
   #ul-menu li a:hover {
@@ -142,8 +130,6 @@
 
   #logo {
     font-weight: 500;
-    /* font-size: x-large;
-    margin-bottom: 0.4rem; */
   }
 
   #logo-img {
@@ -199,7 +185,6 @@
 
   #ul-profile li a {
     padding: 0.5rem 0;
-    /* border-bottom: 3px solid #ffffff; */
     font-size: medium;
     font-weight: 500;
   }
@@ -207,20 +192,17 @@
   #ul-profile li a:hover {
     color: #fe6b6e !important;
     cursor: pointer;
-    /* border-bottom: 3px solid #fe6b6e; */
   }
 
   #ul-profile li button {
     width: 100%;
     font-weight: 500;
     font-size: medium;
-    /* border-bottom: 3px solid #ffffff; */
   }
 
   #ul-profile li button:hover {
     color: #fe6b6e !important;
     cursor: pointer;
-    /* border-bottom: 3px solid #fe6b6e; */
   }
 
   .active-li-menu {
@@ -253,5 +235,4 @@
 
 #btn-profile {
   height: 100%;
-  /* background-color: yellow !important; */
 }

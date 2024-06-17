@@ -6,6 +6,7 @@ import Search from './search/Search';
 import KhamPha from './kham-pha/KhamPha';
 import OBatCuDau from './o-bat-cu-dau/OBatCuDau';
 import MoveTop from './btn-move-top/MoveTop';
+import SearchDemo from './search-demo/SearchDemo';
 
 export default function Home() {
     const [headerHeight, setHeaderHeight] = useState(0);
@@ -21,10 +22,11 @@ export default function Home() {
     return (
         <>
             <Header />
-            <div id='body' style={{ marginTop: `${headerHeight}px` }}>
-                <Search />
-                <Carousel />
+            <div id='body' style={{ marginTop: `${headerHeight+50}px` }}>
+                {/* <Search /> */}
+                <SearchDemo />
                 <KhamPha />
+                <Carousel />
                 <OBatCuDau />
                 <Footer />
                 <MoveTop />

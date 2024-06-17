@@ -10,7 +10,7 @@
   }
 
   #logo {
-    background-color: lightsalmon;
+    /* background-color: lightsalmon; */
     margin: auto;
     height: 100%;
     font-size: medium;
@@ -24,7 +24,7 @@
 
   /* menu-laptop */
   #menu-lg {
-    background-color: yellow;
+    /* background-color: yellow; */
     margin: auto;
     height: 100%;
   }
@@ -61,7 +61,7 @@
 
   /* profile */
   #btn-profile {
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
     color: #fe6b6e;
     display: block;
     height: 100%;
@@ -85,7 +85,7 @@
   }
 
   #profile a {
-    background-color: lightskyblue;
+    /* background-color: lightskyblue; */
     transition: color 0.2s ease, background-color 0.2s ease;
     padding: .5rem 1.5rem;
     font-size: medium;
@@ -97,9 +97,9 @@
     cursor: pointer;
   }
 
-  #profile a:focus {
+  /* #profile a:focus {
     background-color: #fab1b2 !important;
-  }
+  } */
 
 
 
@@ -111,7 +111,7 @@
 
     /* menu mobile*/
     #btn-menu {
-      background-color: lightgreen;
+      /* background-color: lightgreen; */
       color: #fe6b6e;
       height: 100%;
       border-radius: 0;
@@ -121,7 +121,7 @@
     }
 
     #menu {
-      background-color: green;
+      /* background-color: green; */
       left: 0;
       z-index: 999;
       position: fixed;
@@ -129,7 +129,8 @@
     }
 
     #menu a {
-      background-color: yellow;
+      /* background-color: yellow; */
+      background-color: #ffffff;
       font-size: medium;
       font-weight: 500;
       padding: .8rem;

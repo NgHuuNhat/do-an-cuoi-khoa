@@ -74,6 +74,10 @@
 
 /* ipad */
 @media only screen and (min-width: 568px) and (max-width: 991px) {
+  #header {
+    padding: 0.5rem !important;
+  }
+
   .ul-profile-sm {
     background-color: #ffffff;
     /* background-color: red !important; */

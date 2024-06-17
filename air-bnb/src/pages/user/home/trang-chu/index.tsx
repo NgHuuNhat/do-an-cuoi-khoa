@@ -22,7 +22,7 @@ export default function Home() {
     return (
         <>
             <Header />
-            <div id='body' style={{ marginTop: `${headerHeight+50}px` }}>
+            <div id='body' style={{ marginTop: `${headerHeight+40}px` }}>
                 {/* <Search /> */}
                 <SearchDemo />
                 <KhamPha />

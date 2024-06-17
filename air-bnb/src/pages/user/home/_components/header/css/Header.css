@@ -7,7 +7,7 @@
     z-index: 99;
     width: 100%;
     padding: 0;
-    /* border-bottom: 1px solid #d1d5db; */
+    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.1);
   }
 
   #logo {
@@ -68,7 +68,7 @@
     height: 100%;
     border-radius: 0;
     margin: auto;
-    border-bottom: 3px solid #ffffff;
+    border-bottom: 3px solid;
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
   }
 
@@ -79,10 +79,12 @@
 
   #profile {
     background-color: #ffffff;
+    /* background-color: lightblue !important; */
     right: 0;
     z-index: 999;
     position: fixed;
     width: 20%;
+    top: 3rem;
   }
 
   #profile a {
@@ -127,11 +129,12 @@
       z-index: 999;
       position: fixed;
       width: 100%;
+      top: 3.5rem;
     }
 
     #menu a {
       /* background-color: yellow; */
-      background-color: #ffffff;
+      /* background-color: #ffffff; */
       font-size: medium;
       font-weight: 500;
       padding: .8rem;
@@ -154,6 +157,7 @@
       z-index: 999;
       position: fixed;
       width: 50%;
+      top: 3.5rem;
     }
 
     #profile a {

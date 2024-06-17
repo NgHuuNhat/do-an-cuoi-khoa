@@ -119,7 +119,7 @@ export default function Header(props: any) {
         </button>
       </nav >
 
-      <div id="menu" className="collapse navbar-collapse">
+      <div id="menu" className="bg-light collapse navbar-collapse">
         <ul className="navbar-nav">
           <li className="nav-item d-flex align-items-center">
             <a className="active-menu-sm nav-link text-dark w-100 active-li-menu" href="#">Chỗ ở</a>
@@ -132,7 +132,7 @@ export default function Header(props: any) {
           </li>
         </ul>
       </div>
-      <div id="profile" className="rounded collapse">
+      <div id="profile" className="bg-light rounded collapse">
         <ul className="navbar-nav">
           {dataLocal ? (
             <>

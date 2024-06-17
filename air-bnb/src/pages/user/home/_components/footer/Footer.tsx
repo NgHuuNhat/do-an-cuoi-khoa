@@ -12,22 +12,13 @@ export default function Footer() {
         {/* Left */}
         {/* Right */}
         <div className=''>
-          <a href='https://www.facebook.com/' className="mx-3 me-4 text-reset">
+          <a href='https://www.facebook.com/nhatanhbb' className="mx-3 me-4 text-reset">
             <i className="fab fa-facebook-f" />
           </a>
-          <a href='https://twitter.com/' className="mx-3 me-4 text-reset">
-            <i className="fab fa-twitter" />
-          </a>
-          <a href='https://www.google.com/' className="mx-3 me-4 text-reset">
-            <i className="fab fa-google" />
-          </a>
-          <a href='https://www.instagram.com/' className="mx-3 me-4 text-reset">
+          <a href='https://www.instagram.com/__nhatanhbb_/' className="mx-3 me-4 text-reset">
             <i className="fab fa-instagram" />
           </a>
-          <a href='https://www.linkedin.com/' className="mx-3 me-4 text-reset">
-            <i className="fab fa-linkedin" />
-          </a>
-          <a href='https://github.com/' className="mx-3 me-4 text-reset">
+          <a href='https://github.com/NgHuuNhat' className="mx-3 me-4 text-reset">
             <i className="fab fa-github" />
           </a>
         </div>
@@ -97,13 +88,10 @@ export default function Footer() {
             <div className="col-md-6 col-lg-6 col-xl-3 mx-auto mb-md-0 mb-4">
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-              <p><i className="fas fa-home me-3" /> New York, NY 10012, US</p>
-              <p>
-                <i className="fas fa-envelope me-3" />
-                info@example.com
-              </p>
-              <p><i className="fas fa-phone me-3" /> + 01 234 567 88</p>
-              <p><i className="fas fa-print me-3" /> + 01 234 567 89</p>
+              <p><i className="fas fa-home me-3" /> Ho Chi Minh City, VN</p>
+              <p><i className="fas fa-envelope me-3" /> nhat200901@gmail.com</p>
+              <p><i className="fas fa-phone me-3" /> 0985 62 70 61</p>
+              <p><i className="fas fa-print me-3" /> 0985 62 70 61</p>
             </div>
             {/* Grid column */}
           </div>

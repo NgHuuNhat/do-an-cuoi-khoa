@@ -116,7 +116,7 @@ export default function Menu() {
                             />
                             <div className="t192ua0c atm_d2_1cy2u2k atm_fg_1h6ojuz atm_vv_1q9ccgz atm_mk_h2mmj6 atm_mk_stnw88_9in345 atm_92_1yyfdc7_9in345 atm_f7_idpfg4_9in345 atm_e2_yh40bf_9in345 atm_tk_1yzjdlj_9in345 atm_k4_idpfg4_9in345 atm_uc_1wre3yg_9in345 atm_uc_glywfm_9in345_1rrf6b5 dir dir-ltr">
                                 <span className="ti7yjx atm_ve_glywfm atm_vb_glywfm atm_9s_1o8liyq atm_uc_1bfgeka dir dir-ltr">
-                                    Khung cảnh tuyệt vời
+                                    Khung cảnh
                                 </span>
                             </div>
                         </span>
@@ -319,7 +319,7 @@ export default function Menu() {
                             />
                             <div className="t192ua0c atm_d2_1cy2u2k atm_fg_1h6ojuz atm_vv_1q9ccgz atm_mk_h2mmj6 atm_mk_stnw88_9in345 atm_92_1yyfdc7_9in345 atm_f7_idpfg4_9in345 atm_e2_yh40bf_9in345 atm_tk_1yzjdlj_9in345 atm_k4_idpfg4_9in345 atm_uc_1wre3yg_9in345 atm_uc_glywfm_9in345_1rrf6b5 dir dir-ltr">
                                 <span className="ti7yjx atm_ve_glywfm atm_vb_glywfm atm_9s_1o8liyq atm_uc_1bfgeka dir dir-ltr">
-                                    Nhà phong cách Cycladic
+                                    Nhà phong cách
                                 </span>
                             </div>
                         </span>
@@ -815,7 +815,7 @@ export default function Menu() {
                             />
                             <div className="t192ua0c atm_d2_1cy2u2k atm_fg_1h6ojuz atm_vv_1q9ccgz atm_mk_h2mmj6 atm_mk_stnw88_9in345 atm_92_1yyfdc7_9in345 atm_f7_idpfg4_9in345 atm_e2_yh40bf_9in345 atm_tk_1yzjdlj_9in345 atm_k4_idpfg4_9in345 atm_uc_1wre3yg_9in345 atm_uc_glywfm_9in345_1rrf6b5 dir dir-ltr">
                                 <span className="ti7yjx atm_ve_glywfm atm_vb_glywfm atm_9s_1o8liyq atm_uc_1bfgeka dir dir-ltr">
-                                    Đường trượt tuyết thẳng tới chỗ ở
+                                    Trượt tuyết
                                 </span>
                             </div>
                         </span>
@@ -1342,7 +1342,7 @@ export default function Menu() {
                             />
                             <div className="t192ua0c atm_d2_1cy2u2k atm_fg_1h6ojuz atm_vv_1q9ccgz atm_mk_h2mmj6 atm_mk_stnw88_9in345 atm_92_1yyfdc7_9in345 atm_f7_idpfg4_9in345 atm_e2_yh40bf_9in345 atm_tk_1yzjdlj_9in345 atm_k4_idpfg4_9in345 atm_uc_1wre3yg_9in345 atm_uc_glywfm_9in345_1rrf6b5 dir dir-ltr">
                                 <span className="ti7yjx atm_ve_glywfm atm_vb_glywfm atm_9s_1o8liyq atm_uc_1bfgeka dir dir-ltr">
-                                    Nhà mang tính lịch sử
+                                    Mang tính lịch sử
                                 </span>
                             </div>
                         </span>
@@ -1714,7 +1714,7 @@ export default function Menu() {
                             />
                             <div className="t192ua0c atm_d2_1cy2u2k atm_fg_1h6ojuz atm_vv_1q9ccgz atm_mk_h2mmj6 atm_mk_stnw88_9in345 atm_92_1yyfdc7_9in345 atm_f7_idpfg4_9in345 atm_e2_yh40bf_9in345 atm_tk_1yzjdlj_9in345 atm_k4_idpfg4_9in345 atm_uc_1wre3yg_9in345 atm_uc_glywfm_9in345_1rrf6b5 dir dir-ltr">
                                 <span className="ti7yjx atm_ve_glywfm atm_vb_glywfm atm_9s_1o8liyq atm_uc_1bfgeka dir dir-ltr">
-                                    Hỗ trợ người dùng xe lăn
+                                    Hỗ trợ xe lăn
                                 </span>
                             </div>
                         </span>
@@ -1745,7 +1745,7 @@ export default function Menu() {
                             />
                             <div className="t192ua0c atm_d2_1cy2u2k atm_fg_1h6ojuz atm_vv_1q9ccgz atm_mk_h2mmj6 atm_mk_stnw88_9in345 atm_92_1yyfdc7_9in345 atm_f7_idpfg4_9in345 atm_e2_yh40bf_9in345 atm_tk_1yzjdlj_9in345 atm_k4_idpfg4_9in345 atm_uc_1wre3yg_9in345 atm_uc_glywfm_9in345_1rrf6b5 dir dir-ltr">
                                 <span className="ti7yjx atm_ve_glywfm atm_vb_glywfm atm_9s_1o8liyq atm_uc_1bfgeka dir dir-ltr">
-                                    Nhà không sử dụng điện lưới
+                                    No điện lưới
                                 </span>
                             </div>
                         </span>

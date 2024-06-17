@@ -3,5 +3,30 @@
 }
 
 .custom-shadow {
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1); /* Example shadow values */
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    /* Example shadow values */
+}
+
+
+
+@media only screen and (max-width: 568px) {
+    .search-demo {
+        display: block;
+        border-radius: 10px;
+    }
+
+    .search-none {
+        display: none;
+    }
+
+    .search-block {
+        display: block;
+        text-align: center;
+    }
+
+    .search-w-100 {
+        text-align: center;
+        width: 100%;
+        margin-top: 1rem;
+    }
 }

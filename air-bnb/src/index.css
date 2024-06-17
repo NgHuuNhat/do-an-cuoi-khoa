@@ -37,6 +37,9 @@ code {
   background: #fe6b6e;
 }
 
-/* body.modal-open {
-  padding-right: 0 !important;
-} */
+/* laptop */
+@media only screen and (min-width: 992px) {
+  body {
+    zoom: 1.1;
+  }
+}

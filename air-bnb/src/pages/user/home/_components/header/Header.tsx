@@ -131,7 +131,7 @@ export default function Header(props: any) {
         </ul>
       </div>
       <div className="rounded ul-profile-sm collapse" id="collapsibleNavbarProfile">
-        <ul id='ul-profile' className="navbar-nav px-2 ml-auto">
+        <ul id='ul-profile' className="rounded navbar-nav px-2 ml-auto">
           {dataLocal ? (
             <>
               <li className="nav-item d-flex align-items-center">

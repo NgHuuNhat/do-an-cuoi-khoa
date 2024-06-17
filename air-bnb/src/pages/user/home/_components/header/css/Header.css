@@ -42,7 +42,9 @@
     width: 50%;
     z-index: 999;
     position: fixed;
-    top: 3rem;
+    top: 3.7rem;
+    /* border-radius: 0.2rem; */
+    /* background-color: red !important; */
   }
 
   #ul-profile {

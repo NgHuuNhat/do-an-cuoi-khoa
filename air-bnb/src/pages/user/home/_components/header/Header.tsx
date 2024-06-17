@@ -81,19 +81,21 @@ export default function Header(props: any) {
     <>
       {contextHolder}
 
-      <nav id='header' className="border-bottom navbar navbar-expand-md navbar-dark fixed-top py-0">
-        <button onClick={toggleMenu} id='btn-menu' className="navbar-toggler navbar-toggler-md border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarMenu">
+      <nav id='header' className="navbar navbar-expand-md navbar-dark">
+
+        <button id='btn-menu' onClick={toggleMenu} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
           <span><i className="fa fa-bars" /></span>
         </button>
-        <div id='logo-div' className='d-flex'>
-          <img id='logo-img' className='' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
-          <a id='logo' className="navbar-brand text-dark" href="#">airbnb</a>
+
+        <div id='logo' className='d-flex'>
+          <img className='w-10 h-10' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
+          <a className="navbar-brand text-dark" href="#">airbnb</a>
         </div>
 
-        <div className="ul-menu-sm collapse navbar-collapse" id="abc">
-          <ul id='ul-menu' className="navbar-nav px-2">
+        <div id='menu-lg' className="collapse navbar-collapse">
+          <ul className="navbar-nav">
             <li className="nav-item d-flex align-items-center">
-              <a className="nav-link text-dark w-100 active-li-menu" href="#">Chỗ ở</a>
+              <a className="active-menu nav-link text-dark w-100" href="#">Chỗ ở</a>
             </li>
             <li className="nav-item d-flex align-items-center">
               <a className="nav-link text-dark w-100" href="#">Trải nghiệm</a>
@@ -104,7 +106,7 @@ export default function Header(props: any) {
           </ul>
         </div>
 
-        <button onClick={toggleProfile} id='btn-profile' className="navbar-toggler navbar-toggler-lg border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarProfile">
+        <button id='btn-profile' onClick={toggleProfile} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#profile">
           {dataLocal ? (
             dataLocalParse.avatar ? (
               <span><img className='w-8 h-8 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
@@ -117,10 +119,10 @@ export default function Header(props: any) {
         </button>
       </nav >
 
-      <div className="ul-menu-sm collapse navbar-collapse" id="collapsibleNavbarMenu">
-        <ul id='ul-menu' className="navbar-nav px-2">
+      <div id="menu" className="collapse navbar-collapse">
+        <ul className="navbar-nav">
           <li className="nav-item d-flex align-items-center">
-            <a className="nav-link text-dark w-100 active-li-menu" href="#">Chỗ ở</a>
+            <a className="active-menu-sm nav-link text-dark w-100 active-li-menu" href="#">Chỗ ở</a>
           </li>
           <li className="nav-item d-flex align-items-center">
             <a className="nav-link text-dark w-100" href="#">Trải nghiệm</a>
@@ -130,30 +132,31 @@ export default function Header(props: any) {
           </li>
         </ul>
       </div>
-      <div className="rounded ul-profile-sm collapse" id="collapsibleNavbarProfile">
-        <ul id='ul-profile' className="rounded navbar-nav px-2 ml-auto">
+      <div id="profile" className="rounded collapse">
+        <ul className="navbar-nav">
           {dataLocal ? (
             <>
               <li className="nav-item d-flex align-items-center">
-                {dataLocalParse.avatar ? (
-                  <span className='w-7'><img className='w-5 h-5 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
-                ) : (
-                  <span><i className="far fa-user-circle mr-2"></i></span>
-                )}
-                <a className="nav-link w-100 text-dark" href="#">{dataLocalParse.user.name}</a>
+                <a className="rounded nav-link w-100 text-dark" href="#">
+                  {dataLocalParse.avatar ? (
+                    <span className='w-7'><img className='w-5 h-5 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
+                  ) : (
+                    <span><i className="far fa-user-circle mr-2"></i></span>
+                  )}
+                  {dataLocalParse.user.name}
+                </a>
               </li>
               <li className="nav-item d-flex align-items-center">
-                <span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>
-                <a className="nav-link w-100 text-dark" href="#" onClick={handleLogout}>Đăng xuất</a>
+                <a className="rounded nav-link w-100 text-dark" href="#" onClick={handleLogout}><span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>Đăng xuất</a>
               </li>
             </>
           ) : (
             <>
               <li className="nav-item">
-                <a className="btn-focus nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalLogin" >Đăng nhập</a>
+                <a className="rounded nav-link text-dark" data-toggle="modal" data-target="#exampleModalLogin">Đăng nhập</a>
               </li>
               <li className="nav-item" >
-                <a className="btn-focus nav-link text-dark btn-profile-sm" data-toggle="modal" data-target="#exampleModalRegister">Đăng ký</a>
+                <a className="rounded nav-link text-dark" data-toggle="modal" data-target="#exampleModalRegister">Đăng ký</a>
               </li>
             </>
           )}

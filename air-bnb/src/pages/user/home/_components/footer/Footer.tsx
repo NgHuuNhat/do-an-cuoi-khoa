@@ -34,7 +34,7 @@ export default function Footer() {
             <div className="col-md-6 col-lg-6 col-xl-3 mx-auto mb-4">
               {/* Content */}
               <h6 className="text-uppercase fw-bold mb-4 d-flex">
-                <img id='logo-img' className='' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
+                <img id='logo-img' className='w-5 h-5' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
                 {/* <i className="fas fa-gem me-3" /> */}
                 AirBnb
               </h6>

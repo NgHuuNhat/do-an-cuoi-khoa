@@ -1,238 +1,179 @@
-/* iphone */
-@media only screen and (max-width: 568px) {
   #header {
-    padding: 0.5rem !important;
-  }
-
-  #logo-img {
-    width: 2rem;
-  }
-
-  #btn-menu {
-    height: 2.5rem !important;
-  }
-
-  .ul-menu-sm {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    position: fixed;
-    top: 3rem;
-  }
-
-  #ul-menu {
     background-color: #ffffff;
-    padding: 0 1rem !important;
-  }
-
-  #ul-menu li a:focus {
-    color: #fe6b6e !important;
-  }
-
-  .ul-profile-sm {
-    position: absolute;
-    right: 0.15rem;
-    width: 50%;
-    z-index: 999;
-    position: fixed;
-    top: 3.7rem;
-  }
-
-  #ul-profile {
-    background-color: #ffffff;
-    padding-left: 1rem !important;
-  }
-
-  #btn-profile {
-    height: 2.5rem !important;
-  }
-
-  .btn-profile-sm {
-    width: 100%;
-    text-align: left;
-  }
-
-  .btn-focus:focus {
-    outline: none;
-  }
-
-  .active-li-menu {
-    color: #fe6b6e !important;
-  }
-}
-
-/* ipad */
-@media only screen and (min-width: 568px) and (max-width: 991px) {
-  #header {
-    padding: 0.5rem !important;
-  }
-
-  .ul-profile-sm {
-    background-color: #ffffff;
-    right: 0.12rem !important;
-    width: 30% !important;
-    z-index: 999;
-    position: fixed;
-    padding: 0 1rem;
-    text-align: left;
-  }
-
-  .navbar-toggler-md {
-    display: block !important;
-  }
-
-  #abc {
-    display: none !important;
-  }
-
-  .ul-menu-sm {
-    background-color: #ffffff;
-    width: 100% !important;
-    z-index: 999;
-    position: fixed;
-    padding: 0 1rem;
-  }
-
-  .active-li-menu {
-    color: #fe6b6e !important;
-    border-bottom: none !important;
-  }
-
-  #ul-menu li a {
-    border-bottom: none !important;
-    font-weight: 500;
-    font-size: medium;
-  }
-
-  #ul-menu li a:hover {
-    color: #fe6b6e !important;
-    border-bottom: none;
-    cursor: pointer;
-  }
-
-  #ul-menu li a:focus {
-    color: #fe6b6e !important;
-    border-bottom: none;
-  }
-}
-
-/* laptop */
-@media only screen and (min-width: 568px) {
-  #header {
     display: grid;
-    grid-template-columns: 25% 50% 25%;
-  }
-
-  #logo-div {
-    margin: auto;
+    grid-template-columns: 20% 60% 20%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    padding: 0;
   }
 
   #logo {
-    font-weight: 500;
-  }
-
-  #logo-img {
-    width: 2rem;
-  }
-
-  #ul-menu {
+    background-color: lightsalmon;
     margin: auto;
-  }
-
-  #ul-menu li {
-    margin: 0 0.2rem;
-  }
-
-  #ul-menu li a {
-    border-bottom: 3px solid #ffffff;
-    font-weight: 500;
+    height: 100%;
     font-size: medium;
+    font-weight: 500;
+    align-items: center;
   }
 
-  #ul-menu li a:hover {
+  #logo a {
     color: #fe6b6e !important;
-    border-bottom: 3px solid #fe6b6e;
-    cursor: pointer;
   }
 
-  #ul-menu li a:focus {
-    color: #fe6b6e !important;
-    border-bottom: 3px solid #fe6b6e;
-  }
-
-  #ul-profile {
+  /* menu-laptop */
+  #menu-lg {
+    background-color: yellow;
     margin: auto;
+    height: 100%;
   }
 
-  .ul-profile-sm {
+  #menu-lg ul {
+    height: 100%;
+  }
+
+  #menu-lg a {
     background-color: #ffffff;
-    right: 3rem;
-    width: 20%;
+    border-bottom: 3px solid #ffffff;
+    margin: 0 0.1rem;
+    font-size: medium;
+    font-weight: 500;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    height: 100%;
+    align-content: center;
+  }
+
+  #menu-lg a:hover {
+    border-bottom: 3px solid;
+    color: #fe6b6e !important;
+  }
+
+  #menu-lg a:focus {
+    border-bottom: 3px solid;
+    color: #fe6b6e !important;
+  }
+
+  .active-menu {
+    border-bottom: 3px solid !important;
+    color: #fe6b6e !important;
+  }
+
+  /* profile */
+  #btn-profile {
+    background-color: lightcoral;
+    color: #fe6b6e;
+    display: block;
+    height: 100%;
+    border-radius: 0;
+    margin: auto;
+    border-bottom: 3px solid #ffffff;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  }
+
+  #btn-profile:hover {
+    color: #fe6b6e;
+    border-bottom: 3px solid;
+  }
+
+  #profile {
+    background-color: #ffffff;
+    right: 0;
     z-index: 999;
     position: fixed;
-    margin-top: 0.2rem;
+    width: 20%;
   }
 
-  #ul-profile li {
-    margin: 0 0.2rem;
-  }
-
-  #ul-profile li:hover {
-    cursor: pointer;
-    color: #fe6b6e !important;
-  }
-
-  #ul-profile li a {
-    padding: 0.5rem 0;
+  #profile a {
+    background-color: lightskyblue;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    padding: .5rem 1.5rem;
     font-size: medium;
     font-weight: 500;
   }
 
-  #ul-profile li a:hover {
+  #profile a:hover {
     color: #fe6b6e !important;
     cursor: pointer;
   }
 
-  #ul-profile li button {
-    width: 100%;
-    font-weight: 500;
-    font-size: medium;
+  #profile a:focus {
+    background-color: #fab1b2 !important;
   }
 
-  #ul-profile li button:hover {
-    color: #fe6b6e !important;
-    cursor: pointer;
+
+
+  /* mobile */
+  @media only screen and (max-width: 991px) {
+    #header {
+      padding: .4rem 0;
+    }
+
+    /* menu mobile*/
+    #btn-menu {
+      background-color: lightgreen;
+      color: #fe6b6e;
+      height: 100%;
+      border-radius: 0;
+      margin: auto;
+      transition: color 0.2s ease, border-bottom-color 0.2s ease;
+      width: 100%;
+    }
+
+    #menu {
+      background-color: green;
+      left: 0;
+      z-index: 999;
+      position: fixed;
+      width: 100%;
+    }
+
+    #menu a {
+      background-color: yellow;
+      font-size: medium;
+      font-weight: 500;
+      padding: .8rem;
+      transition: background-color 0.2s ease;
+    }
+
+    #menu a:hover {
+      color: #fe6b6e !important;
+      cursor: pointer;
+    }
+
+    #btn-profile {
+      width: 100%;
+      border-bottom: none !important;
+    }
+
+    #profile {
+      background-color: #ffffff;
+      right: 0;
+      z-index: 999;
+      position: fixed;
+      width: 50%;
+    }
+
+    #profile a {
+      padding: .8rem;
+    }
+
   }
 
-  .active-li-menu {
-    color: #fe6b6e !important;
-    border-bottom: 3px solid #fe6b6e !important;
+
+
+  /* Ipad */
+  @media only screen and (min-width: 568px) and (max-width: 991px) {
+    #menu-lg {
+      display: none !important;
+    }
+
+    #btn-menu {
+      display: block;
+    }
+
+    #profile {
+      width: 33%;
+    }
+
   }
-}
-
-/* all */
-#header {
-  background-color: #ffffff;
-}
-
-#header i {
-  color: #fe6b6e !important;
-}
-
-#logo {
-  color: #fe6b6e !important;
-  margin-right: 0;
-}
-
-.navbar-toggler-lg {
-  display: block !important;
-}
-
-.fixed-top {
-  z-index: 999 !important;
-}
-
-#btn-profile {
-  height: 100%;
-}

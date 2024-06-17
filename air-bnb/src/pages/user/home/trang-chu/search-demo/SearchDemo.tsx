@@ -6,7 +6,7 @@ export default function SearchDemo() {
         <div id='searchDemo' className='container'>
             <div className="custom-shadow grid grid-cols-12 smm:grid-cols-1 border-1 border-gray-300 md:rounded-full">
                 <div className="col-span-3 flex-1 px-6 py-3 flex flex-col justify-center items-center cursor-pointer">
-                    <p className="text-sm">Địa điểm</p>
+                    <p style={{fontWeight: '500'}} className="text-sm">Địa điểm</p>
                     <p className="text-sm text-gray-400">Bạn sắp đi đâu?</p>
                     <div className="smm:border-b md:hidden smm:border-gray-400 smm:w-9/12 py-2" />
                 </div>
@@ -14,14 +14,14 @@ export default function SearchDemo() {
                     <div className="my-3 border-l border-gray-400" />
                 </div>
                 <div className="col-span-4 flex-1 smm:h-16 p-3 flex flex-col justify-center items-center cursor-pointer relative">
-                    <p>19/06/2024 – 26/06/2024</p>
+                    <p style={{fontWeight: '500'}} className='text-sm'>19/06/2024 – 26/06/2024</p>
                     <div className="smm:border-b md:hidden smm:border-gray-400 smm:w-9/12 py-2" />
                 </div>
                 <div className="col-span-1 flex smm:hidden justify-center">
                     <div className="my-3 border-l border-gray-400" />
                 </div>
                 <div className="col-span-3 flex-1 p-3 flex justify-center items-center cursor-pointer relative gap-3">
-                    <p>Thêm khách</p>
+                    <p style={{fontWeight: '500'}} className='text-sm'>Thêm khách</p>
                     <div style={{backgroundColor: '#fe6b6e'}} className="w-12 h-12 bg-main ml-5 hover:bg-[#9e3e4e] duration-300 text-white rounded-full p-2 flex justify-center items-center">
                         <span role="img" aria-label="search" className="pb-3 pr-3 anticon anticon-search h-3 w-3">
                             <svg className='w-5 h-5' viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true">

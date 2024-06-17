@@ -5,23 +5,19 @@ export default function KhamPha() {
     return (
         <div id='khamPha' className='container'>
 
-
             <div className="rounded my-5 p-1 flex flex-wrap justify-center gap-3">
-                <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                <button style={{fontWeight: '500'}} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
                     Loại nơi ở
                 </button>
-                <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                <button style={{fontWeight: '500'}} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
                     Giá
                 </button>
-                <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                <button style={{fontWeight: '500'}} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
                     Đặt ngay
                 </button>
-                <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                <button style={{fontWeight: '500'}} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
                     Phòng và phòng ngủ
                 </button>
-                {/* <button className="rounded-lg text-md bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
-                    Bộ lọc khác
-                </button> */}
             </div>
 
             <h3 className="font-bold mb-4">Khám phá những địa điểm gần đây</h3>

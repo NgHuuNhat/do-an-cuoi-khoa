@@ -38,7 +38,7 @@
 
   .ul-profile-sm {
     position: absolute;
-    right: 0.2rem;
+    right: 0.15rem;
     width: 50%;
     z-index: 999;
     position: fixed;
@@ -77,7 +77,7 @@
   .ul-profile-sm {
     background-color: #ffffff;
     /* background-color: red !important; */
-    right: 0rem !important;
+    right: 0.12rem !important;
     width: 30% !important;
     z-index: 999;
     position: fixed;

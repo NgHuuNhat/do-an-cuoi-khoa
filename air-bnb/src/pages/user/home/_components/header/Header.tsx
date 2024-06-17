@@ -81,7 +81,7 @@ export default function Header(props: any) {
     <>
       {contextHolder}
 
-      <nav id='header' className="navbar navbar-expand-md navbar-dark fixed-top py-0">
+      <nav id='header' className="border-bottom navbar navbar-expand-md navbar-dark fixed-top py-0">
         <button onClick={toggleMenu} id='btn-menu' className="navbar-toggler navbar-toggler-md border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbarMenu">
           <span><i className="fa fa-bars" /></span>
         </button>

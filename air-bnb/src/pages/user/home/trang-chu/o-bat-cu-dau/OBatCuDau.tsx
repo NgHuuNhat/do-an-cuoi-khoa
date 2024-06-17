@@ -5,7 +5,7 @@ export default function OBatCuDau() {
     return (
         <div id='oBatCuDau' className='container'>
             <div className="space-y-3 my-5">
-                <h3 className="font-bold">Ở bất cứ đâu</h3>
+                <h3 className="font-bold mb-4">Ở bất cứ đâu</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9">
                     <a data-aos="flip-left" href="/rooms/ho-chi-minh" className="aos-init aos-animate">
                         <div className="ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">

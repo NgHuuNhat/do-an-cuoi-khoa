@@ -5,21 +5,6 @@ export default function KhamPha() {
     return (
         <div id='khamPha' className='container'>
 
-            <div id='khamPha-menu' className="rounded my-5 p-1 flex flex-wrap justify-center gap-3">
-                <button style={{fontWeight: '500', fontSize: 'small'}} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
-                    Loại nơi ở
-                </button>
-                <button style={{fontWeight: '500', fontSize: 'small'}} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
-                    Giá
-                </button>
-                <button style={{fontWeight: '500', fontSize: 'small'}} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
-                    Đặt ngay
-                </button>
-                <button style={{fontWeight: '500', fontSize: 'small'}} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
-                    Phòng và phòng ngủ
-                </button>
-            </div>
-
             <h3 className="font-bold mb-4">Khám phá những địa điểm gần đây</h3>
             <div className="rounded mb-5 p-1 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="/rooms/ho-chi-minh" className="w-full ant-card ant-card-bordered ant-card-hoverable flex items-center cursor-pointer hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out css-mzwlov">

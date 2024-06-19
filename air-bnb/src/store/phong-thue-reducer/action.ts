@@ -6,7 +6,7 @@ export const actGetListPhongThue = (id: any) => {
     return (dispatch: any) => {
         dispatch(actReques());
         api
-            .get(`/phong-thue/${id}`)
+            .get(`/phong-thue/lay-phong-theo-vi-tri?maViTri=${id}`)
             .then((result) => {
                 dispatch(actSuccess(result.data.content));
             })

@@ -2,20 +2,6 @@ import api from "../../utils/api-user/ApiUser";
 import * as ActionType from "./constants";
 import { Action } from "./types";
 
-// export const actGetListPhong = (id: any) => {
-//     return (dispatch: any) => {
-//         dispatch(actReques());
-//         api
-//             .get(`/phong-thue/${id}`)
-//             .then((result) => {
-//                 dispatch(actSuccess(result.data.content));
-//             })
-//             .catch((error) => {
-//                 dispatch(actFailed(error));
-//             })
-//     }
-// }
-
 export const actGetViTri = () => {
     return (dispatch: any) => {
         dispatch(actReques());

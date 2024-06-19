@@ -4,6 +4,7 @@ import './Menu.css'
 export default function Menu() {
     return (
         <div id='menu-slide' className='container my-5'>
+
             <div className='relative d-flex'>
                 <button className="btn-menu-long absolute left-0 top-5 arrow left" style={{ fontWeight: '500' }}><i className="fa-solid fa-arrow-left"></i></button>
                 <div className="menu-list menu c14whb16 atm_8w_je46wd atm_90_wqqh0j atm_93_16tozh0 atm_9s_11p5wf0 atm_d5_1bp4okc atm_d3_8n3s54 atm_cx_dfedth atm_e0_1fe5oxz atm_dy_kim48s atm_fc_1y6m0gg atm_gi_idpfg4 atm_j6_mtsehg atm_e2_1kjme8w atm_ks_ndwtr5 atm_l4_1f51e7f atm_ld_5ul63a atm_lc_djs5a5 atm_lj_wg387a atm_li_1y0adu4 atm_o3_1p5gfer atm_p9_glywfm atm_tl_19lnvtn atm_or_dhnz5w__ta18iu atm_9s_glywfm_14pyf7n atm_oa_2geptf_bqoj1z atm_oq_1vwytc5_bqoj1z dir dir-ltr">
@@ -1912,6 +1913,21 @@ export default function Menu() {
 
                 </div>
                 <button className="btn-menu-long absolute right-0 top-5 arrow right" style={{ fontWeight: '500' }}><i className="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div id='khamPha-menu' className="rounded my-5 p-1 flex flex-wrap justify-center gap-3">
+                <button style={{ fontWeight: '500', fontSize: 'small' }} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                    Loại nơi ở
+                </button>
+                <button style={{ fontWeight: '500', fontSize: 'small' }} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                    Giá
+                </button>
+                <button style={{ fontWeight: '500', fontSize: 'small' }} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                    Đặt ngay
+                </button>
+                <button style={{ fontWeight: '500', fontSize: 'small' }} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
+                    Phòng và phòng ngủ
+                </button>
             </div>
         </div>
     )

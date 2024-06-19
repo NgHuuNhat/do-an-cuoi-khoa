@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SearchDemo.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { actGetViTri } from '../../../../../store/vi-tri-reducer/action';
@@ -68,9 +68,6 @@ export default function SearchDemo() {
                         </select>
                         <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.diaDiem?.message as any}</span>
                     </div>
-                    {/* <div className="search-none col-span-1 smm:hidden flex justify-center">
-                        <div className="my-3 border-l border-gray-400" />
-                    </div> */}
 
                     <div className="border-lg col-span-4 flex-1 smm:h-16 p-3 flex flex-col justify-center items-center cursor-pointer relative">
                         <div className="search-none smm:border-b md:hidden smm:border-gray-400 smm:w-9/12 py-2" />
@@ -84,11 +81,7 @@ export default function SearchDemo() {
                                 <input {...register('ngayVe')} type="date" className="form-control text-center" id="ngayVe" style={{ outline: 'none' }} />
                             </div>
                         </div>
-                        {/* <span className='text-danger inline-block pl-1 text-sm'></span> */}
                     </div>
-                    {/* <div className="search-none col-span-1 flex smm:hidden justify-center">
-                        <div className="my-3 border-l border-gray-400" />
-                    </div> */}
 
                     <div className="search-block col-span-3 flex-1 p-3 flex justify-center items-center cursor-pointer relative gap-3">
                         <div className='grid grid-cols-1'>
@@ -103,7 +96,6 @@ export default function SearchDemo() {
                                 <option>4</option>
                                 <option>5</option>
                             </select>
-                            {/* <span className='text-danger inline-block pl-1 text-sm'></span> */}
                         </div>
 
                         <button type='submit' style={{ backgroundColor: '#fe6b6e' }} className="search-w-100 w-12 h-12 bg-main   hover:bg-[#9e3e4e] duration-300 text-white rounded-full p-2 flex justify-center items-center">

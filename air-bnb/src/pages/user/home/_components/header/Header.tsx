@@ -5,6 +5,7 @@ import { actClearSuccess } from '../../../../../store/user-reducer/action';
 import Login from '../../../auth/login/Login';
 import Register from '../../../auth/register/Register';
 import { message } from 'antd';
+import { NavLink } from 'react-router-dom';
 
 export default function Header(props: any) {
   const dispatch: any = useDispatch();
@@ -88,8 +89,8 @@ export default function Header(props: any) {
         </button>
 
         <div id='logo' className='d-flex'>
-          <img className='w-10 h-10' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" />
-          <a className="navbar-brand text-dark" href="#">airbnb</a>
+          <NavLink to="/"><img className='w-10 h-10' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" /></NavLink>
+          <NavLink className="navbar-brand text-dark" to="/">airbnb</NavLink>
         </div>
 
         <div id='menu-lg' className="collapse navbar-collapse">

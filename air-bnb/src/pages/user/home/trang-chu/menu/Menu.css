@@ -47,3 +47,21 @@
     /* ẩn thanh cuộn */
     display: none;
 }
+
+.btn-menu-long {
+    font-size: small;
+    font-weight: 500 !important;
+}
+
+.btn-menu-long:hover {
+    color: #fe6b6e !important;
+}
+
+/* iphone */
+@media only screen and (max-width: 568px) {
+    .btn-menu-long {
+        font-size: small;
+        font-weight: 500 !important;
+        margin-top: 10px;
+    }
+}

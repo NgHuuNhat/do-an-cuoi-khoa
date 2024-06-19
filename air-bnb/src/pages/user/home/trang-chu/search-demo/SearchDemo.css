@@ -7,8 +7,11 @@
     /* Example shadow values */
 }
 
+.btn-menu-long:hover {
+    color: #fe6b6e;
+}
 
-
+/* iphone */
 @media only screen and (max-width: 568px) {
     .search-demo {
         display: block;
@@ -28,5 +31,40 @@
         text-align: center;
         width: 100%;
         margin-top: 1rem;
+    }
+
+    #searchDemo input{
+        font-size: small !important;
+    }
+
+}
+
+/* laptop */
+@media only screen and (min-width: 568px) {
+    .border-lg {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    #searchDemo input {
+        border: none;
+        font-size: small;
+    }
+
+    #diaDiem,
+    #soLuong {
+        -webkit-appearance: none;
+        border: none;
+        outline: none;
+        text-align: center;
+    }
+
+    #diaDiem:hover,
+    #soLuong:hover {
+        cursor: pointer;
+    }
+
+    .btn-menu-long {
+        font-weight: 500;
     }
 }

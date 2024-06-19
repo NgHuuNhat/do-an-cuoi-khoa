@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './DanhSachPhong.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { PhongThue } from '../../../../store/phong-thue-reducer/types';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { actGetListPhongThue } from '../../../../store/phong-thue-reducer/action';
 
 export default function DanhSachPhong() {
   const { data } = useSelector((state: any) => state.phongThueReducer);
   const dispatch: any = useDispatch();
   const location = useLocation();
-  const id = new URLSearchParams(location.search).get('maViTri');
+  // const id = new URLSearchParams(location.search).get('maViTri');
+  const { id } = useParams<{ id: string }>();
+  const h4Ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (id) {
@@ -20,11 +22,20 @@ export default function DanhSachPhong() {
   console.log(id)
   console.log(data)
 
+  useEffect(() => {
+    if (h4Ref.current) {
+      // h4Ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const h4Rect = h4Ref.current.getBoundingClientRect();
+      const topPosition = h4Rect.top + window.pageYOffset - 60;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
+    }
+  }, [data]);
+
   return (
     <>
       <div id='danhSachPhongThue' className='my-5 p-0'>
         <div className='container grid grid-cols-1 gap-2'>
-          <h4>Chỗ ở tại khu vực bạn đã chọn</h4>
+          <h4 ref={h4Ref}>Chỗ ở tại khu vực bạn đã chọn</h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9">
             {data?.map((item: PhongThue, index: number) => (

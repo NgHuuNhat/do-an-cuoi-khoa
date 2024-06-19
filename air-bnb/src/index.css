@@ -40,7 +40,7 @@ code {
 /* laptop */
 @media only screen and (min-width: 992px) {
   body{
-    zoom: 1.1;
+    zoom: 1;
   }
 
   #menu-slide {

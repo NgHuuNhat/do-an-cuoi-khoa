@@ -1,5 +1,5 @@
 #searchDemo p {
-    margin-bottom: 0 !important;
+    margin-bottom: 8px !important;
 }
 
 .custom-shadow {
@@ -35,8 +35,8 @@
 
     #searchDemo input{
         font-size: small !important;
+        outline: none;
     }
-
 }
 
 /* laptop */
@@ -47,7 +47,7 @@
     }
 
     #searchDemo input {
-        border: none;
+        border: none !important;
         font-size: small;
     }
 

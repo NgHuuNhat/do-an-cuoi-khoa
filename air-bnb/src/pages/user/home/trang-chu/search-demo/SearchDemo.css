@@ -11,6 +11,10 @@
     color: #fe6b6e;
 }
 
+#icon-timkiem {
+    margin-top: 10px !important;
+}
+
 /* iphone */
 @media only screen and (max-width: 568px) {
     .search-demo {

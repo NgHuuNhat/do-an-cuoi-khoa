@@ -71,6 +71,12 @@ export default function SearchDemo() {
             }
             navigator(url);
         }
+        reset({
+            diaDiem: values.diaDiem,
+            ngayDi: values.ngayDi,
+            ngayVe: values.ngayVe,
+            soLuong: '', // Chỉ reset ô số lượng
+        });
         let btnClose = document.getElementById('btn-closenhat');
         btnClose?.click();
     }
@@ -89,7 +95,7 @@ export default function SearchDemo() {
                             <p style={{ fontWeight: '500' }} className="text-sm">Địa điểm</p>
                             <div className="search-none smm:border-b md:hidden smm:border-gray-400 smm:w-9/12 py-2" />
                         </label>
-                        <select {...register('diaDiem')} onChange={handleOnchange} id="diaDiem" className="form-control" defaultValue='' style={{ fontSize: 'small' }}>
+                        <select {...register('diaDiem')} onChange={handleOnchange} id="diaDiem" className="form-control" style={{ fontSize: 'small' }}>
                             <option value=''>Bạn sắp đi đâu?</option>
                             {data?.map((item: ViTri, index: number) => (
                                 <option key={index} value={item.id}>{item.tinhThanh}</option>
@@ -117,13 +123,8 @@ export default function SearchDemo() {
                             <label htmlFor='soLuong' className='mb-0'>
                                 <p style={{ fontWeight: '500' }} className="text-sm">Số khách</p>
                             </label>
-                            <select {...register('soLuong')} id="soLuong" className="form-control" defaultValue='' style={{ fontSize: 'small' }}>
+                            <select {...register('soLuong')} id="soLuong" className="form-control" style={{ fontSize: 'small' }}>
                                 <option value=''>Số lượng</option>
-                                {/* <option value='1'>1</option>
-                                <option value='2'>2</option>
-                                <option value='3'>3</option>
-                                <option value='4'>4</option>
-                                <option value='5'>5</option> */}
                                 {uniqueKhachValues?.map((item: any, index: any) => (
                                     <option key={index} value={item}>{item}</option>
                                 ))}

@@ -14,8 +14,7 @@ export default function DanhSachPhong() {
     tinhThanh: string,
     tenViTri: string,
   }>();
-  const h4Ref = useRef<HTMLHeadingElement>(null);
-  // const [submitted, setSubmitted] = useState(false);
+  const h3Ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (id) {
@@ -31,20 +30,18 @@ export default function DanhSachPhong() {
   const issoLuong = !!soLuong;
 
   useEffect(() => {
-    if (tinhThanh) {
-      if (h4Ref.current) {
-        const h4Rect = h4Ref.current.getBoundingClientRect();
-        const topPosition = h4Rect.top + window.pageYOffset - 60;
-        window.scrollTo({ top: topPosition, behavior: 'smooth' });
-      }
-      // setSubmitted(true);
+    if (tinhThanh && h3Ref.current) {
+      const h3Rect = h3Ref.current.getBoundingClientRect();
+      const topPosition = h3Rect.top + window.pageYOffset - 60;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
     }
-  }, [location.search]);
+  }, [location.search, tinhThanh]);
+
 
   return (
     <>
       <div id='danhSachPhongThue' className='my-5 px-2 container'>
-        <h3 className='p-0 m-0 text-xl' ref={h4Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
+        <h3 className='p-0 m-0 text-xl' ref={h3Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
         <p className='text-sm p-0 m-0'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh}</p>
         {ngayDi && ngayVe ? (
           <p className='small'>Time: {ngayDi} {ngayVe}</p>

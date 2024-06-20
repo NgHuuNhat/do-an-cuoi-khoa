@@ -1915,7 +1915,7 @@ export default function Menu() {
                 <button className="btn-menu-long absolute right-0 top-5 arrow right" style={{ fontWeight: '500' }}><i className="fa-solid fa-arrow-right"></i></button>
             </div>
 
-            <div id='khamPha-menu' className="rounded my-5 p-1 flex flex-wrap justify-center gap-3">
+            <div id='khamPha-menu' className="rounded mt-5 p-1 flex flex-wrap justify-center gap-3">
                 <button style={{ fontWeight: '500', fontSize: 'small' }} className="rounded-lg text-sm bg-white text-black border border-gray-300 hover:border-gray-900 duration-300 px-6 py-2">
                     Loại nơi ở
                 </button>

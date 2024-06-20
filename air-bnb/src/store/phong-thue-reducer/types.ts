@@ -44,7 +44,7 @@ export interface StateUser {
 
 export interface State {
     loading: boolean,
-    data?: StateUser[] | null,
+    dataPhongThue?: StateUser[] | null,
     error: any[] | null,
 }
 

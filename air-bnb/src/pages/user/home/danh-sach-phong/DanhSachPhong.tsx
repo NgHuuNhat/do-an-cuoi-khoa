@@ -6,11 +6,15 @@ import { useLocation, useParams } from 'react-router-dom';
 import { actGetListPhongThue } from '../../../../store/phong-thue-reducer/action';
 
 export default function DanhSachPhong() {
-  const { data } = useSelector((state: any) => state.phongThueReducer);
+  const { dataPhongThue } = useSelector((state: any) => state.phongThueReducer);
   const dispatch: any = useDispatch();
   const location = useLocation();
   // const id = new URLSearchParams(location.search).get('maViTri');
-  const { id, tinhThanh, tenViTri } = useParams<{ id: string, tinhThanh: string, tenViTri: string }>();
+  const { id, tinhThanh, tenViTri } = useParams<{
+    id: string,
+    tinhThanh: string,
+    tenViTri: string,
+  }>();
   const h4Ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -26,67 +30,76 @@ export default function DanhSachPhong() {
       const topPosition = h4Rect.top + window.pageYOffset - 60;
       window.scrollTo({ top: topPosition, behavior: 'smooth' });
     }
-  }, [data]);
+  }, [dataPhongThue]);
 
-  console.log(data)
+  // Lấy ngayDi và ngayVe từ URL params
+  const queryParams = new URLSearchParams(location.search);
+  const ngayDi = queryParams.get('ngayDi');
+  const ngayVe = queryParams.get('ngayVe');
+  const soLuong = queryParams.get('soLuong');
+  const issoLuong = !!soLuong; // Kiểm tra xem có tồn tại soLuong hay không
+
+  console.log("dsphongdata", dataPhongThue)
 
   return (
     <>
-      <div id='danhSachPhongThue' className='my-5 p-0'>
-        <div className='container grid grid-cols-1 gap-2'>
-          <h4 className='p-0 m-0 text-xl' ref={h4Ref}>Chỗ ở tại khu vực {tinhThanh}</h4>
-          <p className='text-sm'>Có {data?.length} chỗ ở tại {tenViTri} - {tinhThanh}</p>
+      <div id='danhSachPhongThue' className='my-5 p-0 container'>
+        <h3 className='p-0 m-0 text-xl' ref={h4Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
+        <p className='text-sm'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh} - {ngayDi} - {ngayVe} - {soLuong}</p>
+        <div className='container grid grid-cols-1 gap-2 p-0'>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
-            {data?.map((item: PhongThue, index: number) => (
-              <div id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
-                <div className="ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
-                  <div className="height-250 ant-card-cover w-100 h-100">
-                    <div id={`demo${index}`} className="carousel slide h-100" data-ride="carousel">
-                      {/* Indicators */}
-                      <ul className="carousel-indicators">
-                        <li data-target={`#demo${index}`} data-slide-to={0} className="active" />
-                        <li data-target={`#demo${index}`} data-slide-to={1} />
-                        <li data-target={`#demo${index}`} data-slide-to={2} />
-                      </ul>
-                      {/* The slideshow */}
-                      <div className="carousel-inner h-100">
-                        <div className="h-100 carousel-item active">
-                          <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Los Angeles" />
+            {dataPhongThue?.map((item: PhongThue, index: number) => (
+              (!issoLuong || item.khach === Number(soLuong)) && (
+                <div id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
+                  <div className="ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
+                    <div className="height-250 ant-card-cover w-100 h-100">
+                      <div id={`demo${index}`} className="carousel slide h-100" data-ride="carousel">
+                        {/* Indicators */}
+                        <ul className="carousel-indicators">
+                          <li data-target={`#demo${index}`} data-slide-to={0} className="active" />
+                          <li data-target={`#demo${index}`} data-slide-to={1} />
+                          <li data-target={`#demo${index}`} data-slide-to={2} />
+                        </ul>
+                        {/* The slideshow */}
+                        <div className="carousel-inner h-100">
+                          <div className="h-100 carousel-item active">
+                            <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Los Angeles" />
+                          </div>
+                          <div className="h-100 carousel-item">
+                            <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Chicago" />
+                          </div>
+                          <div className="h-100 carousel-item">
+                            <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="New York" />
+                          </div>
                         </div>
-                        <div className="h-100 carousel-item">
-                          <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Chicago" />
-                        </div>
-                        <div className="h-100 carousel-item">
-                          <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="New York" />
-                        </div>
+                        {/* Left and right controls */}
+                        <a className="carousel-control-prev" href={`#demo${index}`} data-slide="prev">
+                          <span className="carousel-control-prev-icon" />
+                        </a>
+                        <a className="carousel-control-next" href={`#demo${index}`} data-slide="next">
+                          <span className="carousel-control-next-icon" />
+                        </a>
                       </div>
-                      {/* Left and right controls */}
-                      <a className="carousel-control-prev" href={`#demo${index}`} data-slide="prev">
-                        <span className="carousel-control-prev-icon" />
-                      </a>
-                      <a className="carousel-control-next" href={`#demo${index}`} data-slide="next">
-                        <span className="carousel-control-next-icon" />
-                      </a>
+
+                      {/* <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' alt='hinh-anh' src={item.hinhAnh} /> */}
                     </div>
 
-                    {/* <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' alt='hinh-anh' src={item.hinhAnh} /> */}
-                  </div>
+                    <div className="ant-card-body">
+                      <div className="ant-card-meta">
+                        <div className="ant-card-meta-detail">
+                          <div className="ant-card-meta-title p-0 m-0 mt-2">{item.tenPhong}</div>
+                          <p className='text-sm text-dark p-0 m-0'> {item.khach} khách - {item.phongNgu} phòng ngủ- {item.phongTam} phòng tắm</p>
+                          <div className='grid grid-cols-12'>
+                            <p className='col-span-11 text-sm text-dark font-weight-bold'> {item.giaTien} $ / đêm</p>
+                            <p id='icon-yeu-thich' className='text-center'><i id='icon' className="fa-solid fa-heart"></i></p>
+                          </div>
 
-                  <div className="ant-card-body">
-                    <div className="ant-card-meta">
-                      <div className="ant-card-meta-detail">
-                        <div className="ant-card-meta-title p-0 m-0 mt-2">{item.tenPhong}</div>
-                        <p className='text-sm text-dark p-0 m-0'> {item.khach} khách - {item.phongNgu} phòng ngủ- {item.phongTam} phòng tắm</p>
-                        <div className='grid grid-cols-12'>
-                          <p className='col-span-11 text-sm text-dark font-weight-bold'> {item.giaTien} $ / đêm</p>
-                          <p id='icon-yeu-thich' className='text-center'><i id='icon' className="fa-solid fa-heart"></i></p>
                         </div>
-
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )
             ))}
           </div>
 

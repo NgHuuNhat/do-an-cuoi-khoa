@@ -8,6 +8,7 @@ import { actGetListPhongThue } from '../../../../../store/phong-thue-reducer/act
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { PhongThue } from '../../../../../store/phong-thue-reducer/types';
 
 const schema = yup.object({
     diaDiem: yup.string().required('Vui lòng chọn địa điểm'),
@@ -17,6 +18,7 @@ const schema = yup.object({
 export default function SearchDemo() {
     const dispatch: any = useDispatch();
     const { data } = useSelector((state: any) => state.viTriReducer);
+    const { dataPhongThue } = useSelector((state: any) => state.phongThueReducer);
     const navigator = useNavigate();
 
     useEffect(() => {
@@ -43,30 +45,56 @@ export default function SearchDemo() {
     useEffect(() => {
     }, [formState]);
 
+    const handleOnchange = (event: any) => {
+        event.preventDefault();
+        const idOnChange = event.target.value;
+        // dispatch(actGetListPhongThue(idOnChange));
+        const item = data.find((item: ViTri) => item.id === parseInt(idOnChange));
+        if (item) {
+            const { id, tinhThanh, tenViTri } = item;
+            dispatch(actGetListPhongThue(idOnChange));
+            let url = `/phong-thue/${tinhThanh}/${tenViTri}/${idOnChange}`;
 
+            // if (values.ngayDi && values.ngayVe) {
+            //     url += `?ngayDi=${values.ngayDi}&ngayVe=${values.ngayVe}`;
+            //     if (values.soLuong) {
+            //         url += `&soLuong=${values.soLuong}`;
+            //     }
+            // } else if (values.soLuong) {
+            //     url += `?soLuong=${values.soLuong}`;
+            // }
+            navigator(url);
+        }
+    }
+
+    console.log("phongthue", dataPhongThue)
 
     const onSubmit = (values: any) => {
         const id = values.diaDiem;
         const item = data.find((item: ViTri) => item.id === parseInt(id));
-
         if (item) {
             const { id, tinhThanh, tenViTri } = item;
-            
-            // Bây giờ bạn đã có cả id và tinhThanh
-            // console.log('Id đã chọn:', id);
-            // console.log('Tỉnh thành đã chọn:', tinhThanh);
-    
-            // Thực hiện dispatch action hoặc điều hướng tới đường dẫn cần thiết
             dispatch(actGetListPhongThue(id));
-            navigator(`/phong-thue/${tinhThanh}/${tenViTri}/${id}`);
+            let url = `/phong-thue/${tinhThanh}/${tenViTri}/${id}`;
+
+            if (values.ngayDi && values.ngayVe) {
+                url += `?ngayDi=${values.ngayDi}&ngayVe=${values.ngayVe}`;
+                if (values.soLuong) {
+                    url += `&soLuong=${values.soLuong}`;
+                }
+            } else if (values.soLuong) {
+                url += `?soLuong=${values.soLuong}`;
+            }
+            navigator(url);
         }
-    
-        // Đóng modal hoặc thực hiện các hành động khác nếu cần
         let btnClose = document.getElementById('btn-closenhat');
         btnClose?.click();
     }
 
-    console.log(data)
+    console.log("searchdata", data)
+
+    const uniqueKhachValues = Array.from(new Set(dataPhongThue?.map((item: PhongThue) => item.khach)));
+
 
     return (
         <div id='searchDemo' className='container'>
@@ -77,7 +105,7 @@ export default function SearchDemo() {
                             <p style={{ fontWeight: '500' }} className="text-sm">Địa điểm</p>
                             <div className="search-none smm:border-b md:hidden smm:border-gray-400 smm:w-9/12 py-2" />
                         </label>
-                        <select {...register('diaDiem')} id="diaDiem" className="form-control" defaultValue='' style={{ fontSize: 'small' }}>
+                        <select {...register('diaDiem')} onChange={handleOnchange} id="diaDiem" className="form-control" defaultValue='' style={{ fontSize: 'small' }}>
                             <option value=''>Bạn sắp đi đâu?</option>
                             {data?.map((item: ViTri, index: number) => (
                                 <option key={index} value={item.id}>{item.tinhThanh}</option>
@@ -107,11 +135,14 @@ export default function SearchDemo() {
                             </label>
                             <select {...register('soLuong')} id="soLuong" className="form-control" defaultValue='' style={{ fontSize: 'small' }}>
                                 <option value=''>Số lượng</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {/* <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option> */}
+                                {uniqueKhachValues?.map((item: any, index: any) => (
+                                    <option key={index} value={item}>{item}</option>
+                                ))}
                             </select>
                         </div>
 

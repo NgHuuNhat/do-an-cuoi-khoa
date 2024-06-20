@@ -41,9 +41,11 @@ export default function LoginForm() {
             btnClose?.click()
             if (data.user.role === 'ADMIN') {
                 navigate('/admin');
-            } else {
-                navigate('/');
             }
+            // else {
+            //     navigate('/'); // Hoặc chuyển hướng về trang chủ nếu không có trang trước đó
+            // }
+
             reset();
         }
     }, [data, navigate])

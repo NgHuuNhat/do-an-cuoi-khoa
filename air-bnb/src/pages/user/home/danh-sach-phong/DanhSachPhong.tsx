@@ -35,21 +35,54 @@ export default function DanhSachPhong() {
     <>
       <div id='danhSachPhongThue' className='my-5 p-0'>
         <div className='container grid grid-cols-1 gap-2'>
-          <h4 ref={h4Ref}>Chỗ ở tại khu vực bạn đã chọn</h4>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9">
+          <h4 className='p-0 m-0 text-xl' ref={h4Ref}>Chỗ ở tại khu vực bạn đã chọn</h4>
+          <p className='text-sm'>Có 3 chỗ ở tại TP.Hồ Chí Minh 20/06/2024 - 20/06/2024</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
             {data?.map((item: PhongThue, index: number) => (
-              <a key={index} data-aos="flip-left" href="/rooms/ho-chi-minh" className="aos-init aos-animate">
+              <a key={index} data-aos="flip-left" href="#" className="aos-init aos-animate">
                 <div className="ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
                   <div className="height-250 ant-card-cover w-100 h-100">
-                    <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' alt='hinh-anh' src={item.hinhAnh} />
+                    <div id={`demo${index}`} className="carousel slide h-100" data-ride="carousel">
+                      {/* Indicators */}
+                      <ul className="carousel-indicators">
+                        <li data-target={`#demo${index}`} data-slide-to={0} className="active" />
+                        <li data-target={`#demo${index}`} data-slide-to={1} />
+                        <li data-target={`#demo${index}`} data-slide-to={2} />
+                      </ul>
+                      {/* The slideshow */}
+                      <div className="carousel-inner h-100">
+                        <div className="h-100 carousel-item active">
+                          <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Los Angeles" />
+                        </div>
+                        <div className="h-100 carousel-item">
+                          <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Chicago" />
+                        </div>
+                        <div className="h-100 carousel-item">
+                          <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="New York" />
+                        </div>
+                      </div>
+                      {/* Left and right controls */}
+                      <a className="carousel-control-prev" href={`#demo${index}`} data-slide="prev">
+                        <span className="carousel-control-prev-icon" />
+                      </a>
+                      <a className="carousel-control-next" href={`#demo${index}`} data-slide="next">
+                        <span className="carousel-control-next-icon" />
+                      </a>
+                    </div>
+
+                    {/* <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' alt='hinh-anh' src={item.hinhAnh} /> */}
                   </div>
+
                   <div className="ant-card-body">
                     <div className="ant-card-meta">
                       <div className="ant-card-meta-detail">
                         <div className="ant-card-meta-title p-0 m-0 mt-2">{item.tenPhong}</div>
                         <p className='text-sm text-dark p-0 m-0'> {item.khach} khách - {item.phongNgu} phòng ngủ- {item.phongTam} phòng tắm</p>
-                        <p className='text-sm text-dark'> {item.giaTien} $ / đêm</p>
+                        <div className='grid grid-cols-12'>
+                          <p className='col-span-11 text-sm text-dark font-weight-bold'> {item.giaTien} $ / đêm</p>
+                          <p className='text-center'><i style={{color: 'red'}} className="fa-solid fa-heart"></i></p>
+                        </div>
+
                       </div>
                     </div>
                   </div>

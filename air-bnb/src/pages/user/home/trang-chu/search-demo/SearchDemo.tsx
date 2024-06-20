@@ -43,13 +43,30 @@ export default function SearchDemo() {
     useEffect(() => {
     }, [formState]);
 
+
+
     const onSubmit = (values: any) => {
         const id = values.diaDiem;
-        dispatch(actGetListPhongThue(id));
+        const item = data.find((item: ViTri) => item.id === parseInt(id));
+
+        if (item) {
+            const { id, tinhThanh, tenViTri } = item;
+            
+            // Bây giờ bạn đã có cả id và tinhThanh
+            // console.log('Id đã chọn:', id);
+            // console.log('Tỉnh thành đã chọn:', tinhThanh);
+    
+            // Thực hiện dispatch action hoặc điều hướng tới đường dẫn cần thiết
+            dispatch(actGetListPhongThue(id));
+            navigator(`/phong-thue/${tinhThanh}/${tenViTri}/${id}`);
+        }
+    
+        // Đóng modal hoặc thực hiện các hành động khác nếu cần
         let btnClose = document.getElementById('btn-closenhat');
         btnClose?.click();
-        navigator(`/phong-thue/${id}`);
     }
+
+    console.log(data)
 
     return (
         <div id='searchDemo' className='container'>

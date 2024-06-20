@@ -10,7 +10,7 @@ export default function DanhSachPhong() {
   const dispatch: any = useDispatch();
   const location = useLocation();
   // const id = new URLSearchParams(location.search).get('maViTri');
-  const { id } = useParams<{ id: string }>();
+  const { id, tinhThanh, tenViTri } = useParams<{ id: string, tinhThanh: string, tenViTri: string }>();
   const h4Ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -18,9 +18,6 @@ export default function DanhSachPhong() {
       dispatch(actGetListPhongThue(id));
     }
   }, [dispatch, id]); // Chỉ chạy lại useEffect khi `id` hoặc `dispatch` thay đổi
-
-  console.log(id)
-  console.log(data)
 
   useEffect(() => {
     if (h4Ref.current) {
@@ -31,12 +28,14 @@ export default function DanhSachPhong() {
     }
   }, [data]);
 
+  console.log(data)
+
   return (
     <>
       <div id='danhSachPhongThue' className='my-5 p-0'>
         <div className='container grid grid-cols-1 gap-2'>
-          <h4 className='p-0 m-0 text-xl' ref={h4Ref}>Chỗ ở tại khu vực bạn đã chọn</h4>
-          <p className='text-sm'>Có 3 chỗ ở tại TP.Hồ Chí Minh 20/06/2024 - 20/06/2024</p>
+          <h4 className='p-0 m-0 text-xl' ref={h4Ref}>Chỗ ở tại khu vực {tinhThanh}</h4>
+          <p className='text-sm'>Có {data?.length} chỗ ở tại {tenViTri} - {tinhThanh}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
             {data?.map((item: PhongThue, index: number) => (
               <a key={index} data-aos="flip-left" href="#" className="aos-init aos-animate">
@@ -80,7 +79,7 @@ export default function DanhSachPhong() {
                         <p className='text-sm text-dark p-0 m-0'> {item.khach} khách - {item.phongNgu} phòng ngủ- {item.phongTam} phòng tắm</p>
                         <div className='grid grid-cols-12'>
                           <p className='col-span-11 text-sm text-dark font-weight-bold'> {item.giaTien} $ / đêm</p>
-                          <p className='text-center'><i style={{color: 'red'}} className="fa-solid fa-heart"></i></p>
+                          <p className='text-center'><i style={{ color: 'red' }} className="fa-solid fa-heart"></i></p>
                         </div>
 
                       </div>

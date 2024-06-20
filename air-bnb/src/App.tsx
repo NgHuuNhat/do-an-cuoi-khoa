@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<IndexUser />}>
           <Route path="/" element={<Home />} />
-          <Route path="/phong-thue/:id" element={<DanhSachPhong />} />
+          <Route path="/phong-thue/:tinhThanh/:tenViTri/:id" element={<DanhSachPhong />} />
         </Route>
 
         <Route path="/admin" element={<IndexAdmin />} />

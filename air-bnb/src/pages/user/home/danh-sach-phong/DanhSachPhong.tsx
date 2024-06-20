@@ -38,7 +38,7 @@ export default function DanhSachPhong() {
           <p className='text-sm'>Có {data?.length} chỗ ở tại {tenViTri} - {tinhThanh}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
             {data?.map((item: PhongThue, index: number) => (
-              <a key={index} data-aos="flip-left" href="#" className="aos-init aos-animate">
+              <div id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
                 <div className="ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
                   <div className="height-250 ant-card-cover w-100 h-100">
                     <div id={`demo${index}`} className="carousel slide h-100" data-ride="carousel">
@@ -79,14 +79,14 @@ export default function DanhSachPhong() {
                         <p className='text-sm text-dark p-0 m-0'> {item.khach} khách - {item.phongNgu} phòng ngủ- {item.phongTam} phòng tắm</p>
                         <div className='grid grid-cols-12'>
                           <p className='col-span-11 text-sm text-dark font-weight-bold'> {item.giaTien} $ / đêm</p>
-                          <p className='text-center'><i style={{ color: 'red' }} className="fa-solid fa-heart"></i></p>
+                          <p id='icon-yeu-thich' className='text-center'><i id='icon' className="fa-solid fa-heart"></i></p>
                         </div>
 
                       </div>
                     </div>
                   </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
 

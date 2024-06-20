@@ -98,7 +98,7 @@ export default function SearchDemo() {
                             </select>
                         </div>
 
-                        <button type='submit' style={{ backgroundColor: '#fe6b6e' }} className=" w-12 h-12 duration-300 text-white rounded-full ">
+                        <button type='submit' style={{ backgroundColor: '#fe6b6e' }} className="search-w-100 w-12 h-12 duration-300 text-white rounded-full">
                             <i className="fas fa-search"></i>
                         </button>
                     </div>

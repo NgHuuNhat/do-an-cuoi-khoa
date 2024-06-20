@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './DanhSachPhong.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { PhongThue } from '../../../../store/phong-thue-reducer/types';
@@ -9,43 +9,47 @@ export default function DanhSachPhong() {
   const { dataPhongThue } = useSelector((state: any) => state.phongThueReducer);
   const dispatch: any = useDispatch();
   const location = useLocation();
-  // const id = new URLSearchParams(location.search).get('maViTri');
   const { id, tinhThanh, tenViTri } = useParams<{
     id: string,
     tinhThanh: string,
     tenViTri: string,
   }>();
   const h4Ref = useRef<HTMLHeadingElement>(null);
+  // const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     if (id) {
       dispatch(actGetListPhongThue(id));
     }
-  }, [dispatch, id]); // Chỉ chạy lại useEffect khi `id` hoặc `dispatch` thay đổi
-
-  useEffect(() => {
-    if (h4Ref.current) {
-      // h4Ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      const h4Rect = h4Ref.current.getBoundingClientRect();
-      const topPosition = h4Rect.top + window.pageYOffset - 60;
-      window.scrollTo({ top: topPosition, behavior: 'smooth' });
-    }
-  }, [dataPhongThue]);
+  }, [dispatch, id]);
 
   // Lấy ngayDi và ngayVe từ URL params
   const queryParams = new URLSearchParams(location.search);
   const ngayDi = queryParams.get('ngayDi');
   const ngayVe = queryParams.get('ngayVe');
   const soLuong = queryParams.get('soLuong');
-  const issoLuong = !!soLuong; // Kiểm tra xem có tồn tại soLuong hay không
+  const issoLuong = !!soLuong;
 
-  console.log("dsphongdata", dataPhongThue)
+  useEffect(() => {
+    if (tinhThanh || ngayDi && ngayVe || soLuong) {
+      if (h4Ref.current) {
+        const h4Rect = h4Ref.current.getBoundingClientRect();
+        const topPosition = h4Rect.top + window.pageYOffset - 60;
+        window.scrollTo({ top: topPosition, behavior: 'smooth' });
+      }
+      // setSubmitted(true);
+    }
+  }, [location.search]);
 
   return (
     <>
-      <div id='danhSachPhongThue' className='my-5 p-0 container'>
+      <div id='danhSachPhongThue' className='my-5 px-2 container'>
         <h3 className='p-0 m-0 text-xl' ref={h4Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
-        <p className='text-sm'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh} - {ngayDi} - {ngayVe} - {soLuong}</p>
+        <p className='text-sm p-0 m-0'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh}</p>
+        {ngayDi && ngayVe ? (
+          <p className='small'>Time: {ngayDi} {ngayVe}</p>
+        ) : ('')}
+
         <div className='container grid grid-cols-1 gap-2 p-0'>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
             {dataPhongThue?.map((item: PhongThue, index: number) => (
@@ -80,8 +84,6 @@ export default function DanhSachPhong() {
                           <span className="carousel-control-next-icon" />
                         </a>
                       </div>
-
-                      {/* <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' alt='hinh-anh' src={item.hinhAnh} /> */}
                     </div>
 
                     <div className="ant-card-body">

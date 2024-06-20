@@ -48,23 +48,7 @@ export default function SearchDemo() {
     const handleOnchange = (event: any) => {
         event.preventDefault();
         const idOnChange = event.target.value;
-        // dispatch(actGetListPhongThue(idOnChange));
-        const item = data.find((item: ViTri) => item.id === parseInt(idOnChange));
-        if (item) {
-            const { id, tinhThanh, tenViTri } = item;
-            dispatch(actGetListPhongThue(idOnChange));
-            let url = `/phong-thue/${tinhThanh}/${tenViTri}/${idOnChange}`;
-
-            // if (values.ngayDi && values.ngayVe) {
-            //     url += `?ngayDi=${values.ngayDi}&ngayVe=${values.ngayVe}`;
-            //     if (values.soLuong) {
-            //         url += `&soLuong=${values.soLuong}`;
-            //     }
-            // } else if (values.soLuong) {
-            //     url += `?soLuong=${values.soLuong}`;
-            // }
-            navigator(url);
-        }
+        dispatch(actGetListPhongThue(idOnChange));
     }
 
     console.log("phongthue", dataPhongThue)
@@ -131,7 +115,7 @@ export default function SearchDemo() {
                     <div className="search-block col-span-3 flex-1 p-3 flex justify-center items-center cursor-pointer relative gap-3">
                         <div className='grid grid-cols-1'>
                             <label htmlFor='soLuong' className='mb-0'>
-                                <p style={{ fontWeight: '500' }} className="text-sm">Thêm khách</p>
+                                <p style={{ fontWeight: '500' }} className="text-sm">Số khách</p>
                             </label>
                             <select {...register('soLuong')} id="soLuong" className="form-control" defaultValue='' style={{ fontSize: 'small' }}>
                                 <option value=''>Số lượng</option>

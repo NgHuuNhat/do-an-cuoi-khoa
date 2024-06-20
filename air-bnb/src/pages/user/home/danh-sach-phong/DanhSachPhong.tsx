@@ -31,7 +31,7 @@ export default function DanhSachPhong() {
   const issoLuong = !!soLuong;
 
   useEffect(() => {
-    if (tinhThanh || soLuong) {
+    if (tinhThanh) {
       if (h4Ref.current) {
         const h4Rect = h4Ref.current.getBoundingClientRect();
         const topPosition = h4Rect.top + window.pageYOffset - 60;

@@ -19,12 +19,12 @@ export default function ChiTietPhong() {
     }
   }, [dispatch, id]);
 
-  if (dataChiTietPhong) {
-    const {
-      tenPhong, khach, phongNgu, giuong, phongTam, moTa, giaTien, mayGiat,
-      banLa, tivi, dieuHoa, wifi, bep, doXe, hoBoi, banUi, maViTri, hinhAnh
-    } = dataChiTietPhong as PhongThue;
-  }
+  // if (dataChiTietPhong) {
+  //   const {
+  //     tenPhong, khach, phongNgu, giuong, phongTam, moTa, giaTien, mayGiat,
+  //     banLa, tivi, dieuHoa, wifi, bep, doXe, hoBoi, banUi, maViTri, hinhAnh
+  //   } = dataChiTietPhong as PhongThue;
+  // }
 
   return (
     <>
@@ -92,8 +92,8 @@ export default function ChiTietPhong() {
             <div>
               <h5>Tiên nghi</h5>
               <div>
-                {/* <p>{bep ? 'Bep' : ''}</p> */}
-
+                <p>Bếp</p>
+                <p>TV</p>
               </div>
             </div>
 

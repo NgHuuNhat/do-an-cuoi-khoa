@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/OBatCuDau.css'
+import './OBatCuDau.css'
 
 export default function OBatCuDau() {
     return (

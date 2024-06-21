@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PhongThue } from '../../../../store/phong-thue-reducer/types';
 import { useLocation, useParams } from 'react-router-dom';
 import { actGetListPhongThue } from '../../../../store/phong-thue-reducer/action';
+import dayjs from 'dayjs';
 
 export default function DanhSachPhong() {
   const { dataPhongThue } = useSelector((state: any) => state.phongThueReducer);
@@ -44,7 +45,7 @@ export default function DanhSachPhong() {
         <h3 className='p-0 m-0 text-xl' ref={h3Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
         <p className='text-sm p-0 m-0'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh}</p>
         {ngayDi && ngayVe ? (
-          <p className='small'>Time: {ngayDi} {ngayVe}</p>
+          <p className='small'>{dayjs(ngayDi).format('DD/MM/YYYY')} - {dayjs(ngayVe).format('DD/MM/YYYY')}</p>
         ) : ('')}
 
         <div className='container grid grid-cols-1 gap-2 p-0'>

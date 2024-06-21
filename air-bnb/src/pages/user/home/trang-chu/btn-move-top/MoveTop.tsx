@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/MoveTop.css'
+import './MoveTop.css'
 
 export default function MoveTop() {
     const scrollToTop = () => {

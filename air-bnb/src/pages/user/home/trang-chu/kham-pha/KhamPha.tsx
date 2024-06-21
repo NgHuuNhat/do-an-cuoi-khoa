@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/KhamPha.css'
+import './KhamPha.css'
 
 export default function KhamPha() {
     return (

@@ -5,7 +5,6 @@ import MoveTop from './home/trang-chu/btn-move-top/MoveTop';
 import Header from './home/_components/header/Header';
 import SearchDemo from './home/trang-chu/search-demo/SearchDemo';
 import Menu from './home/trang-chu/menu/Menu';
-import KhamPha from './home/trang-chu/kham-pha/KhamPha';
 
 export default function IndexUser() {
     const [headerHeight, setHeaderHeight] = useState(0);

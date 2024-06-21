@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Header.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { actClearSuccess } from '../../../../../store/user-reducer/action';
+import { actClearSuccess } from '../../../../../store/store-trang-chu/user-reducer/action';
 import Login from '../../../auth/login/Login';
 import Register from '../../../auth/register/Register';
 import { message } from 'antd';

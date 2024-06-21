@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actGetViTri } from '../../../../../store/vi-tri-reducer/action';
-import { ViTri } from '../../../../../store/vi-tri-reducer/types';
+import { actGetViTri } from '../../../../../store/store-trang-chu/vi-tri-reducer/action';
+import { ViTri } from '../../../../../store/store-trang-chu/vi-tri-reducer/types';
 import { useForm } from 'react-hook-form';
-import { actGetListPhongThue } from '../../../../../store/phong-thue-reducer/action';
+import { actGetListPhongThue } from '../../../../../store/store-danh-sach-phong/action';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';

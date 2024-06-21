@@ -1,4 +1,4 @@
-import api from "../../utils/api-user/ApiUser";
+import api from "../../../utils/api-user/ApiUser";
 import * as ActionType from "./constants";
 import { Action } from "./types";
 

@@ -6,18 +6,6 @@ a:hover{
     text-decoration: none;
 }
 
-/* #icon-yeu-thich i{
-    color: red !important;
-}
-
-#icon-yeu-thich:hover i{
-    color: red !important;
-}
-
-#icon-yeu-thich:focus i{
-    color: red !important;
-} */
-
 #icon {
     color: black;
     position: absolute;

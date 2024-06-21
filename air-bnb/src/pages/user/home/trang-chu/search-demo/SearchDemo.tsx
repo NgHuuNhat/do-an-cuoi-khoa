@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './SearchDemo.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { actGetViTri } from '../../../../../store/vi-tri-reducer/action';
-import { ViTri } from '../../../../../store/vi-tri-reducer/types';
+import { actGetViTri } from '../../../../../store/store-trang-chu/vi-tri-reducer/action';
+import { ViTri } from '../../../../../store/store-trang-chu/vi-tri-reducer/types';
 import { useForm } from 'react-hook-form';
-import { actGetListPhongThue } from '../../../../../store/phong-thue-reducer/action';
+import { actGetListPhongThue } from '../../../../../store/store-danh-sach-phong/action';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { PhongThue } from '../../../../../store/phong-thue-reducer/types';
+import { PhongThue } from '../../../../../store/store-danh-sach-phong/types';
 
 const schema = yup.object({
     diaDiem: yup.string().required('Vui lòng chọn địa điểm'),
@@ -51,8 +51,6 @@ export default function SearchDemo() {
         dispatch(actGetListPhongThue(idOnChange));
     }
 
-    console.log("phongthue", dataPhongThue)
-
     const onSubmit = (values: any) => {
         const id = values.diaDiem;
         const item = data.find((item: ViTri) => item.id === parseInt(id));
@@ -80,11 +78,7 @@ export default function SearchDemo() {
         let btnClose = document.getElementById('btn-closenhat');
         btnClose?.click();
     }
-
-    console.log("searchdata", data)
-
     const uniqueKhachValues = Array.from(new Set(dataPhongThue?.map((item: PhongThue) => item.khach)));
-
 
     return (
         <div id='searchDemo' className='container'>

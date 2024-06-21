@@ -1,21 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './DanhSachPhong.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { PhongThue } from '../../../../store/phong-thue-reducer/types';
-import { useLocation, useParams } from 'react-router-dom';
-import { actGetListPhongThue } from '../../../../store/phong-thue-reducer/action';
+import { PhongThue } from '../../../../store/store-danh-sach-phong/types';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { actGetListPhongThue } from '../../../../store/store-danh-sach-phong/action';
 import dayjs from 'dayjs';
+import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/action';
 
 export default function DanhSachPhong() {
   const { dataPhongThue } = useSelector((state: any) => state.phongThueReducer);
   const dispatch: any = useDispatch();
   const location = useLocation();
+  const h3Ref = useRef<HTMLHeadingElement>(null);
+  const navigate = useNavigate();
   const { id, tinhThanh, tenViTri } = useParams<{
     id: string,
     tinhThanh: string,
     tenViTri: string,
   }>();
-  const h3Ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (id) {
@@ -38,10 +40,19 @@ export default function DanhSachPhong() {
     }
   }, [location.search, tinhThanh]);
 
+  console.log(dataPhongThue)
+
+  const handleClick = (id: any) => {
+    console.log("click");
+    console.log(id);
+    dispatch(actGetChiTietPhong(id));
+    navigate(`/phong-thue/${id}`);
+  }
 
   return (
     <>
       <div id='danhSachPhongThue' className='my-5 px-2 container'>
+
         <h3 className='p-0 m-0 text-xl' ref={h3Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
         <p className='text-sm p-0 m-0'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh}</p>
         {ngayDi && ngayVe ? (
@@ -50,10 +61,13 @@ export default function DanhSachPhong() {
 
         <div className='container grid grid-cols-1 gap-2 p-0'>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
+
             {dataPhongThue?.map((item: PhongThue, index: number) => (
               (!issoLuong || item.khach === Number(soLuong)) && (
-                <div id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
+
+                <div onClick={() => handleClick(item.id)} id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
                   <div className="ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
+
                     <div className="height-250 ant-card-cover w-100 h-100">
                       <div id={`demo${index}`} className="carousel slide h-100" data-ride="carousel">
                         {/* Indicators */}
@@ -93,7 +107,6 @@ export default function DanhSachPhong() {
                             <p className='col-span-11 text-sm text-dark font-weight-bold'> {item.giaTien} $ / đêm</p>
                             <p id='icon-yeu-thich' className='text-center'><i id='icon' className="fa-solid fa-heart"></i></p>
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -101,6 +114,7 @@ export default function DanhSachPhong() {
                 </div>
               )
             ))}
+
           </div>
 
           {/* google map */}

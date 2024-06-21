@@ -7,7 +7,7 @@ const initialState: State = {
     error: null,
 }
 
-export const viTriPhanTrangReducer = (state = initialState, action: Action) => {
+export const phanTrangReducer = (state = initialState, action: Action) => {
     switch (action.type) {
         case ActionType.REQUEST_VITRI_PHANTRANG: {
             state.loading = true;

@@ -70,7 +70,7 @@ export default function ChiTietPhong() {
                 <h5 className='font-weight-bold'>$44 / đêm</h5>
                 <p className='text-right font-weight-bold'>4sao (18 đánh giá)</p>
               </div>
-              <div className='grid grid-cols-2 gap-5'>
+              <div className='grid grid-cols-2 gap-1'>
                 <div className='col-span-1'>
                   <label htmlFor="" className='text-sm'>Nhận phòng</label>
                   <input className='w-100 form-control text-sm' type="date" />
@@ -218,7 +218,7 @@ export default function ChiTietPhong() {
                 <h5 className='font-weight-bold'>$44 / đêm</h5>
                 <p className='text-right font-weight-bold'>4sao (18 đánh giá)</p>
               </div>
-              <div className='grid grid-cols-2 gap-5'>
+              <div className='grid grid-cols-2 gap-1'>
                 <div className='col-span-1'>
                   <label htmlFor="" className='text-sm'>Nhận phòng</label>
                   <input className='w-100 form-control text-sm' type="date" />

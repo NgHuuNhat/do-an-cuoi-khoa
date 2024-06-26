@@ -65,50 +65,50 @@ export default function ChiTietPhong() {
             </div>
 
             <div className='lg:col-span-1 d-lg-none my-5'>
-            <div className='custom-shadow rounded p-3'>
-              <div className='grid grid-cols-2'>
-                <h5 className='font-weight-bold'>$44 / đêm</h5>
-                <p className='text-right font-weight-bold'>4sao (18 đánh giá)</p>
-              </div>
-              <div className='grid grid-cols-2 gap-1'>
-                <div className='col-span-1'>
-                  <label htmlFor="" className='text-sm'>Nhận phòng</label>
-                  <input className='w-100 form-control text-sm' type="date" />
+              <div className='custom-shadow rounded p-3'>
+                <div className='grid grid-cols-2'>
+                  <h5 className='font-weight-bold'>$44 / đêm</h5>
+                  <p className='text-right font-weight-bold'>4sao (18 đánh giá)</p>
                 </div>
-                <div className='col-span-1'>
-                  <label htmlFor="" className='text-sm'>Trả phòng</label>
-                  <input className='w-100 form-control text-sm' type="date" />
+                <div className='grid grid-cols-2 gap-1'>
+                  <div className='col-span-1'>
+                    <label htmlFor="" className='text-sm'>Nhận phòng</label>
+                    <input className='w-100 form-control text-sm' type="date" />
+                  </div>
+                  <div className='col-span-1'>
+                    <label htmlFor="" className='text-sm'>Trả phòng</label>
+                    <input className='w-100 form-control text-sm' type="date" />
+                  </div>
+                  <div className='col-span-2'>
+                    <label htmlFor="" className='text-sm'>Khách</label>
+                    <select className='w-100 form-control' name="" id="">
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                    </select>
+                  </div>
                 </div>
-                <div className='col-span-2'>
-                  <label htmlFor="" className='text-sm'>Khách</label>
-                  <select className='w-100 form-control' name="" id="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                  </select>
+                <hr />
+                <div>
+                  <div className=' grid grid-cols-2'>
+                    <p className=''>$44 x 5 đêm</p>
+                    <p className='text-right '>$221</p>
+                  </div>
+                  <div className=' grid grid-cols-2'>
+                    <p className=''>Phí dịch vụ</p>
+                    <p className='text-right '>$31</p>
+                  </div>
+                  <hr className='mt-0' />
+                  <div className=' grid grid-cols-2'>
+                    <p className='font-weight-bold'>Tổng</p>
+                    <p className='text-right font-weight-bold'>$252</p>
+                  </div>
                 </div>
-              </div>
-              <hr />
-              <div>
-                <div className=' grid grid-cols-2'>
-                  <p className=''>$44 x 5 đêm</p>
-                  <p className='text-right '>$221</p>
-                </div>
-                <div className=' grid grid-cols-2'>
-                  <p className=''>Phí dịch vụ</p>
-                  <p className='text-right '>$31</p>
-                </div>
-                <hr className='mt-0' />
-                <div className=' grid grid-cols-2'>
-                  <p className='font-weight-bold'>Tổng</p>
-                  <p className='text-right font-weight-bold'>$252</p>
-                </div>
-              </div>
 
-              <button className='border w-100 p-3 my-3 rounded font-weight-bold text-light' style={{ backgroundColor: '#fe6b6e' }}>Đặt phòng</button>
+                <button className='border w-100 p-3 my-3 rounded font-weight-bold text-light' style={{ backgroundColor: '#fe6b6e' }}>Đặt phòng</button>
 
+              </div>
             </div>
-          </div>
 
             <div className='p-2 rounded'>
               <div className='grid grid-cols-12'>
@@ -155,7 +155,12 @@ export default function ChiTietPhong() {
 
               <div>
                 <p className='text-sm'>{dataChiTietPhong?.moTa}</p>
-                <button className='border w-50 my-2 p-2 rounded'>Dịch sang tiếng việt</button>
+                <button className='border w-75 my-2 p-2 rounded d-flex justify-content-center'>
+                  <span>Dịch sang tiếng việt</span>
+                  <span className='ml-2'>
+                    <svg width="24" height="24" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M20 18h-1.44a.6.6 0 0 1-.4-.12a.8.8 0 0 1-.23-.31L17 15h-5l-1 2.54a.8.8 0 0 1-.22.3a.6.6 0 0 1-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a12 12 0 0 1-.39-1.24q-.09.37-.19.69l-.19.56l-1.58 4.19zm-6.3-1.58a13.4 13.4 0 0 1-2.91-1.41a11.46 11.46 0 0 0 2.81-5.37H12V4H7.31a4 4 0 0 0-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 0 0 5 10.7a17.2 17.2 0 0 1-5 2.1q.56.82.87 1.38a23.3 23.3 0 0 0 5.22-2.51a15.6 15.6 0 0 0 3.56 1.77zM3.63 5.33h4.91a8.1 8.1 0 0 1-2.45 4.45a9.1 9.1 0 0 1-2.46-4.45"></path></svg>
+                  </span>
+                </button>
               </div>
 
               <hr />
@@ -176,8 +181,8 @@ export default function ChiTietPhong() {
                     <p className='text-sm'>{dataChiTietPhong?.hoBoi ? 'Hồ bơi' : ''}</p>
                     <p className='text-sm'>{dataChiTietPhong?.banLa ? 'Bàn là' : ''}</p>
                   </div>
-                  <button className='border w-100 p-2 rounded'>Thêm tiện nghi</button>
                 </div>
+                <button className='border w-75 p-2 rounded'>Thêm tiện nghi</button>
               </div>
 
               <hr />

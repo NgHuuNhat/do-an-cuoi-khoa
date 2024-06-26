@@ -10,7 +10,7 @@ img {
     object-fit: cover !important;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -19,20 +19,32 @@ a:hover{
     position: absolute;
 }
 
-#icon:hover{
+#icon:hover {
     color: red;
     cursor: pointer;
 }
 
-#icon:focus{
+#icon:focus {
     color: red !important;
 }
 
-#item {
+/* #item {
+    cursor: pointer;
+} */
+
+.cursor {
     cursor: pointer;
 }
 
-#daucham{
+input {
+    cursor: pointer !important;
+}
+
+select {
+    cursor:  pointer !important;
+}
+
+#daucham {
     font-size: 5px;
     margin-bottom: 5px !important;
     padding-bottom: 5px;

@@ -65,7 +65,7 @@ export default function DanhSachPhong() {
             {dataPhongThue?.map((item: PhongThue, index: number) => (
               (!issoLuong || item.khach === Number(soLuong)) && (
 
-                <div onClick={() => handleClick(item.id)} id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
+                <div  id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
                   <div className="custom-shadow p-2 rounded ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
 
                     <div className="height-250 ant-card-cover w-100 h-100">
@@ -98,7 +98,7 @@ export default function DanhSachPhong() {
                       </div>
                     </div>
 
-                    <div className="ant-card-body">
+                    <div id='' onClick={() => handleClick(item.id)} className="ant-card-body cursor">
                       <div className="ant-card-meta">
                         <div className="ant-card-meta-detail">
                           <div className="ant-card-meta-title p-0 m-0 mt-2">{item.tenPhong}</div>

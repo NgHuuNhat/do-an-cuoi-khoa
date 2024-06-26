@@ -40,23 +40,23 @@ code {
 /* laptop */
 @media only screen and (min-width: 992px) {
   body{
-    zoom: 1;
+    zoom: 1.1;
   }
 
   #menu-slide {
-    zoom: 1.2;
+    zoom: 1;
   }
 
   #khamPha-menu {
-    zoom: 0.8;
+    zoom: 1;
   }
 
   #danhSachPhongThue{
-    zoom: 1.1
+    zoom: 1
   }
 
   #footer{
-    zoom: 0.8 !important;
+    zoom: 1 !important;
   }
 }
 

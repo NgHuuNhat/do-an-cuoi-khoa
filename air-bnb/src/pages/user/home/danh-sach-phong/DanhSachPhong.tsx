@@ -54,19 +54,19 @@ export default function DanhSachPhong() {
       <div id='danhSachPhongThue' className='my-5 px-2 container'>
 
         <h3 className='p-0 m-0 text-xl' ref={h3Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
-        <p className='text-sm p-0 m-0'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh}</p>
-        {ngayDi && ngayVe ? (
+        <p className='text-sm'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh} {ngayDi && ngayVe ? (
           <p className='small'>{dayjs(ngayDi).format('DD/MM/YYYY')} - {dayjs(ngayVe).format('DD/MM/YYYY')}</p>
-        ) : ('')}
+        ) : ('')}</p>
 
-        <div className='container grid grid-cols-1 gap-2 p-0'>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
+
+        <div className='container grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5 p-0'>
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-5">
 
             {dataPhongThue?.map((item: PhongThue, index: number) => (
               (!issoLuong || item.khach === Number(soLuong)) && (
 
                 <div onClick={() => handleClick(item.id)} id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
-                  <div className="ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
+                  <div className="custom-shadow p-2 rounded ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
 
                     <div className="height-250 ant-card-cover w-100 h-100">
                       <div id={`demo${index}`} className="carousel slide h-100" data-ride="carousel">
@@ -118,7 +118,7 @@ export default function DanhSachPhong() {
           </div>
 
           {/* google map */}
-          <div className=''>
+          <div className='rounded'>
             <div className="w-full block top-28">
               <div
                 className="h-50 w-full aos-init aos-animate"

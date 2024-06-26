@@ -24,6 +24,10 @@
     color: #fe6b6e !important;
   }
 
+  #logo-img{
+    /* object-fit: none !important; */
+  }
+
   /* menu-laptop */
   #menu-lg {
     /* background-color: yellow; */

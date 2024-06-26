@@ -2,6 +2,14 @@
     height: 250px !important;
 }
 
+.height-300 {
+    height: 300px !important;
+}
+
+img {
+    object-fit: cover !important;
+}
+
 a:hover{
     text-decoration: none;
 }

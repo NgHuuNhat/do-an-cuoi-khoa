@@ -89,7 +89,7 @@ export default function Header(props: any) {
         </button>
 
         <div id='logo' className='d-flex'>
-          <NavLink to="/"><img className='w-10 h-10' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" /></NavLink>
+          <NavLink to="/"><img id='logo-img' className='w-10' src="https://demo4.cybersoft.edu.vn/static/media/airbnb-1.aabeefedaf30b8c7011a022cdb5a6425.svg" alt="logo" /></NavLink>
           <NavLink className="navbar-brand text-dark" to="/">airbnb</NavLink>
         </div>
 

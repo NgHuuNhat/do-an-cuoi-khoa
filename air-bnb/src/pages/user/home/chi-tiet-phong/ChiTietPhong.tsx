@@ -194,7 +194,7 @@ export default function ChiTietPhong() {
                         <h6 className='p-0 m-0'>Nguyen Huu Nhat</h6>
                         <p className='text-sm p-0 m-0 mt-1'>Noi dung binh luan</p>
                       </div>
-                      <p className='text-sm px-3 mx-1' style={{ fontSize: 'small' }}>19h00 27-06-2024</p>
+                      <p className='text-sm px-3 mx-1' style={{ fontSize: 'small' }}>19:00 27-06-2024</p>
                     </div>
                   </div>
                 </div>

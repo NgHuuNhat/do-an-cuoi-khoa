@@ -26,7 +26,7 @@ export default function ChiTietPhong() {
         <div>
           <h4>{dataChiTietPhong?.tenPhong}</h4>
           <div className='grid grid-cols-12'>
-            <p className='col-span-11'>4sao - (18 đánh giá) - chủ nhà siêu cấp - thành phố vtau - vùng tàu - việt nam</p>
+            <p className='col-span-11 text-sm'>4sao - (18 đánh giá) - chủ nhà siêu cấp - thành phố vtau - vùng tàu - việt nam</p>
             <p className='col-span-1 text-center'><i id='icon' className="fa-solid fa-heart"></i></p>
           </div>
         </div>

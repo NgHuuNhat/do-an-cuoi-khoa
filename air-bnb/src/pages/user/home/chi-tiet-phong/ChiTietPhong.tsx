@@ -118,7 +118,7 @@ export default function ChiTietPhong() {
   const errorBinhLuan = () => {
     messageApi.open({
       type: 'error',
-      content: 'Lỗi thêm bình luận',
+      content: 'Vui lòng đăng nhập để bình luận',
     });
   };
 

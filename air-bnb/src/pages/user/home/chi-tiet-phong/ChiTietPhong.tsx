@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './ChiTietPhong.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/action';
+import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/chi-tiet-phong-reducer/action';
 import { useParams } from 'react-router-dom';
-import { PhongThue } from '../../../../store/store-danh-sach-phong/types';
 import { actGetDatPhong } from '../../../../store/store-chi-tiet-phong/dat-phong-reducer/action';
 import { message } from 'antd';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { actPostDatPhong } from '../../../../store/store-chi-tiet-phong/post-dat-phong-reducer/action';
-import { DatPhong } from '../../../../store/store-chi-tiet-phong/post-dat-phong-reducer/types';
-import Login from '../../auth/login/Login';
-import LoginForm from '../../auth/login/LoginForm';
+import { actBinhLuan } from '../../../../store/store-chi-tiet-phong/binh-luan-reducer/action';
+import { BinhLuan } from '../../../../store/store-chi-tiet-phong/binh-luan-reducer/types';
+import dayjs from 'dayjs';
+import { actPostBinhLuan } from '../../../../store/store-chi-tiet-phong/post-binh-luan-reducer/action';
 
 const schema = yup.object({
   ngayDen: yup
@@ -26,13 +26,21 @@ const schema = yup.object({
     .required('Vui lòng chọn số lượng khách'),
 });
 
+const schemaBinhLuan = yup.object({
+  noiDung: yup
+    .string()
+    .required('Vui lòng nhập nội dung bình luận'),
+});
+
 export default function ChiTietPhong() {
   const { dataChiTietPhong } = useSelector((state: any) => state.chiTietPhongReducer)
   const { dataDatPhong, loading } = useSelector((state: any) => state.datPhongReducer)
   const { dataPostDatPhong } = useSelector((state: any) => state.postDatPhongReducer)
+  const { dataBinhLuan } = useSelector((state: any) => state.binhLuanReducer)
   const { data } = useSelector((state: any) => state.userReducer)
   const [messageApi, contextHolder] = message.useMessage();
   const { id } = useParams<{ id: string, }>();
+  const dispatch: any = useDispatch();
 
   const { register, handleSubmit, formState, reset } = useForm<any>({
     defaultValues: {
@@ -44,6 +52,16 @@ export default function ChiTietPhong() {
     resolver: yupResolver(schema),
     criteriaMode: 'all',
   });
+
+  const { register: registerBinhLuan, handleSubmit: handleSubmitBinhLuan, formState: formStateBinhLuan, reset: resetBinhLuan } = useForm<any>({
+    defaultValues: {
+      noiDung: '',
+    },
+    // @ts-expect-error ts(2554)
+    resolver: yupResolver(schemaBinhLuan),
+    criteriaMode: 'all',
+  });
+
 
   const successPostDatPhong = () => {
     messageApi.open({
@@ -59,6 +77,15 @@ export default function ChiTietPhong() {
   };
 
   useEffect(() => {
+    if (id) {
+      dispatch(actGetChiTietPhong(id))
+    }
+
+    dispatch(actGetDatPhong());
+    dispatch(actBinhLuan(id)) //id = maPhong
+  }, [dispatch, id]);
+
+  useEffect(() => {
     const isPostDatPhong = localStorage.getItem("isPostDatPhong");
     if (dataPostDatPhong) {
       if (isPostDatPhong === "true") {
@@ -66,24 +93,7 @@ export default function ChiTietPhong() {
       }
       localStorage.removeItem("isPostDatPhong");
     }
-    // if (dataPostDatPhong?.maPhong === dataDatPhong?.map((item: DatPhong) => item.maPhong) && dataPostDatPhong?.ngayDen >= dataDatPhong?.map((item: DatPhong) => item.ngayDen) && dataPostDatPhong?.ngayDen <= dataDatPhong?.map((item: DatPhong) => item.ngayDi)) {
-    //   errorPostDatPhong();
-    // } else {
-    //   if (isPostDatPhong === "true") {
-    //     successPostDatPhong();
-    //   }
-    //   localStorage.removeItem("isPostDatPhong");
-    // }
   }, [dataPostDatPhong, dataDatPhong])
-
-  const dispatch: any = useDispatch();
-  useEffect(() => {
-    if (id) {
-      dispatch(actGetChiTietPhong(id))
-    }
-
-    dispatch(actGetDatPhong());
-  }, [dispatch, id]);
 
   const onSubmit = (values: any) => {
     if (data) {
@@ -97,8 +107,39 @@ export default function ChiTietPhong() {
     } else {
       errorPostDatPhong();
     }
-
   }
+
+  const successBinhLuan = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'Thêm bình luận thành công',
+    });
+  };
+  const errorBinhLuan = () => {
+    messageApi.open({
+      type: 'error',
+      content: 'Lỗi thêm bình luận',
+    });
+  };
+
+  const onSubmitComment = (values: any) => {
+    if (data) {
+      const newComment = {
+        ...values,
+        maNguoiBinhLuan: data.user.id,
+        maPhong: id,
+        ngayBinhLuan: dayjs().toISOString(), // Example: use current date/time as ngayBinhLuan
+      };
+      dispatch(actPostBinhLuan(newComment));
+      resetBinhLuan(); // Reset the form after submission
+      successBinhLuan();
+      dispatch(actBinhLuan(id)); // update list cmt
+    } else {
+      errorBinhLuan();
+    }
+  };
+
+  console.log(dataBinhLuan)
 
   return (
     <>
@@ -289,37 +330,43 @@ export default function ChiTietPhong() {
 
               <hr />
 
+              {/* binh luan */}
               <div>
                 <h5 className='mb-3'>Bình luận</h5>
-                <div>
-                  <div className='grid grid-cols-12'>
+
+                {dataBinhLuan?.map((item: BinhLuan, index: any) => (
+                  <div className='grid grid-cols-12' key={index}>
                     <div className='col-span-2 md:col-span-1 lg:col-span-1 mx-auto'>
-                      <img className='rounded-full w-12 h-12 img-object-cover' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" />
+                      <img className='rounded-full w-12 h-12 img-object-cover' src={item.avatar} alt="avatar" />
                     </div>
                     <div className='col-span-10 md:col-span-11 lg:col-span-11'>
                       <div className='px-3 py-2 bg-light mx-1' style={{ borderRadius: '20px' }}>
-                        <h6 className='p-0 m-0'>Nguyen Huu Nhat</h6>
-                        <p className='text-sm p-0 m-0 mt-1'>Noi dung binh luan</p>
+                        <h6 className='p-0 m-0'>{item.tenNguoiBinhLuan}</h6>
+                        <p className='text-sm p-0 m-0 mt-1'>{item.noiDung}</p>
                       </div>
-                      <p className='text-sm px-3 mx-1' style={{ fontSize: 'small' }}>19:00 27-06-2024 <span className='ml-3 span-hover'>Thích</span> <span className='ml-3 span-hover'>Trả lời</span></p>
+                      <p className='text-sm px-3 mx-1' style={{ fontSize: 'small' }}>{dayjs(item.ngayBinhLuan).format('HH:mm DD-MM-YYYY')} <span className='ml-3 span-hover'>Thích</span> <span className='ml-3 span-hover'>Trả lời</span></p>
                     </div>
                   </div>
-                </div>
-                <div >
+                ))}
+
+                {/* viet binh luan */}
+                <form onSubmit={handleSubmitBinhLuan(onSubmitComment)} action="">
                   <div className='grid grid-cols-12'>
                     <div className='col-span-2 md:col-span-1 lg:col-span-1 mx-auto'><img className='rounded-full w-12 h-12 img-object-cover' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></div>
                     <div className="form-group col-span-10 md:col-span-11 lg:col-span-11 px-2 pt-1">
-                      <textarea style={{ borderRadius: '20px' }} className="form-control" rows={1} id="comment" defaultValue={""} placeholder='Viết bình luận...' />
-                      <button style={{ borderRadius: '20px', backgroundColor: '#fe6b6e' }} className='text-light border w-100 p-2 my-2'>Gửi</button>
+                      <textarea {...registerBinhLuan('noiDung')} style={{ borderRadius: '20px' }} className="form-control" rows={1} id="noiDung" defaultValue={""} placeholder='Viết bình luận...' />
+                      <span className='text-danger inline-block pl-1 text-sm'>{formStateBinhLuan.errors.noiDung?.message as any}</span>
+                      <button type='submit' style={{ borderRadius: '20px', backgroundColor: '#fe6b6e' }} className='text-light border w-100 p-2 my-2'>Gửi</button>
                     </div>
                   </div>
-                </div>
+                </form>
+
               </div>
 
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   )
 }

@@ -1,12 +1,12 @@
-import api from "../../utils/api-user/ApiUser";
+import api from "../../../utils/api-user/ApiUser";
 import * as ActionType from "./constants";
 import { Action } from "./types";
 
-export const actGetListPhongThue = (id: any) => {
+export const actGetChiTietPhong = (id: any) => {
     return (dispatch: any) => {
         dispatch(actReques());
         api
-            .get(`/phong-thue/lay-phong-theo-vi-tri?maViTri=${id}`)
+            .get(`/phong-thue/${id}`)
             .then((result) => {
                 dispatch(actSuccess(result.data.content));
             })
@@ -18,20 +18,20 @@ export const actGetListPhongThue = (id: any) => {
 
 export const actReques = (): Action => {
     return {
-        type: ActionType.REQUEST_PHONG_THUE,
+        type: ActionType.REQUEST_CHI_TIET_PHONG,
     }
 }
 
 export const actSuccess = (data: any): Action => {
     return {
-        type: ActionType.SUCCESS_PHONG_THUE,
+        type: ActionType.SUCCESS_CHI_TIET_PHONG,
         payload: data,
     }
 }
 
 export const actFailed = (error: any): Action => {
     return {
-        type: ActionType.FAILED_PHONG_THUE,
+        type: ActionType.FAILED_CHI_TIET_PHONG,
         payload: error,
     }
 }

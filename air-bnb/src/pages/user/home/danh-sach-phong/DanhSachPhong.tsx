@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './DanhSachPhong.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { PhongThue } from '../../../../store/store-danh-sach-phong/types';
+import { PhongThue } from '../../../../store/store-danh-sach-phong/danh-sach-phong-reducer/types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { actGetListPhongThue } from '../../../../store/store-danh-sach-phong/action';
+import { actGetListPhongThue } from '../../../../store/store-danh-sach-phong/danh-sach-phong-reducer/action';
 import dayjs from 'dayjs';
-import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/action';
+import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/chi-tiet-phong-reducer/action';
 
 export default function DanhSachPhong() {
   const { dataPhongThue } = useSelector((state: any) => state.phongThueReducer);
@@ -55,7 +55,7 @@ export default function DanhSachPhong() {
 
         <h3 className='p-0 m-0 text-xl' ref={h3Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
         <p className='text-sm'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh} {ngayDi && ngayVe ? (
-          <p className='small'>{dayjs(ngayDi).format('DD/MM/YYYY')} - {dayjs(ngayVe).format('DD/MM/YYYY')}</p>
+          <span className='small block'>{dayjs(ngayDi).format('DD/MM/YYYY')} - {dayjs(ngayVe).format('DD/MM/YYYY')}</span>
         ) : ('')}</p>
 
 
@@ -65,7 +65,7 @@ export default function DanhSachPhong() {
             {dataPhongThue?.map((item: PhongThue, index: number) => (
               (!issoLuong || item.khach === Number(soLuong)) && (
 
-                <div  id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
+                <div id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
                   <div className="custom-shadow p-2 rounded ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
 
                     <div className="height-250 ant-card-cover w-100 h-100">

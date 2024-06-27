@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actGetViTri } from '../../../../../store/store-trang-chu/vi-tri-reducer/action';
 import { ViTri } from '../../../../../store/store-trang-chu/vi-tri-reducer/types';
 import { useForm } from 'react-hook-form';
-import { actGetListPhongThue } from '../../../../../store/store-danh-sach-phong/action';
+import { actGetListPhongThue } from '../../../../../store/store-danh-sach-phong/danh-sach-phong-reducer/action';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { PhongThue } from '../../../../../store/store-danh-sach-phong/types';
+import { PhongThue } from '../../../../../store/store-danh-sach-phong/danh-sach-phong-reducer/types';
 
 const schema = yup.object({
     diaDiem: yup.string().required('Vui lòng chọn địa điểm'),

@@ -11,6 +11,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { actPostDatPhong } from '../../../../store/store-chi-tiet-phong/post-dat-phong-reducer/action';
 import { DatPhong } from '../../../../store/store-chi-tiet-phong/post-dat-phong-reducer/types';
+import Login from '../../auth/login/Login';
+import LoginForm from '../../auth/login/LoginForm';
 
 const schema = yup.object({
   ngayDen: yup
@@ -28,7 +30,6 @@ export default function ChiTietPhong() {
   const { dataChiTietPhong } = useSelector((state: any) => state.chiTietPhongReducer)
   const { dataDatPhong, loading } = useSelector((state: any) => state.datPhongReducer)
   const { dataPostDatPhong } = useSelector((state: any) => state.postDatPhongReducer)
-
   const { data } = useSelector((state: any) => state.userReducer)
   const [messageApi, contextHolder] = message.useMessage();
   const { id } = useParams<{ id: string, }>();
@@ -53,7 +54,7 @@ export default function ChiTietPhong() {
   const errorPostDatPhong = () => {
     messageApi.open({
       type: 'error',
-      content: 'Ngày này đã có người đặt, vui lòng chọn ngày khác!',
+      content: 'Vui lòng đăng nhập để đặt phòng!',
     });
   };
 
@@ -85,13 +86,18 @@ export default function ChiTietPhong() {
   }, [dispatch, id]);
 
   const onSubmit = (values: any) => {
-    const newValues = {
-      ...values,
-      maNguoiDung: data.user.id,
-      maPhong: id,
-    };
-    console.log("newValues", newValues)
-    dispatch(actPostDatPhong(newValues));
+    if (data) {
+      const newValues = {
+        ...values,
+        maNguoiDung: data.user.id,
+        maPhong: id,
+      };
+      console.log("newValues", newValues)
+      dispatch(actPostDatPhong(newValues));
+    } else {
+      errorPostDatPhong();
+    }
+
   }
 
   return (

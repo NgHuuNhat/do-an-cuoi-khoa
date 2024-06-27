@@ -40,11 +40,11 @@ export default function DanhSachPhong() {
     }
   }, [location.search, tinhThanh]);
 
-  console.log(dataPhongThue)
+  // console.log(dataPhongThue)
 
   const handleClick = (id: any) => {
-    console.log("click");
-    console.log(id);
+    // console.log("click");
+    // console.log(id);
     dispatch(actGetChiTietPhong(id));
     navigate(`/phong-thue/${id}`);
   }

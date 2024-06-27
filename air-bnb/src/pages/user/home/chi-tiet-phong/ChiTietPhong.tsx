@@ -168,7 +168,7 @@ export default function ChiTietPhong() {
                     <div className='col-span-2 border p-2 px-3' style={{ borderRadius: '0 0 10px 10px' }}>
                       <label htmlFor="soLuongKhach" className='text-sm m-0' style={{ fontSize: 'x-small' }}>KHÁCH</label>
                       <select {...register('soLuongKhach')} defaultValue='' className='w-100 form-control border-0 outline-0 p-0' name="soLuongKhach" id="soLuongKhach" style={{ fontSize: 'small' }}>
-                        <option value="">Khách</option>
+                        <option value="">Số lượng khách</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

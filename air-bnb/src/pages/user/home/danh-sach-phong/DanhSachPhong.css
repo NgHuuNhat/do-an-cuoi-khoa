@@ -6,9 +6,9 @@
     height: 300px !important;
 }
 
-img {
+/* img {
     object-fit: cover !important;
-}
+} */
 
 img:hover {
     cursor: pointer;

@@ -1,0 +1,19 @@
+.span-hover:hover {
+    cursor: pointer;
+}
+
+.img-object-cover {
+    object-fit: cover !important;
+}
+
+@media only screen and (max-width: 568px) {
+    .sm-height-300 {
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 568px) and (max-width: 991px) {
+    .sm-height-300 {
+        height: 500px;
+    }
+}

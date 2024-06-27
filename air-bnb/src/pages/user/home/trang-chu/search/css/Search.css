@@ -1,47 +1,33 @@
-@media only screen and (max-width: 568px) {
+/* @media only screen and (max-width: 568px) {
     #search input {
-        /* background-color: #fe6b6d3b; */
         width: 90%;
     }
 
     #btn-timkiem {
-        /* background-color: red;
-        padding: 0.5rem; */
         width: 90%;
-        /* margin-top: 1px;
-        border-radius: 2rem; */
     }
 }
 
 @media only screen and (min-width: 568px) and (max-width: 991px) {
     #search input {
-        /* background-color: #fe6b6d3b; */
         width: 90%;
     }
 }
 
 @media only screen and (min-width: 992px) {
     #search input {
-        /* background-color: #fe6b6d3b; */
         width: 50%;
     }
 
     #btn-timkiem {
-        /* background-color: red;
-        padding: 0.5rem; */
         width: 50% !important;
-        /* margin-top: 1px;
-        border-radius: 2rem; */
     }
 }
 
-/* all */
 #search {
-    /* width: 100%; */
     text-align: center;
     position: fixed;
     z-index: 99 !important;
-    /* background-color: red; */
     width: 100%;
     transition: opacity 0.3s ease;
 }
@@ -52,9 +38,6 @@
     border-radius: 2rem;
     box-shadow: 0px 0px 10px 0px #fe6b6d3b;
     border: 1px solid #fe6b6d3b;
-    /* margin: auto; */
-    /* background-color: yellow; */
-    /* width: 100%; */
 }
 
 #search input:focus {
@@ -80,4 +63,4 @@
 
 #btn-timkiem:focus {
     outline: none;
-}
+} */

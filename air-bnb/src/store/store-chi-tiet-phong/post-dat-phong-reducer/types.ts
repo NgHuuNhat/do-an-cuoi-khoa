@@ -1,3 +1,12 @@
+export interface DatPhong {
+    id: number
+    maPhong: number
+    ngayDen: string
+    ngayDi: string
+    soLuongKhach: number
+    maNguoiDung: number
+}
+
 export interface PhongThue {
     id: number
     tenPhong: string
@@ -44,7 +53,7 @@ export interface StateUser {
 
 export interface State {
     loading: boolean,
-    dataChiTietPhong?: StateUser[] | null,
+    dataPostDatPhong?: StateUser[] | null,
     error: any[] | null,
 }
 

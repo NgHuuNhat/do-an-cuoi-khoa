@@ -79,13 +79,13 @@ export default function DanhSachPhong() {
                         {/* The slideshow */}
                         <div className="carousel-inner h-100">
                           <div className="h-100 carousel-item active">
-                            <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Los Angeles" />
+                            <img onClick={() => handleClick(item.id)} style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Los Angeles" />
                           </div>
                           <div className="h-100 carousel-item">
-                            <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Chicago" />
+                            <img onClick={() => handleClick(item.id)} style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="Chicago" />
                           </div>
                           <div className="h-100 carousel-item">
-                            <img style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="New York" />
+                            <img onClick={() => handleClick(item.id)} style={{ objectFit: 'cover' }} className='rounded w-100 h-100' src={item.hinhAnh} alt="New York" />
                           </div>
                         </div>
                         {/* Left and right controls */}

@@ -3,26 +3,102 @@ import { useDispatch, useSelector } from 'react-redux'
 import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/action';
 import { useParams } from 'react-router-dom';
 import { PhongThue } from '../../../../store/store-danh-sach-phong/types';
+import { actGetDatPhong } from '../../../../store/store-chi-tiet-phong/dat-phong-reducer/action';
+import { message } from 'antd';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { actPostDatPhong } from '../../../../store/store-chi-tiet-phong/post-dat-phong-reducer/action';
+import { DatPhong } from '../../../../store/store-chi-tiet-phong/post-dat-phong-reducer/types';
+
+const schema = yup.object({
+  ngayDen: yup
+    .string()
+    .required('Vui lòng chọn ngày nhận phòng'),
+  ngayDi: yup
+    .string()
+    .required('Vui lòng chọn ngày trả phòng'),
+  soLuongKhach: yup
+    .string()
+    .required('Vui lòng chọn số lượng khách'),
+});
 
 export default function ChiTietPhong() {
   const { dataChiTietPhong } = useSelector((state: any) => state.chiTietPhongReducer)
-  console.log(dataChiTietPhong);
+  const { dataDatPhong, loading } = useSelector((state: any) => state.datPhongReducer)
+  const { dataPostDatPhong } = useSelector((state: any) => state.postDatPhongReducer)
 
-  const { id } = useParams<{
-    id: string,
-  }>();
+  const { data } = useSelector((state: any) => state.userReducer)
+  const [messageApi, contextHolder] = message.useMessage();
+  const { id } = useParams<{ id: string, }>();
+
+  const { register, handleSubmit, formState, reset } = useForm<any>({
+    defaultValues: {
+      ngayDen: '',
+      ngayDi: '',
+      soLuongKhach: '',
+    },
+    // @ts-expect-error ts(2554)
+    resolver: yupResolver(schema),
+    criteriaMode: 'all',
+  });
+
+  const successPostDatPhong = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'Đặt phòng thành công',
+    });
+  };
+  const errorPostDatPhong = () => {
+    messageApi.open({
+      type: 'error',
+      content: 'Ngày này đã có người đặt, vui lòng chọn ngày khác!',
+    });
+  };
+
+  useEffect(() => {
+    const isPostDatPhong = localStorage.getItem("isPostDatPhong");
+    if (dataPostDatPhong) {
+      if (isPostDatPhong === "true") {
+        successPostDatPhong();
+      }
+      localStorage.removeItem("isPostDatPhong");
+    }
+    // if (dataPostDatPhong?.maPhong === dataDatPhong?.map((item: DatPhong) => item.maPhong) && dataPostDatPhong?.ngayDen >= dataDatPhong?.map((item: DatPhong) => item.ngayDen) && dataPostDatPhong?.ngayDen <= dataDatPhong?.map((item: DatPhong) => item.ngayDi)) {
+    //   errorPostDatPhong();
+    // } else {
+    //   if (isPostDatPhong === "true") {
+    //     successPostDatPhong();
+    //   }
+    //   localStorage.removeItem("isPostDatPhong");
+    // }
+  }, [dataPostDatPhong, dataDatPhong])
 
   const dispatch: any = useDispatch();
   useEffect(() => {
     if (id) {
       dispatch(actGetChiTietPhong(id))
     }
+
+    dispatch(actGetDatPhong());
   }, [dispatch, id]);
+
+  const onSubmit = (values: any) => {
+    const newValues = {
+      ...values,
+      maNguoiDung: data.user.id,
+      maPhong: id,
+    };
+    console.log("newValues", newValues)
+    dispatch(actPostDatPhong(newValues));
+  }
 
   return (
     <>
-      <div id='chi-tiet-phong' className='container my-5'>
+      {contextHolder}
 
+      <div id='chi-tiet-phong' className='container my-5'>
+        {/* header */}
         <div>
           <h4>{dataChiTietPhong?.tenPhong}</h4>
           <div className='grid grid-cols-12'>
@@ -33,6 +109,7 @@ export default function ChiTietPhong() {
 
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
           <div className='lg:col-span-2'>
+            {/* img */}
             <div className='mb-4 height-300'>
               <div id="demo" className="carousel slide h-100" data-ride="carousel">
                 {/* Indicators */}
@@ -64,6 +141,7 @@ export default function ChiTietPhong() {
 
             </div>
 
+            {/* form dat phong mobile */}
             <div className='lg:col-span-1 d-lg-none my-5'>
               <div className='custom-shadow rounded p-3'>
                 <div className='grid grid-cols-2'>
@@ -110,6 +188,7 @@ export default function ChiTietPhong() {
               </div>
             </div>
 
+            {/* content */}
             <div className='p-2 rounded'>
               <div className='grid grid-cols-12'>
                 <div className='col-span-10'>
@@ -217,53 +296,66 @@ export default function ChiTietPhong() {
             </div>
           </div>
 
-          <div className='lg:col-span-1 d-none d-lg-block'>
-            <div className='custom-shadow rounded p-3'>
-              <div className='grid grid-cols-2'>
-                <h5 className='font-weight-bold'>$44 / đêm</h5>
-                <p className='text-right font-weight-bold'>4sao (18 đánh giá)</p>
-              </div>
-              <div className='grid grid-cols-2 gap-1'>
-                <div className='col-span-1'>
-                  <label htmlFor="" className='text-sm'>Nhận phòng</label>
-                  <input className='w-100 form-control text-sm' type="date" />
+          {/* form dat phong laptop */}
+          <form action="" onSubmit={handleSubmit(onSubmit)}>
+            <div className='lg:col-span-1 d-none d-lg-block'>
+              <div className='custom-shadow rounded p-3'>
+                <div className='grid grid-cols-2'>
+                  <h5 className='font-weight-bold'>$44 / đêm</h5>
+                  <p className='text-right font-weight-bold text-sm'>5<i className="fa-solid fa-star"></i> (18 đánh giá)</p>
                 </div>
-                <div className='col-span-1'>
-                  <label htmlFor="" className='text-sm'>Trả phòng</label>
-                  <input className='w-100 form-control text-sm' type="date" />
-                </div>
-                <div className='col-span-2'>
-                  <label htmlFor="" className='text-sm'>Khách</label>
-                  <select className='w-100 form-control' name="" id="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                  </select>
-                </div>
-              </div>
-              <hr />
-              <div>
-                <div className=' grid grid-cols-2'>
-                  <p className=''>$44 x 5 đêm</p>
-                  <p className='text-right '>$221</p>
-                </div>
-                <div className=' grid grid-cols-2'>
-                  <p className=''>Phí dịch vụ</p>
-                  <p className='text-right '>$31</p>
-                </div>
-                <hr className='mt-0' />
-                <div className=' grid grid-cols-2'>
-                  <p className='font-weight-bold'>Tổng</p>
-                  <p className='text-right font-weight-bold'>$252</p>
-                </div>
-              </div>
+                <div className='grid grid-cols-2 gap-0'>
+                  <div className='col-span-1 border p-2 px-3' style={{ borderRadius: '10px 0 0 0' }}>
+                    <label htmlFor="" className='text-sm m-0' style={{ fontSize: 'x-small' }}>NHẬN PHÒNG</label>
+                    <input {...register('ngayDen')} className='w-100 form-control text-sm border-0 outline-0 p-0' type="date" style={{ fontSize: 'small' }} />
+                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.ngayDen?.message as any}</span>
 
-              <button className='border w-100 p-3 my-3 rounded font-weight-bold text-light' style={{ backgroundColor: '#fe6b6e' }}>Đặt phòng</button>
+                  </div>
+                  <div className='col-span-1 border p-2 px-3' style={{ borderRadius: '0 10px 0 0' }}>
+                    <label htmlFor="" className='text-sm m-0' style={{ fontSize: 'x-small' }}>TRẢ PHÒNG</label>
+                    <input {...register('ngayDi')} className='w-100 form-control text-sm border-0 outline-0 p-0' type="date" style={{ fontSize: 'small' }} />
+                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.ngayDi?.message as any}</span>
 
+                  </div>
+                  <div className='col-span-2 border p-2 px-3' style={{ borderRadius: '0 0 10px 10px' }}>
+                    <label htmlFor="soLuongKhach" className='text-sm m-0' style={{ fontSize: 'x-small' }}>KHÁCH</label>
+                    <select {...register('soLuongKhach')} defaultValue='' className='w-100 form-control border-0 outline-0 p-0' name="soLuongKhach" id="soLuongKhach" style={{ fontSize: 'small' }}>
+                      <option value="">Khách</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.soLuongKhach?.message as any}</span>
+                  </div>
+                </div>
+                <hr />
+                <div>
+                  <div className=' grid grid-cols-2'>
+                    <p className=''>$44 x 5 đêm</p>
+                    <p className='text-right '>$221</p>
+                  </div>
+                  <div className=' grid grid-cols-2'>
+                    <p className=''>Phí dịch vụ</p>
+                    <p className='text-right '>$31</p>
+                  </div>
+                  <hr className='mt-0' />
+                  <div className=' grid grid-cols-2'>
+                    <p className='font-weight-bold'>Tổng</p>
+                    <p className='text-right font-weight-bold'>$252</p>
+                  </div>
+                </div>
+
+                <button type='submit' className='border w-100 p-3 my-3 rounded font-weight-bold text-light' style={{ backgroundColor: '#fe6b6e' }}>
+                  {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Đặt phòng'}
+                </button>
+
+              </div>
             </div>
-          </div>
-        </div>
+          </form>
 
+        </div>
       </div>
     </>
   )

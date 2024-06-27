@@ -4,6 +4,8 @@ import { viTriReducer } from "./store-trang-chu/vi-tri-reducer/reducer";
 import { phongThueReducer } from "./store-danh-sach-phong/reducer";
 import { phanTrangReducer } from "./store-trang-chu/phan-trang-reducer/reducer";
 import { chiTietPhongReducer } from "./store-chi-tiet-phong/reducer";
+import { datPhongReducer } from "./store-chi-tiet-phong/dat-phong-reducer/reducer";
+import { postDatPhongReducer } from "./store-chi-tiet-phong/post-dat-phong-reducer/reducer";
 
 const rootReducer = combineReducers({
     //reducer
@@ -12,6 +14,8 @@ const rootReducer = combineReducers({
     phongThueReducer,
     phanTrangReducer,
     chiTietPhongReducer,
+    datPhongReducer,
+    postDatPhongReducer,
 
 });
 

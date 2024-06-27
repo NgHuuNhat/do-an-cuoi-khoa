@@ -352,7 +352,7 @@ export default function ChiTietPhong() {
                 {/* viet binh luan */}
                 <form onSubmit={handleSubmitBinhLuan(onSubmitComment)} action="">
                   <div className='grid grid-cols-12'>
-                    <div className='col-span-2 md:col-span-1 lg:col-span-1 mx-auto'><img className='rounded-full w-12 h-12 img-object-cover' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="avatar" /></div>
+                    <div className='col-span-2 md:col-span-1 lg:col-span-1 mx-auto'><img className='rounded-full w-12 h-12 img-object-cover' src={data ? (`${data?.user?.avatar}`) : (`https://inkythuatso.com/uploads/thumbnails/800/2023/03/9-anh-dai-dien-trang-inkythuatso-03-15-27-03.jpg`)} alt="avatar" /></div>
                     <div className="form-group col-span-10 md:col-span-11 lg:col-span-11 px-2 pt-1">
                       <textarea {...registerBinhLuan('noiDung')} style={{ borderRadius: '20px' }} className="form-control" rows={1} id="noiDung" defaultValue={""} placeholder='Viết bình luận...' />
                       <span className='text-danger inline-block pl-1 text-sm'>{formStateBinhLuan.errors.noiDung?.message as any}</span>

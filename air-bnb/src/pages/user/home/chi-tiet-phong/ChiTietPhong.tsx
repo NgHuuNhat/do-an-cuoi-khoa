@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ChiTietPhong.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/chi-tiet-phong-reducer/action';
@@ -140,6 +140,14 @@ export default function ChiTietPhong() {
   };
 
   console.log(dataBinhLuan)
+
+  const [visibleCommentCount, setVisibleCommentCount] = useState(3);
+  const handleShowMoreComments = () => {
+    setVisibleCommentCount(prevCount => prevCount + 3);
+  };
+  const handleShowLessComments = () => {
+    setVisibleCommentCount(3);
+  };
 
   return (
     <>
@@ -334,7 +342,7 @@ export default function ChiTietPhong() {
               <div>
                 <h5 className='mb-3'>Bình luận</h5>
 
-                {dataBinhLuan?.map((item: BinhLuan, index: any) => (
+                {dataBinhLuan?.slice(0, visibleCommentCount).map((item: BinhLuan, index: any) => (
                   <div className='grid grid-cols-12' key={index}>
                     <div className='col-span-2 md:col-span-1 lg:col-span-1 mx-auto'>
                       <img className='rounded-full w-12 h-12 img-object-cover' src={item.avatar} alt="avatar" />
@@ -348,6 +356,19 @@ export default function ChiTietPhong() {
                     </div>
                   </div>
                 ))}
+
+                {dataBinhLuan?.length > visibleCommentCount && (
+                  <button className="btn btn-link outline-0 border-0" onClick={handleShowMoreComments}>
+                    Hiển thị thêm
+                  </button>
+                )}
+
+                {visibleCommentCount > 3 && (
+                  <button className="btn btn-link outline-0 border-0" onClick={handleShowLessComments}>
+                    Thu gọn
+                  </button>
+                )}
+
 
                 {/* viet binh luan */}
                 <form onSubmit={handleSubmitBinhLuan(onSubmitComment)} action="">

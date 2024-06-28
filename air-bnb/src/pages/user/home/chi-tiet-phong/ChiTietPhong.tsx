@@ -340,7 +340,7 @@ export default function ChiTietPhong() {
 
               {/* binh luan */}
               <div>
-                <h5 className='mb-3'>Bình luận</h5>
+                <h5 className='mb-3'>Bình luận ({dataBinhLuan?.length})</h5>
 
                 {dataBinhLuan?.slice(0, visibleCommentCount).map((item: BinhLuan, index: any) => (
                   <div className='grid grid-cols-12' key={index}>

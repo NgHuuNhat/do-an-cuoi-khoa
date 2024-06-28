@@ -13,6 +13,8 @@ import { actBinhLuan } from '../../../../store/store-chi-tiet-phong/binh-luan-re
 import { BinhLuan } from '../../../../store/store-chi-tiet-phong/binh-luan-reducer/types';
 import dayjs from 'dayjs';
 import { actPostBinhLuan } from '../../../../store/store-chi-tiet-phong/post-binh-luan-reducer/action';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUtensils, faTv, faSnowflake, faParking, faWifi, faTshirt, faSwimmingPool, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const schema = yup.object({
   ngayDen: yup
@@ -317,20 +319,38 @@ export default function ChiTietPhong() {
               <hr />
 
               <div>
-                <h5>Tiên nghi</h5>
+                <h5>Tiện nghi</h5>
                 <div className='grid grid-cols-2 gap-5'>
                   <div>
-                    <p className='text-sm'>{dataChiTietPhong?.bep ? 'Bếp' : ''}</p>
-                    <p className='text-sm'>{dataChiTietPhong?.tivi ? 'Smart TV' : ''}</p>
-                    <p className='text-sm'>{dataChiTietPhong?.dieuHoa ? 'Điều hòa' : ''}</p>
-                    <p className='text-sm'>{dataChiTietPhong?.doXe ? 'Bãi đỗ xe' : ''}</p>
-                    <p className='text-sm'>{dataChiTietPhong?.banUi ? 'Bàn ủi' : ''}</p>
+                  {dataChiTietPhong?.wifi && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faWifi} /> Wifi</p>
+                    )}
+                    {dataChiTietPhong?.bep && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faUtensils} /> Bếp</p>
+                    )}
+                    {dataChiTietPhong?.tivi && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faTv} /> Smart TV</p>
+                    )}
+                    {dataChiTietPhong?.dieuHoa && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faSnowflake} /> Điều hòa</p>
+                    )}
+                    {dataChiTietPhong?.mayGiat && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faTshirt} /> Máy giặt</p>
+                    )}
+                    {dataChiTietPhong?.doXe && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faParking} /> Bãi đỗ xe</p>
+                    )}
                   </div>
                   <div>
-                    <p className='text-sm'>{dataChiTietPhong?.wifi ? 'Wifi' : ''}</p>
-                    <p className='text-sm'>{dataChiTietPhong?.mayGiat ? 'Máy giặt' : ''}</p>
-                    <p className='text-sm'>{dataChiTietPhong?.hoBoi ? 'Hồ bơi' : ''}</p>
-                    <p className='text-sm'>{dataChiTietPhong?.banLa ? 'Bàn là' : ''}</p>
+                    {dataChiTietPhong?.hoBoi && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faSwimmingPool} /> Hồ bơi</p>
+                    )}
+                    {dataChiTietPhong?.banLa && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faHeart} /> Bàn là</p>
+                    )}
+                    {dataChiTietPhong?.banUi && (
+                      <p className='text-sm'><FontAwesomeIcon icon={faHeart} /> Bàn ủi</p>
+                    )}
                   </div>
                 </div>
                 <button className='border w-75 p-2 rounded'>Thêm tiện nghi</button>

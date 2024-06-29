@@ -72,7 +72,7 @@ export default function ThongTinCaNhan() {
                         </div>
                     </div>
                     <div className='bg-light p-3 col-span-1 lg:col-span-2'>
-                        <h6>Phòng đã thuê</h6>
+                        <h6>Phòng đã thuê ({dataPhongDaThue?.length})</h6>
                         <div>
                             {dataPhongDaThue?.map((item: PhongDaThue, index: number) => (
                                 (

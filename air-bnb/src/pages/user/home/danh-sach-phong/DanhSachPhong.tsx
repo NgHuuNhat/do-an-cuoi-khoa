@@ -32,6 +32,7 @@ export default function DanhSachPhong() {
   const soLuong = queryParams.get('soLuong');
   const issoLuong = !!soLuong;
 
+  //click -> scroll to danh sach phong
   useEffect(() => {
     if (tinhThanh && h3Ref.current) {
       const h3Rect = h3Ref.current.getBoundingClientRect();
@@ -53,6 +54,7 @@ export default function DanhSachPhong() {
     <>
       <div id='danhSachPhongThue' className='my-5 px-2 container'>
 
+        {/* header */}
         <h3 className='p-0 m-0 text-xl' ref={h3Ref}>Chỗ ở tại khu vực {tinhThanh} </h3>
         <p className='text-sm'>Có {dataPhongThue?.length} chỗ ở tại {tenViTri} - {tinhThanh} {ngayDi && ngayVe ? (
           <span className='small block'>{dayjs(ngayDi).format('DD/MM/YYYY')} - {dayjs(ngayVe).format('DD/MM/YYYY')}</span>
@@ -62,6 +64,7 @@ export default function DanhSachPhong() {
         <div className='container grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5 p-0'>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-5">
 
+            {/* danh sach phong */}
             {dataPhongThue?.map((item: PhongThue, index: number) => (
               (!issoLuong || item.khach === Number(soLuong)) && (
 

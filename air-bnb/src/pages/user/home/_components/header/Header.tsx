@@ -138,14 +138,14 @@ export default function Header(props: any) {
           {dataLocal ? (
             <>
               <li className="nav-item d-flex align-items-center">
-                <a className="rounded nav-link w-100 text-dark" href="#">
+                <NavLink className="rounded nav-link w-100 text-dark" to="/thong-tin-ca-nhan">
                   {dataLocalParse.avatar ? (
                     <span className='w-7'><img className='w-5 h-5 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
                   ) : (
                     <span><i className="far fa-user-circle mr-2"></i></span>
                   )}
                   {dataLocalParse.user.name}
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item d-flex align-items-center">
                 <a className="rounded nav-link w-100 text-dark" href="#" onClick={handleLogout}><span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>Đăng xuất</a>

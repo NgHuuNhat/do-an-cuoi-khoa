@@ -50,9 +50,9 @@ export default function ThongTinCaNhan() {
                 <h6 ref={h3Ref}>Thông tin cá nhân</h6>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
                     <div className='bg-light rounded p-3 col-span-1'>
-                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src="https://cdn.dribbble.com/users/3495372/screenshots/7137410/media/44410f9a2a5a4225d1677a57b16dc924.png?resize=768x576&vertical=center" alt="hinh-anh" /></div>
+                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={data?.user.avatar ? (`${data?.user.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" /></div>
                         <div>
-                            <h6 className='text-center pt-1'>Nguyen Huu Nhat</h6>
+                            <h6 className='text-center pt-1'>{data?.user.name}</h6>
                             <div className='text-center my-3'> <button style={{ backgroundColor: '#fe6b6e' }} className='text-light px-3 rounded'>Chỉnh sửa</button> </div>
                             <hr />
                             <div className='grid grid-cols-4'>
@@ -61,12 +61,14 @@ export default function ThongTinCaNhan() {
                                     <span >SĐT:</span>
                                     <span >Birthday:</span>
                                     <span >Gender:</span>
+                                    <span >Role:</span>
                                 </div>
                                 <div className='col-span-3 ml-2'>
-                                    <p className='mb-1'>nhat200901@gmail.com</p>
-                                    <p className='mb-1'>0985627061</p>
-                                    <p className='mb-1'>20/09/2001</p>
-                                    <p className='mb-1'>Nam</p>
+                                    <p className='mb-1'>{data?.user.email}</p>
+                                    <p className='mb-1'>{data?.user.phone}</p>
+                                    <p className='mb-1'>{dayjs(data?.user.birthday).format('DD-MM-YYYY')}</p>
+                                    <p className='mb-1'>{data?.user.gender ? 'Nam' : "Nữ"}</p>
+                                    <p className='mb-1'>{data?.user.role}</p>
                                 </div>
                             </div>
                         </div>

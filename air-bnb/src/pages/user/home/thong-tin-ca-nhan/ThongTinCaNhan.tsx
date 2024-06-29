@@ -27,11 +27,10 @@ export default function ThongTinCaNhan() {
     });
 
     useEffect(() => {
-        if (data?.user?.id) {
-            const maNguoiDung = data?.user?.id
+        if (data?.user.id) {
+            const maNguoiDung = data?.user.id
             dispatch(actGetPhongDaThue(maNguoiDung))
         }
-
     }, [dispatch])
 
     const handleClick = (maPhong: any) => {

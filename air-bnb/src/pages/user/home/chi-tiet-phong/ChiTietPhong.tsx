@@ -97,6 +97,7 @@ export default function ChiTietPhong() {
     }
   }, [dataPostDatPhong, dataDatPhong])
 
+  //dat phong
   const onSubmit = (values: any) => {
     if (data) {
       const newValues = {
@@ -111,6 +112,7 @@ export default function ChiTietPhong() {
     }
   }
 
+  //alert cmt
   const successBinhLuan = () => {
     messageApi.open({
       type: 'success',
@@ -124,6 +126,7 @@ export default function ChiTietPhong() {
     });
   };
 
+  //gui binh luan
   const onSubmitComment = (values: any) => {
     if (data) {
       const newComment = {
@@ -143,6 +146,7 @@ export default function ChiTietPhong() {
 
   console.log(dataBinhLuan)
 
+  //hien thi them cmt
   const [visibleCommentCount, setVisibleCommentCount] = useState(3);
   const handleShowMoreComments = () => {
     setVisibleCommentCount(prevCount => prevCount + 3);

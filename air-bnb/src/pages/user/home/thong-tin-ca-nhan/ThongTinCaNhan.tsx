@@ -43,6 +43,15 @@ export default function ThongTinCaNhan() {
     console.log(data)
     console.log(dataPhongDaThue)
 
+    //hien thi them cmt
+    const [phongDaThue, setphongDaThue] = useState(3);
+    const handelHienThiThem = () => {
+        setphongDaThue(prevCount => prevCount + 3);
+    };
+    const handleThuGon = () => {
+        setphongDaThue(3);
+    };
+
     return (
         <>
             <div className='container my-5'>
@@ -72,15 +81,17 @@ export default function ThongTinCaNhan() {
                             </div>
                         </div>
                     </div>
-                    <div className='bg-light p-3 col-span-1 lg:col-span-2'>
-                        <h6>Phòng đã thuê ({dataPhongDaThue?.length})</h6>
-                        <div>
-                            {dataPhongDaThue?.map((item: PhongDaThue, index: number) => (
-                                (
 
+                    <div className='bg-light p-3 col-span-1 lg:col-span-2 rounded'>
+                        <h6>Phòng đã thuê ({dataPhongDaThue?.length})</h6>
+                        <div className='grid grid-cols-2 lg:grid-cols-3'>
+                            {/* phong da thue */}
+                            {dataPhongDaThue?.slice(0, phongDaThue).map((item: PhongDaThue, index: number) => (
+                                (
+                                    // item phong da thue
                                     <div id='item' key={index} data-aos="flip-left" className="aos-init aos-animate">
                                         <div className="custom-shadow p-2 rounded ant-card ant-card-bordered ant-card-hoverable w-full css-mzwlov">
-
+                                            {/* hinh anh */}
                                             <div className="height-250 ant-card-cover w-100 h-100">
                                                 <div id={`demo${index}`} className="carousel slide h-100" data-ride="carousel">
                                                     {/* Indicators */}
@@ -122,12 +133,15 @@ export default function ThongTinCaNhan() {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <hr />
                                                 <div className="ant-card-meta">
                                                     <div className="ant-card-meta-detail">
+                                                        <p className="text-sm text-dark p-0 m-0">STT: {index + 1}</p>
                                                         <p className="text-sm text-dark p-0 m-0">ID: {item.id}</p>
                                                         <p className='text-sm text-dark p-0 m-0'>Mã người dùng: {item.maNguoiDung}</p>
                                                         <p className='text-sm text-dark p-0 m-0'>Mã phòng: {item.maPhong}</p>
-                                                        <p className='text-sm text-dark p-0 m-0'>  Ngày đến: {dayjs(item.ngayDen).format('DD-MM-YYYY')} - Ngày đi: {dayjs(item.ngayDi).format('DD-MM-YYYY')}</p>
+                                                        <p className='text-sm text-dark p-0 m-0'>  Ngày đến: {dayjs(item.ngayDen).format('DD-MM-YYYY')}</p>
+                                                        <p className='text-sm text-dark p-0 m-0'>Ngày đi: {dayjs(item.ngayDi).format('DD-MM-YYYY')}</p>
                                                         <p className='text-sm text-dark p-0 m-0'>Số lượng khách: {item.soLuongKhach}</p>
                                                     </div>
                                                 </div>
@@ -137,10 +151,22 @@ export default function ThongTinCaNhan() {
                                 )
                             ))}
 
+                            {dataPhongDaThue?.length > phongDaThue && (
+                                <button className="btn btn-link outline-0 border-0" onClick={handelHienThiThem}>
+                                    Hiển thị thêm
+                                </button>
+                            )}
+
+                            {phongDaThue > 3 && (
+                                <button className="btn btn-link outline-0 border-0" onClick={handleThuGon}>
+                                    Thu gọn
+                                </button>
+                            )}
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
 
         </>

@@ -104,13 +104,19 @@ export default function ThongTinCaNhan() {
         console.log("click")
         let btnClose = document.getElementById('btn-info-close')
         btnClose?.click()
-        if (data) {
-            dispatch(actPutThongTinCaNhan(data?.user.id, values));
-            console.log("data?.user.id", data?.user.id)
-            console.log("values", values)
-        }
-        // dispatch(actGetUserLogin())
-        // console.log("data", data)
+        dispatch(actPutThongTinCaNhan(data?.user?.id, values));
+        console.log("data?.user.id", data?.user?.id)
+        console.log("values", values)
+        // Tùy chọn, cập nhật local storage sau khi dispatch
+        const currentData = JSON.parse(localStorage.getItem('data') || '{}');
+        const updatedData = {
+            ...currentData,
+            user: {
+                ...currentData.user,
+                ...values // Cập nhật với các giá trị từ form
+            }
+        };
+        localStorage.setItem('data', JSON.stringify(updatedData));
     };
 
     // console.log("data", data)

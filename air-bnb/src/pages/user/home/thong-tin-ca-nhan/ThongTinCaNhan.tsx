@@ -107,6 +107,7 @@ export default function ThongTinCaNhan() {
         dispatch(actPutThongTinCaNhan(data?.user?.id, values));
         console.log("data?.user.id", data?.user?.id)
         console.log("values", values)
+        
         // Tùy chọn, cập nhật local storage sau khi dispatch
         const currentData = JSON.parse(localStorage.getItem('data') || '{}');
         const updatedData = {

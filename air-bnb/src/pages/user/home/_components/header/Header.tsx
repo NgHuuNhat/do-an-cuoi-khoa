@@ -16,6 +16,9 @@ export default function Header(props: any) {
   const [showMenu, setShowMenu] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
 
+  const userDataLocal = JSON.parse(localStorage.getItem('data') || '{}')
+  console.log(userDataLocal)
+
   const handleLogout = () => {
     localStorage.removeItem('data');
     dispatch(actClearSuccess());
@@ -109,8 +112,8 @@ export default function Header(props: any) {
 
         <button id='btn-profile' onClick={toggleProfile} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#profile">
           {dataLocal ? (
-            dataLocalParse.avatar ? (
-              <span><img className='w-8 h-8 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
+            userDataLocal?.user.avatar ? (
+              <span><img className='w-8 h-8 rounded-circle' src={userDataLocal?.user.avatar} alt="avatar" /></span>
             ) : (
               <span><i className="far fa-user-circle text-l"></i></span>
             )
@@ -135,12 +138,12 @@ export default function Header(props: any) {
       </div>
       <div id="profile" className="bg-light rounded collapse">
         <ul className="navbar-nav">
-          {dataLocal ? (
+          {userDataLocal ? (
             <>
               <li className="nav-item d-flex align-items-center">
-                <NavLink className="rounded nav-link w-100 text-dark" to="/thong-tin-ca-nhan">
-                  {dataLocalParse.avatar ? (
-                    <span className='w-7'><img className='w-5 h-5 rounded-circle' src={dataLocalParse.user.avatar} alt="avatar" /></span>
+                <NavLink className="rounded nav-link w-100 text-dark d-flex" to="/thong-tin-ca-nhan">
+                  {userDataLocal?.user.avatar ? (
+                    <span className='w-7'><img className='w-5 h-5 rounded-circle' src={userDataLocal?.user.avatar} alt="avatar" /></span>
                   ) : (
                     <span><i className="far fa-user-circle mr-2"></i></span>
                   )}

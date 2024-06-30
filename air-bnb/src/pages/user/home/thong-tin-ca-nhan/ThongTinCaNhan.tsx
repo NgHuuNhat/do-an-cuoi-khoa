@@ -15,6 +15,7 @@ import { useForm } from 'react-hook-form';
 
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { StateUser } from '../../../../store/store-trang-chu/user-reducer/types';
 
 
 const schema = yup.object().shape({
@@ -111,6 +112,9 @@ export default function ThongTinCaNhan() {
 
     console.log("data", data)
 
+    const userDataLocal = JSON.parse(localStorage.getItem('data') || '{}')
+    console.log('userDataLocal', userDataLocal);
+
     return (
         <>
             {/* hien thi thong tin ca nhan */}
@@ -120,9 +124,9 @@ export default function ThongTinCaNhan() {
 
 
                     <div className='bg-light rounded p-3 col-span-1'>
-                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={data?.user?.avatar ? (`${data?.user?.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" /></div>
+                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={userDataLocal?.user.avatar ? (`${userDataLocal?.user.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" /></div>
                         <div>
-                            <h6 className='text-center pt-1'>{data?.user.name}</h6>
+                            <h6 className='text-center pt-1'>{userDataLocal?.user.name}</h6>
                             <div className='text-center my-3'>
                                 <button className="navbar-toggler text-light px-3 rounded" data-toggle="modal" data-target="#updateForm" style={{ backgroundColor: '#fe6b6e' }} >Chỉnh sửa</button>
                             </div>
@@ -136,11 +140,11 @@ export default function ThongTinCaNhan() {
                                     <span >Role:</span>
                                 </div>
                                 <div className='col-span-3 ml-2'>
-                                    <p className='mb-1'>{data?.user.email}</p>
-                                    <p className='mb-1'>{data?.user.phone}</p>
-                                    <p className='mb-1'>{dayjs(data?.user.birthday).format('DD-MM-YYYY')}</p>
-                                    <p className='mb-1'>{data?.user.gender ? 'Nam' : "Nữ"}</p>
-                                    <p className='mb-1'>{data?.user.role}</p>
+                                    <p className='mb-1'>{userDataLocal?.user.email}</p>
+                                    <p className='mb-1'>{userDataLocal?.user.phone}</p>
+                                    <p className='mb-1'>{dayjs(userDataLocal?.user.birthday).format('DD-MM-YYYY')}</p>
+                                    <p className='mb-1'>{userDataLocal?.user.gender ? 'Nam' : "Nữ"}</p>
+                                    <p className='mb-1'>{userDataLocal?.user.role}</p>
                                 </div>
                             </div>
                         </div>
@@ -212,7 +216,7 @@ export default function ThongTinCaNhan() {
                                 <form onSubmit={handleSubmit(onSubmit)} >
                                     <div className="form-group mb-0">
                                         <label htmlFor="email">Email</label>
-                                        <input {...register('email')} type="email" className="form-control" placeholder="Enter email" />
+                                        <input disabled {...register('email')} type="email" className="form-control" placeholder="Enter email" />
                                         <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.email?.message as any}</span>
                                     </div>
                                     <div className='grid grid-cols-2 gap-2'>

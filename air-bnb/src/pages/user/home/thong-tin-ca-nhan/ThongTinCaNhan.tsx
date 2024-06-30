@@ -8,6 +8,8 @@ import { PhongDaThue } from '../../../../store/store-thong-tin-ca-nhan/phong-da-
 import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/chi-tiet-phong-reducer/action';
 import dayjs from 'dayjs'
 import { PhongThue } from '../../../../store/store-danh-sach-phong/danh-sach-phong-reducer/types';
+import Register from '../../auth/register/Register';
+import UpdateProfileForm from './UpdateProfileForm';
 
 export default function ThongTinCaNhan() {
     const h3Ref = useRef<HTMLHeadingElement>(null);
@@ -42,8 +44,8 @@ export default function ThongTinCaNhan() {
     };
 
     useEffect(() => {
-        if (data?.user.id) {
-            const maNguoiDung = data?.user.id
+        if (data?.user?.id) {
+            const maNguoiDung = data?.user?.id
             dispatch(actGetPhongDaThue(maNguoiDung))
         }
     }, [dispatch])
@@ -60,10 +62,12 @@ export default function ThongTinCaNhan() {
                 <h6 ref={h3Ref}>Thông tin cá nhân</h6>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
                     <div className='bg-light rounded p-3 col-span-1'>
-                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={data?.user.avatar ? (`${data?.user.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" /></div>
+                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={data?.user?.avatar ? (`${data?.user?.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" /></div>
                         <div>
-                            <h6 className='text-center pt-1'>{data?.user.name}</h6>
-                            <div className='text-center my-3'> <button style={{ backgroundColor: '#fe6b6e' }} className='text-light px-3 rounded'>Chỉnh sửa</button> </div>
+                            <h6 className='text-center pt-1'>{data?.user?.name}</h6>
+                            <div className='text-center my-3'>
+                                <button className="navbar-toggler text-light px-3 rounded" data-toggle="modal" data-target="#updateForm" style={{ backgroundColor: '#fe6b6e' }} >Chỉnh sửa</button>
+                            </div>
                             <hr />
                             <div className='grid grid-cols-4'>
                                 <div className='col-span-1 grid'>
@@ -74,11 +78,11 @@ export default function ThongTinCaNhan() {
                                     <span >Role:</span>
                                 </div>
                                 <div className='col-span-3 ml-2'>
-                                    <p className='mb-1'>{data?.user.email}</p>
-                                    <p className='mb-1'>{data?.user.phone}</p>
-                                    <p className='mb-1'>{dayjs(data?.user.birthday).format('DD-MM-YYYY')}</p>
-                                    <p className='mb-1'>{data?.user.gender ? 'Nam' : "Nữ"}</p>
-                                    <p className='mb-1'>{data?.user.role}</p>
+                                    <p className='mb-1'>{data?.user?.email}</p>
+                                    <p className='mb-1'>{data?.user?.phone}</p>
+                                    <p className='mb-1'>{dayjs(data?.user?.birthday).format('DD-MM-YYYY')}</p>
+                                    <p className='mb-1'>{data?.user?.gender ? 'Nam' : "Nữ"}</p>
+                                    <p className='mb-1'>{data?.user?.role}</p>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +90,7 @@ export default function ThongTinCaNhan() {
 
                     <div className='bg-light p-3 col-span-1 lg:col-span-2 rounded'>
                         <h6>Phòng đã thuê ({dataPhongDaThue?.length})</h6>
-                        <div style={{minHeight: '500px', maxHeight: '500px', overflowY: 'auto' }}>
+                        <div style={{ minHeight: '500px', maxHeight: '500px', overflowY: 'auto' }}>
                             <div className='grid grid-cols-2 lg:grid-cols-3 gap-1'>
                                 {/* phong da thue */}
                                 {dataPhongDaThue?.slice(0, phongDaThue).map((item: PhongDaThue, index: number) => (
@@ -130,9 +134,7 @@ export default function ThongTinCaNhan() {
                     </div>
                 </div>
             </div >
-
-
+            <UpdateProfileForm />
         </>
-
     )
 }

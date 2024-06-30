@@ -6,6 +6,7 @@ import Login from '../../../auth/login/Login';
 import Register from '../../../auth/register/Register';
 import { message } from 'antd';
 import { NavLink } from 'react-router-dom';
+// import UpdateProfileForm from '../../thong-tin-ca-nhan/UpdateProfileForm';
 
 export default function Header(props: any) {
   const dispatch: any = useDispatch();
@@ -157,7 +158,7 @@ export default function Header(props: any) {
                 <a className="rounded nav-link text-dark" data-toggle="modal" data-target="#exampleModalLogin">Đăng nhập</a>
               </li>
               <li className="nav-item" >
-                <a className="rounded nav-link text-dark" data-toggle="modal" data-target="#exampleModalRegister">Đăng ký</a>
+                <NavLink to='/' className="rounded nav-link text-dark" data-toggle="modal" data-target="#exampleModalRegister">Đăng ký</NavLink>
               </li>
             </>
           )}
@@ -166,6 +167,7 @@ export default function Header(props: any) {
 
       <Login />
       <Register />
+      {/* <UpdateProfileForm/> */}
     </>
   )
 }

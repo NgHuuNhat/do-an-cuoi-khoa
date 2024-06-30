@@ -9,6 +9,7 @@ import { postDatPhongReducer } from "./store-chi-tiet-phong/post-dat-phong-reduc
 import { binhLuanReducer } from "./store-chi-tiet-phong/binh-luan-reducer/reducer";
 import { postBinhLuanReducer } from "./store-chi-tiet-phong/post-binh-luan-reducer/reducer";
 import { phongDaThueReducer } from "./store-thong-tin-ca-nhan/phong-da-thue-reducer/reducer";
+import { thongTinCaNhanReducer } from "./store-thong-tin-ca-nhan/thong-tin-ca-nhan-reducer/reducer";
 
 const rootReducer = combineReducers({
     //reducer
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     binhLuanReducer,
     postBinhLuanReducer,
     phongDaThueReducer,
+    thongTinCaNhanReducer,
 
 });
 

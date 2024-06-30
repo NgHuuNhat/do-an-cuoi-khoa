@@ -25,6 +25,13 @@ export const userReducer = (state = initialState, action: Action) => {
             return { ...state };
         }
 
+        // case ActionType.UPDATE_USER_DATA: {
+        //     return {
+        //         ...state,
+        //         data: action.payload,
+        //     };
+        // }  
+
         case ActionType.FAILED: {
             state.loading = false;
             state.data = null;

@@ -2,22 +2,22 @@ import api from "../../../utils/api-user/ApiUser";
 import * as ActionType from "./constants";
 import { Action } from "./types";
 
-export const actPutThongTinCaNhan = (id: any, values: any) => {
-    return (dispatch: any) => {
-        dispatch(actReques());
-        api
-            .put(`/users/${id}`, values)
-            .then((result) => {
-                dispatch(actSuccess(result.data.content));
-                console.log(result.data.content)
-                console.log(id)
-                console.log(values)
-            })
-            .catch((error) => {
-                dispatch(actFailed(error));
-            })
-    }
-}
+// export const actPutThongTinCaNhan = (id: any, values: any) => {
+//     return (dispatch: any) => {
+//         dispatch(actReques());
+//         api
+//             .put(`/users/${id}`, values)
+//             .then((result) => {
+//                 dispatch(actSuccess(result.data.content));
+//                 console.log(result.data.content)
+//                 console.log(id)
+//                 console.log(values)
+//             })
+//             .catch((error) => {
+//                 dispatch(actFailed(error));
+//             })
+//     }
+// }
 
 export const actReques = (): Action => {
     return {

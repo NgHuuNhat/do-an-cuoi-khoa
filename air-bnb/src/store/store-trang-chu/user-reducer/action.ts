@@ -2,6 +2,23 @@ import api from "../../../utils/api-user/ApiUser";
 import * as ActionType from "./constants";
 import { Action, StateUser, User } from "./types";
 
+export const actPutThongTinCaNhan = (id: any, values: any) => {
+    return (dispatch: any) => {
+        dispatch(actReques());
+        api
+            .put(`/users/${id}`, values)
+            .then((result) => {
+                dispatch(actSuccess(result.data.content));
+                console.log("result.data.content", result.data.content)
+                console.log("values", values)
+                console.log("id", id)
+            })
+            .catch((error) => {
+                dispatch(actFailed(error));
+            })
+    }
+}
+
 export const actPostUserReister = (user: StateUser) => {
     return (dispatch: any) => {
         dispatch(actReques());

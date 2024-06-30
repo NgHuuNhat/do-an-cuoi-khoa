@@ -1,5 +1,5 @@
 import * as ActionType from "./constants"
-import { Action, State } from "./types";
+import { Action, State, StateUser } from "./types";
 
 const user = localStorage.getItem("data");
 
@@ -18,19 +18,13 @@ export const userReducer = (state = initialState, action: Action) => {
             return { ...state };
         }
 
+
         case ActionType.SUCCESS: {
             state.loading = false;
             state.data = action.payload;
             state.error = null;
             return { ...state };
         }
-
-        // case ActionType.UPDATE_USER_DATA: {
-        //     return {
-        //         ...state,
-        //         data: action.payload,
-        //     };
-        // }  
 
         case ActionType.FAILED: {
             state.loading = false;

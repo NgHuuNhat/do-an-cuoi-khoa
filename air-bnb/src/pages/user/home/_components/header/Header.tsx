@@ -6,7 +6,6 @@ import Login from '../../../auth/login/Login';
 import Register from '../../../auth/register/Register';
 import { message } from 'antd';
 import { NavLink } from 'react-router-dom';
-// import UpdateProfileForm from '../../thong-tin-ca-nhan/UpdateProfileForm';
 
 export default function Header(props: any) {
   const dispatch: any = useDispatch();
@@ -149,7 +148,7 @@ export default function Header(props: any) {
                 </NavLink>
               </li>
               <li className="nav-item d-flex align-items-center">
-                <a className="rounded nav-link w-100 text-dark" href="#" onClick={handleLogout}><span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>Đăng xuất</a>
+                <NavLink className="rounded nav-link w-100 text-dark" to="/" onClick={handleLogout}><span className='w-7'><i className="fa fa-sign-out mr-2"></i></span>Đăng xuất</NavLink>
               </li>
             </>
           ) : (
@@ -167,7 +166,6 @@ export default function Header(props: any) {
 
       <Login />
       <Register />
-      {/* <UpdateProfileForm/> */}
     </>
   )
 }

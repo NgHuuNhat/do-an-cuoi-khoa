@@ -9,19 +9,38 @@ import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/chi-t
 import dayjs from 'dayjs'
 import { PhongThue } from '../../../../store/store-danh-sach-phong/danh-sach-phong-reducer/types';
 import Register from '../../auth/register/Register';
-import UpdateProfileForm from './UpdateProfileForm';
+// import UpdateProfileForm from './UpdateProfileForm';
+import { actGetUserLogin, actPutThongTinCaNhan } from '../../../../store/store-trang-chu/user-reducer/action';
+import { useForm } from 'react-hook-form';
+
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+
+const schema = yup.object().shape({
+    name: yup.string().required('Vui lòng nhập tên'),
+    email: yup.string().email('Email không đúng định dạng').required('Vui lòng nhập email'),
+    phone: yup.string().matches(/^\+?(84|0)\d{9,10}$/, 'Số điện thoại không hợp lệ').required('Vui lòng nhập số điện thoại'),
+    birthday: yup.string().required('Vui lòng nhập ngày sinh'),
+    gender: yup.string().required('Vui lòng chọn giới tính'),
+    role: yup.string(),
+});
 
 export default function ThongTinCaNhan() {
     const h3Ref = useRef<HTMLHeadingElement>(null);
     const location = useLocation();
     const dispatch: any = useDispatch();
-    const { data } = useSelector((state: any) => state.userReducer)
+    const { loading, data } = useSelector((state: any) => state.userReducer)
     const { dataPhongDaThue } = useSelector((state: any) => state.phongDaThueReducer)
     const { dataChiTietPhong } = useSelector((state: any) => state.chiTietPhongReducer)
     const navigate = useNavigate();
     const scrollPositionRef = useRef<number>(0); // Ref to store scroll position
     const [phongDaThue, setphongDaThue] = useState(3);
     const [shouldScrollToH3, setShouldScrollToH3] = useState(true);
+
+    // useEffect(() => {
+    //     dispatch(actGetUserLogin())
+    // }, [dispatch])
 
     //click -> scroll to danh sach phong
     useEffect(() => {
@@ -44,7 +63,7 @@ export default function ThongTinCaNhan() {
     };
 
     useEffect(() => {
-        if (data?.user?.id) {
+        if (data?.user.id) {
             const maNguoiDung = data?.user?.id
             dispatch(actGetPhongDaThue(maNguoiDung))
         }
@@ -55,38 +74,97 @@ export default function ThongTinCaNhan() {
         navigate(`/phong-thue/${maPhong}`);
     }
 
+    const { register, handleSubmit, formState, reset } = useForm({
+        defaultValues: {
+            name: '',
+            email: '',
+            phone: '',
+            birthday: '',
+            gender: '',
+            role: 'USER',
+        },
+        // @ts-expect-error ts(2554)
+        resolver: yupResolver(schema),
+    });
+
+    useEffect(() => {
+        if (data && data.user) {
+            reset({
+                name: data?.user.name || '',
+                email: data?.user.email || '',
+                phone: data?.user.phone || '',
+                birthday: data?.user.birthday || '',
+                gender: data?.user.gender ? 'true' : 'false',
+                role: data?.user.role || '',
+            });
+        }
+    }, [data, reset]);
+
+    const onSubmit = (values: any) => {
+        console.log("click")
+        let btnClose = document.getElementById('btn-info-close')
+        btnClose?.click()
+        if (data) {
+            dispatch(actPutThongTinCaNhan(data?.user?.id, values));
+            console.log("data?.user.id", data?.user.id)
+            console.log("values", values)
+        }
+        // dispatch(actGetUserLogin())
+        console.log("data", data)
+    };
+
+    console.log("dataall", data)
+
     return (
         <>
-
+            {/* hien thi thong tin ca nhan */}
             <div className='container my-5'>
                 <h6 ref={h3Ref}>Thông tin cá nhân</h6>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
+
+
                     <div className='bg-light rounded p-3 col-span-1'>
-                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={data?.user?.avatar ? (`${data?.user?.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" /></div>
+                        <div className='w-40 h-40 mx-auto'>
+                            <img
+                                style={{ objectFit: 'cover' }}
+                                className='rounded-full w-100 h-100'
+                                src={data?.user?.avatar ? data?.user?.avatar : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'}
+                                alt="hinh-anh"
+                            />
+                        </div>
                         <div>
-                            <h6 className='text-center pt-1'>{data?.user?.name}</h6>
+                            <h6 className='text-center pt-1'>{data?.user ? data?.user.name : data?.name}</h6>
                             <div className='text-center my-3'>
-                                <button className="navbar-toggler text-light px-3 rounded" data-toggle="modal" data-target="#updateForm" style={{ backgroundColor: '#fe6b6e' }} >Chỉnh sửa</button>
+                                <button
+                                    className="navbar-toggler text-light px-3 rounded"
+                                    data-toggle="modal"
+                                    data-target="#updateForm"
+                                    style={{ backgroundColor: '#fe6b6e' }}
+                                >
+                                    Chỉnh sửa
+                                </button>
                             </div>
                             <hr />
                             <div className='grid grid-cols-4'>
                                 <div className='col-span-1 grid'>
-                                    <span >Email:</span>
-                                    <span >SĐT:</span>
-                                    <span >Birthday:</span>
-                                    <span >Gender:</span>
-                                    <span >Role:</span>
+                                    <span>Email:</span>
+                                    <span>SĐT:</span>
+                                    <span>Birthday:</span>
+                                    <span>Gender:</span>
+                                    <span>Role:</span>
                                 </div>
                                 <div className='col-span-3 ml-2'>
-                                    <p className='mb-1'>{data?.user?.email}</p>
-                                    <p className='mb-1'>{data?.user?.phone}</p>
-                                    <p className='mb-1'>{dayjs(data?.user?.birthday).format('DD-MM-YYYY')}</p>
-                                    <p className='mb-1'>{data?.user?.gender ? 'Nam' : "Nữ"}</p>
-                                    <p className='mb-1'>{data?.user?.role}</p>
+                                    <p className='mb-1'>{data?.user ? data?.user.email : data?.email}</p>
+                                    <p className='mb-1'>{data?.user ? data?.user.phone : data?.phone}</p>
+                                    <p className='mb-1'>{dayjs(data?.user ? data?.user.birthday : data?.birthday).format('DD-MM-YYYY')}</p>
+                                    <p className='mb-1'>{data?.user ? (data?.user.gender ? 'Nam' : 'Nữ') : (data?.gender ? 'Nam' : 'Nữ')}</p>
+                                    <p className='mb-1'>{data?.user ? data?.user.role : data?.role}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
 
                     <div className='bg-light p-3 col-span-1 lg:col-span-2 rounded'>
                         <h6>Phòng đã thuê ({dataPhongDaThue?.length})</h6>
@@ -134,7 +212,67 @@ export default function ThongTinCaNhan() {
                     </div>
                 </div>
             </div >
-            <UpdateProfileForm />
+            {/* <UpdateProfileForm /> */}
+
+
+            {/* update form */}
+            <>
+                <div className="modal fade" id="updateForm" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin cá nhân</h5>
+                                <button id='btn-info-close' type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+
+                                <form onSubmit={handleSubmit(onSubmit)} >
+                                    <div className="form-group mb-0">
+                                        <label htmlFor="email">Email</label>
+                                        <input disabled {...register('email')} type="email" className="form-control" placeholder="Enter email" />
+                                        <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.email?.message as any}</span>
+                                    </div>
+                                    <div className='grid grid-cols-2 gap-2'>
+                                        <div className="form-group mb-0">
+                                            <label htmlFor="name">Name</label>
+                                            <input {...register('name')} type="text" className="form-control" placeholder="Enter name" />
+                                            <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.name?.message as any}</span>
+                                        </div>
+                                        <div className="form-group mb-0">
+                                            <label htmlFor="phone">Phone</label>
+                                            <input {...register('phone')} type="text" className="form-control" placeholder="Enter phone" />
+                                            <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.phone?.message as any}</span>
+                                        </div>
+                                    </div>
+                                    <div className='grid grid-cols-2 gap-2'>
+                                        <div className="form-group mb-0">
+                                            <label htmlFor="birthday">Birthday</label>
+                                            <input {...register('birthday')} type="date" className="form-control" placeholder="Enter birthday" />
+                                            <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.birthday?.message as any}</span>
+                                        </div>
+                                        <div className="form-group mb-0">
+                                            <label htmlFor="gender">Gender</label>
+                                            <select {...register('gender')} defaultValue='' name="gender" className="form-control"  >
+                                                <option value='' disabled hidden className='cursor-pointer'>Chọn</option>
+                                                <option value='true' className='cursor-pointer'>Nam</option>
+                                                <option value='false' className='cursor-pointer'>Nữ</option>
+                                            </select>
+                                            <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.gender?.message as any}</span>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" className="btn btn-dark w-100" style={{ backgroundColor: '#fe6b6e', border: 'none' }}>
+                                        {loading ? (<div className="spinner-border spinner-border-sm"></div>) : 'Cập Nhật'}
+                                    </button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
         </>
     )
 }

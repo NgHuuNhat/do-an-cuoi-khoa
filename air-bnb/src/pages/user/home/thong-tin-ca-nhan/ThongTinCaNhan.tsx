@@ -19,6 +19,7 @@ import { StateUser } from '../../../../store/store-trang-chu/user-reducer/types'
 
 
 const schema = yup.object().shape({
+    avatar: yup.string(),
     name: yup.string().required('Vui lòng nhập tên'),
     email: yup.string().email('Email không đúng định dạng').required('Vui lòng nhập email'),
     phone: yup.string().matches(/^\+?(84|0)\d{9,10}$/, 'Số điện thoại không hợp lệ').required('Vui lòng nhập số điện thoại'),
@@ -71,9 +72,9 @@ export default function ThongTinCaNhan() {
         navigate(`/phong-thue/${maPhong}`);
     }
 
-    const { register, handleSubmit, formState, reset } = useForm({
+    const { register, handleSubmit, formState, reset, setValue } = useForm({
         defaultValues: {
-            // avatar: '',
+            avatar: '',
             name: '',
             email: '',
             phone: '',
@@ -88,7 +89,7 @@ export default function ThongTinCaNhan() {
     useEffect(() => {
         if (data && data.user) {
             reset({
-                // avatar: data?.user.avatar || '',
+                avatar: data?.user.avatar || '',
                 name: data?.user.name || '',
                 email: data?.user.email || '',
                 phone: data?.user.phone || '',
@@ -112,10 +113,24 @@ export default function ThongTinCaNhan() {
         // console.log("data", data)
     };
 
-    console.log("data", data)
+    // console.log("data", data)
 
+    //get data local
     const userDataLocal = JSON.parse(localStorage.getItem('data') || '{}')
-    console.log('userDataLocal', userDataLocal);
+    // console.log('userDataLocal', userDataLocal);
+
+    // get img
+    const [selectedImage, setSelectedImage] = useState<null | string>(null);
+    const handleImageChange = (e: any) => {
+        const file = e.target.files[0];
+        if (file) {
+            const imageUrl = URL.createObjectURL(file);
+            setSelectedImage(imageUrl);
+            setValue('avatar', imageUrl);
+        }
+    };
+
+    const avatarSrc = selectedImage || (userDataLocal?.user.avatar ? userDataLocal.user.avatar : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg');
 
     return (
         <>
@@ -126,7 +141,9 @@ export default function ThongTinCaNhan() {
 
 
                     <div className='bg-light rounded p-3 col-span-1'>
-                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={userDataLocal?.user.avatar ? (`${userDataLocal?.user.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" /></div>
+                        <div className='w-40 h-40 mx-auto'>
+                            <img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={userDataLocal?.user.avatar ? (`${userDataLocal?.user.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" />
+                        </div>
                         <div>
                             <h6 className='text-center pt-1'>{userDataLocal?.user.name}</h6>
                             <div className='text-center my-3'>
@@ -208,14 +225,34 @@ export default function ThongTinCaNhan() {
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin cá nhân</h5>
+                                <h5 className="modal-title" id="exampleModalLabel" style={{ color: '#fe6b6e' }}>Chỉnh sửa thông tin cá nhân</h5>
                                 <button id='btn-info-close' type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
                             <div className="modal-body">
 
+                                {/* form put */}
                                 <form onSubmit={handleSubmit(onSubmit)} >
+                                    <div className='w-20 h-20 mx-auto mb-5 text-sm'>
+                                        <img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={avatarSrc} alt="hinh-anh" />
+                                        <div className='text-center mt-2'>
+                                            {/* Thêm một label để kích hoạt chọn ảnh */}
+                                            <label htmlFor="avatarUpload" className="text-light span-hover p-1 px-2 rounded mx-auto" style={{ backgroundColor: '#fe6b6e', border: 'none' }}>
+                                                Chọn ảnh
+                                            </label>
+                                            {/* Input type file ẩn, sẽ không hiển thị */}
+                                            <input
+                                                {...register('avatar')}
+                                                type="file"
+                                                id="avatarUpload"
+                                                className="hidden"
+                                                accept="image/*"
+                                                onChange={handleImageChange}
+                                            />
+                                        </div>
+                                    </div>
+
                                     <div className="form-group mb-0">
                                         <label htmlFor="email">Email</label>
                                         <input disabled {...register('email')} type="email" className="form-control" placeholder="Enter email" />

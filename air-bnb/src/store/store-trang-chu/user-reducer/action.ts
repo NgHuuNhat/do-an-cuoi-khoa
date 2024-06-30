@@ -8,22 +8,17 @@ export const actPutThongTinCaNhan = (id: any, values: any) => {
         api
             .put(`/users/${id}`, values)
             .then((result) => {
-                // Lấy dữ liệu cũ từ localStorage
                 const currentData = JSON.parse(localStorage.getItem('data') || '{}');
-                // Cập nhật thông tin mới từ API vào dữ liệu cũ
                 const updatedData = {
                     ...currentData,
                     user: {
                         ...currentData.user,
-                        ...result.data.content // Các trường dữ liệu mới từ API
+                        ...result.data.content,
+                        avatar: values.user.avatar,
                     }
                 };
-                // Lưu dữ liệu đã cập nhật vào localStorage
                 localStorage.setItem('data', JSON.stringify(updatedData));
                 dispatch(actSuccess(result.data.content));
-                console.log("result.data.content", result.data.content)
-                console.log("values", values)
-                console.log("id", id)
             })
             .catch((error) => {
                 dispatch(actFailed(error));

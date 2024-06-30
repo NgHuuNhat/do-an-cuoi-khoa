@@ -60,8 +60,8 @@ export default function ThongTinCaNhan() {
     };
 
     useEffect(() => {
-        if (data?.user.id) {
-            const maNguoiDung = data?.user?.id
+        if (data?.user?.id) {
+            const maNguoiDung = data?.user?.id || ''; // Gán giá trị mặc định khi không tồn tại
             dispatch(actGetPhongDaThue(maNguoiDung))
         }
     }, [dispatch])
@@ -73,6 +73,7 @@ export default function ThongTinCaNhan() {
 
     const { register, handleSubmit, formState, reset } = useForm({
         defaultValues: {
+            // avatar: '',
             name: '',
             email: '',
             phone: '',
@@ -87,6 +88,7 @@ export default function ThongTinCaNhan() {
     useEffect(() => {
         if (data && data.user) {
             reset({
+                // avatar: data?.user.avatar || '',
                 name: data?.user.name || '',
                 email: data?.user.email || '',
                 phone: data?.user.phone || '',

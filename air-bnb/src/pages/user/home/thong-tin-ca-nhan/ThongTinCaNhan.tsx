@@ -107,7 +107,7 @@ export default function ThongTinCaNhan() {
         dispatch(actPutThongTinCaNhan(data?.user?.id, values));
         console.log("data?.user.id", data?.user?.id)
         console.log("values", values)
-        
+
         // Tùy chọn, cập nhật local storage sau khi dispatch
         const currentData = JSON.parse(localStorage.getItem('data') || '{}');
         const updatedData = {
@@ -159,6 +159,7 @@ export default function ThongTinCaNhan() {
                             <hr />
                             <div className='grid grid-cols-4'>
                                 <div className='col-span-1 grid'>
+                                    <span >ID:</span>
                                     <span >Email:</span>
                                     <span >SĐT:</span>
                                     <span >Birthday:</span>
@@ -166,6 +167,7 @@ export default function ThongTinCaNhan() {
                                     <span >Role:</span>
                                 </div>
                                 <div className='col-span-3 ml-2'>
+                                    <p className='mb-1'>{userDataLocal?.user.id}</p>
                                     <p className='mb-1'>{userDataLocal?.user.email}</p>
                                     <p className='mb-1'>{userDataLocal?.user.phone}</p>
                                     <p className='mb-1'>{dayjs(userDataLocal?.user.birthday).format('DD-MM-YYYY')}</p>

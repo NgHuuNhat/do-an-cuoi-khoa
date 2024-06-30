@@ -38,10 +38,6 @@ export default function ThongTinCaNhan() {
     const [phongDaThue, setphongDaThue] = useState(3);
     const [shouldScrollToH3, setShouldScrollToH3] = useState(true);
 
-    // useEffect(() => {
-    //     dispatch(actGetUserLogin())
-    // }, [dispatch])
-
     //click -> scroll to danh sach phong
     useEffect(() => {
         if (h3Ref.current && shouldScrollToH3) {
@@ -105,15 +101,15 @@ export default function ThongTinCaNhan() {
         let btnClose = document.getElementById('btn-info-close')
         btnClose?.click()
         if (data) {
-            dispatch(actPutThongTinCaNhan(data?.user?.id, values));
+            dispatch(actPutThongTinCaNhan(data?.user.id, values));
             console.log("data?.user.id", data?.user.id)
             console.log("values", values)
         }
         // dispatch(actGetUserLogin())
-        console.log("data", data)
+        // console.log("data", data)
     };
 
-    console.log("dataall", data)
+    console.log("data", data)
 
     return (
         <>
@@ -124,46 +120,31 @@ export default function ThongTinCaNhan() {
 
 
                     <div className='bg-light rounded p-3 col-span-1'>
-                        <div className='w-40 h-40 mx-auto'>
-                            <img
-                                style={{ objectFit: 'cover' }}
-                                className='rounded-full w-100 h-100'
-                                src={data?.user?.avatar ? data?.user?.avatar : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'}
-                                alt="hinh-anh"
-                            />
-                        </div>
+                        <div className='w-40 h-40 mx-auto'><img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={data?.user?.avatar ? (`${data?.user?.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" /></div>
                         <div>
-                            <h6 className='text-center pt-1'>{data?.user ? data?.user.name : data?.name}</h6>
+                            <h6 className='text-center pt-1'>{data?.user.name}</h6>
                             <div className='text-center my-3'>
-                                <button
-                                    className="navbar-toggler text-light px-3 rounded"
-                                    data-toggle="modal"
-                                    data-target="#updateForm"
-                                    style={{ backgroundColor: '#fe6b6e' }}
-                                >
-                                    Chỉnh sửa
-                                </button>
+                                <button className="navbar-toggler text-light px-3 rounded" data-toggle="modal" data-target="#updateForm" style={{ backgroundColor: '#fe6b6e' }} >Chỉnh sửa</button>
                             </div>
                             <hr />
                             <div className='grid grid-cols-4'>
                                 <div className='col-span-1 grid'>
-                                    <span>Email:</span>
-                                    <span>SĐT:</span>
-                                    <span>Birthday:</span>
-                                    <span>Gender:</span>
-                                    <span>Role:</span>
+                                    <span >Email:</span>
+                                    <span >SĐT:</span>
+                                    <span >Birthday:</span>
+                                    <span >Gender:</span>
+                                    <span >Role:</span>
                                 </div>
                                 <div className='col-span-3 ml-2'>
-                                    <p className='mb-1'>{data?.user ? data?.user.email : data?.email}</p>
-                                    <p className='mb-1'>{data?.user ? data?.user.phone : data?.phone}</p>
-                                    <p className='mb-1'>{dayjs(data?.user ? data?.user.birthday : data?.birthday).format('DD-MM-YYYY')}</p>
-                                    <p className='mb-1'>{data?.user ? (data?.user.gender ? 'Nam' : 'Nữ') : (data?.gender ? 'Nam' : 'Nữ')}</p>
-                                    <p className='mb-1'>{data?.user ? data?.user.role : data?.role}</p>
+                                    <p className='mb-1'>{data?.user.email}</p>
+                                    <p className='mb-1'>{data?.user.phone}</p>
+                                    <p className='mb-1'>{dayjs(data?.user.birthday).format('DD-MM-YYYY')}</p>
+                                    <p className='mb-1'>{data?.user.gender ? 'Nam' : "Nữ"}</p>
+                                    <p className='mb-1'>{data?.user.role}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
 
                     <div className='bg-light p-3 col-span-1 lg:col-span-2 rounded'>
@@ -231,7 +212,7 @@ export default function ThongTinCaNhan() {
                                 <form onSubmit={handleSubmit(onSubmit)} >
                                     <div className="form-group mb-0">
                                         <label htmlFor="email">Email</label>
-                                        <input disabled {...register('email')} type="email" className="form-control" placeholder="Enter email" />
+                                        <input {...register('email')} type="email" className="form-control" placeholder="Enter email" />
                                         <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.email?.message as any}</span>
                                     </div>
                                     <div className='grid grid-cols-2 gap-2'>

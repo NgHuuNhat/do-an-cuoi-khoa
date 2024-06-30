@@ -89,7 +89,7 @@ export default function ThongTinCaNhan() {
     useEffect(() => {
         if (data && data.user) {
             reset({
-                avatar: data?.user.avatar || '',
+                avatar: data?.user?.avatar || '',
                 name: data?.user.name || '',
                 email: data?.user.email || '',
                 phone: data?.user.phone || '',
@@ -137,7 +137,7 @@ export default function ThongTinCaNhan() {
         }
     };
 
-    const avatarSrc = selectedImage || (userDataLocal?.user.avatar ? userDataLocal.user.avatar : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg');
+    const avatarSrc = selectedImage || (userDataLocal?.user?.avatar ? (userDataLocal?.user?.avatar) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg');
 
     return (
         <>

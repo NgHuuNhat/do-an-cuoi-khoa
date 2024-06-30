@@ -111,12 +111,8 @@ export default function Header(props: any) {
         </div>
 
         <button id='btn-profile' onClick={toggleProfile} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#profile">
-          {dataLocal ? (
-            userDataLocal?.user.avatar ? (
-              <span><img className='w-8 h-8 rounded-circle' src={userDataLocal?.user.avatar} alt="avatar" /></span>
-            ) : (
-              <span><i className="far fa-user-circle text-l"></i></span>
-            )
+        {userDataLocal && userDataLocal.user && userDataLocal.user.avatar ? (
+            <span><img className='w-8 h-8 rounded-circle' src={userDataLocal.user.avatar} alt="avatar" /></span>
           ) : (
             <span><i className="far fa-user-circle text-l"></i></span>
           )}
@@ -138,16 +134,16 @@ export default function Header(props: any) {
       </div>
       <div id="profile" className="bg-light rounded collapse">
         <ul className="navbar-nav">
-          {userDataLocal ? (
+        {userDataLocal && userDataLocal.user ? (
             <>
               <li className="nav-item d-flex align-items-center">
                 <NavLink className="rounded nav-link w-100 text-dark d-flex" to="/thong-tin-ca-nhan">
-                  {userDataLocal?.user.avatar ? (
-                    <span className='w-7'><img className='w-5 h-5 rounded-circle' src={userDataLocal?.user.avatar} alt="avatar" /></span>
+                  {userDataLocal.user.avatar ? (
+                    <span className='w-7'><img className='w-5 h-5 rounded-circle' src={userDataLocal.user.avatar} alt="avatar" /></span>
                   ) : (
                     <span><i className="far fa-user-circle mr-2"></i></span>
                   )}
-                  {dataLocalParse.user.name}
+                  {userDataLocal.user.name}
                 </NavLink>
               </li>
               <li className="nav-item d-flex align-items-center">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import Admin from './AdminLayout';
 
 export default function IndexAdmin() {
 
@@ -8,10 +9,12 @@ export default function IndexAdmin() {
   if (!data) {
     return <Navigate to={'/login'} />
   } else if (data && data.user.role !== "ADMIN") {
-    return <Navigate to={'/'} />
+    return <Navigate to={'/admin'} />
   }
 
   return (
-    <div>IndexAdmin</div>
+    <div>
+      <Admin />
+    </div>
   )
 }

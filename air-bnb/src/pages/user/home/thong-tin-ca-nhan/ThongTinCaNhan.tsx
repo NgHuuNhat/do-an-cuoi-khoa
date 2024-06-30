@@ -264,7 +264,7 @@ export default function ThongTinCaNhan() {
 
                                     <div className="form-group mb-0">
                                         <label htmlFor="email">Email</label>
-                                        <input disabled {...register('email')} type="email" className="form-control" placeholder="Enter email" />
+                                        <input {...register('email')} type="email" className="form-control" placeholder="Enter email" />
                                         <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.email?.message as any}</span>
                                     </div>
                                     <div className='grid grid-cols-2 gap-2'>

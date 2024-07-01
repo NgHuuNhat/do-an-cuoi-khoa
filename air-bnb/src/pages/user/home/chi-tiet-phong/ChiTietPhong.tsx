@@ -144,7 +144,7 @@ export default function ChiTietPhong() {
     }
   };
 
-  console.log(dataBinhLuan)
+  // console.log(dataBinhLuan)
 
   //hien thi them cmt
   const [visibleCommentCount, setVisibleCommentCount] = useState(3);

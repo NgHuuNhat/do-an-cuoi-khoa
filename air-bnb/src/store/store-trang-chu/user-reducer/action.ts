@@ -2,34 +2,31 @@ import api from "../../../utils/api-user/ApiUser";
 import * as ActionType from "./constants";
 import { Action, StateUser, User } from "./types";
 
-export const actPutThongTinCaNhan = (id: any, values: any) => {
-    return (dispatch: any) => {
-        dispatch(actReques());
-        api
-            .put(`/users/${id}`, values)
-            .then((result) => {
-                // Lấy dữ liệu cũ từ localStorage
-                const currentData = JSON.parse(localStorage.getItem('data') || '{}');
-                // Cập nhật thông tin mới từ API vào dữ liệu cũ
-                const updatedData = {
-                    ...currentData,
-                    user: {
-                        ...currentData.user,
-                        ...result.data.content // Các trường dữ liệu mới từ API
-                    }
-                };
-                // Lưu dữ liệu đã cập nhật vào localStorage
-                localStorage.setItem('data', JSON.stringify(updatedData));
-                dispatch(actSuccess(result.data.content));
-                console.log("result.data.content", result.data.content)
-                console.log("values", values)
-                console.log("id", id)
-            })
-            .catch((error) => {
-                dispatch(actFailed(error));
-            })
-    }
-}
+// export const actPutThongTinCaNhan = (id: any, values: any) => {
+//     return (dispatch: any) => {
+//         dispatch(actReques());
+//         api
+//             .put(`/users/${id}`, values)
+//             .then((result) => {
+//                 // Lấy dữ liệu cũ từ localStorage
+//                 const currentData = JSON.parse(localStorage.getItem('data') || '{}');
+//                 // Cập nhật thông tin mới từ API vào dữ liệu cũ
+//                 const updatedData = {
+//                     ...currentData,
+//                     user: {
+//                         ...currentData.user,
+//                         ...result.data.content // Các trường dữ liệu mới từ API
+//                     }
+//                 };
+//                 // Lưu dữ liệu đã cập nhật vào localStorage
+//                 localStorage.setItem('data', JSON.stringify(updatedData));
+//                 dispatch(actSuccess(result.data.content));
+//             })
+//             .catch((error) => {
+//                 dispatch(actFailed(error));
+//             })
+//     }
+// }
 
 export const actPostUserReister = (user: StateUser) => {
     return (dispatch: any) => {

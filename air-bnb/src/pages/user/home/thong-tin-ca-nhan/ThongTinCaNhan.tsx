@@ -2,20 +2,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { object } from 'yup';
 import { actGetPhongDaThue } from '../../../../store/store-thong-tin-ca-nhan/phong-da-thue-reducer/action';
 import { PhongDaThue } from '../../../../store/store-thong-tin-ca-nhan/phong-da-thue-reducer/types';
 import { actGetChiTietPhong } from '../../../../store/store-chi-tiet-phong/chi-tiet-phong-reducer/action';
 import dayjs from 'dayjs'
-import { PhongThue } from '../../../../store/store-danh-sach-phong/danh-sach-phong-reducer/types';
-import Register from '../../auth/register/Register';
-// import UpdateProfileForm from './UpdateProfileForm';
-import { actGetUserLogin, actPutThongTinCaNhan } from '../../../../store/store-trang-chu/user-reducer/action';
 import { useForm } from 'react-hook-form';
-
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { StateUser } from '../../../../store/store-trang-chu/user-reducer/types';
+import { actPutThongTinCaNhan } from '../../../../store/store-thong-tin-ca-nhan/thong-tin-ca-nhan-reducer/action';
 
 
 const schema = yup.object().shape({
@@ -30,15 +24,13 @@ const schema = yup.object().shape({
 
 export default function ThongTinCaNhan() {
     const h3Ref = useRef<HTMLHeadingElement>(null);
-    const location = useLocation();
     const dispatch: any = useDispatch();
     const { loading, data } = useSelector((state: any) => state.userReducer)
     const { dataPhongDaThue } = useSelector((state: any) => state.phongDaThueReducer)
-    const { dataChiTietPhong } = useSelector((state: any) => state.chiTietPhongReducer)
     const navigate = useNavigate();
-    const scrollPositionRef = useRef<number>(0); // Ref to store scroll position
     const [phongDaThue, setphongDaThue] = useState(3);
     const [shouldScrollToH3, setShouldScrollToH3] = useState(true);
+    const userDataLocal = JSON.parse(localStorage.getItem('data') || '{}')
 
     //click -> scroll to danh sach phong
     useEffect(() => {
@@ -101,30 +93,11 @@ export default function ThongTinCaNhan() {
     }, [data, reset]);
 
     const onSubmit = (values: any) => {
-        console.log("click")
         let btnClose = document.getElementById('btn-info-close')
         btnClose?.click()
         dispatch(actPutThongTinCaNhan(data?.user?.id, values));
-        console.log("data?.user.id", data?.user?.id)
         console.log("values", values)
-
-        // Tùy chọn, cập nhật local storage sau khi dispatch
-        const currentData = JSON.parse(localStorage.getItem('data') || '{}');
-        const updatedData = {
-            ...currentData,
-            user: {
-                ...currentData.user,
-                ...values // Cập nhật với các giá trị từ form
-            }
-        };
-        localStorage.setItem('data', JSON.stringify(updatedData));
     };
-
-    // console.log("data", data)
-
-    //get data local
-    const userDataLocal = JSON.parse(localStorage.getItem('data') || '{}')
-    // console.log('userDataLocal', userDataLocal);
 
     // get img
     const [selectedImage, setSelectedImage] = useState<null | string>(null);
@@ -136,8 +109,9 @@ export default function ThongTinCaNhan() {
             setValue('avatar', imageUrl);
         }
     };
-
     const avatarSrc = selectedImage || (userDataLocal?.user?.avatar ? (userDataLocal?.user?.avatar) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg');
+
+    console.log("userDataLocal", userDataLocal)
 
     return (
         <>
@@ -146,10 +120,9 @@ export default function ThongTinCaNhan() {
                 <h6 ref={h3Ref}>Thông tin cá nhân</h6>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
 
-
                     <div className='bg-light rounded p-3 col-span-1'>
                         <div className='w-40 h-40 mx-auto'>
-                            <img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={userDataLocal?.user.avatar ? (`${userDataLocal?.user.avatar}`) : 'https://i.pinimg.com/736x/bc/43/98/bc439871417621836a0eeea768d60944.jpg'} alt="hinh-anh" />
+                            <img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={userDataLocal.user.avatar} alt="hinh-anh" />
                         </div>
                         <div>
                             <h6 className='text-center pt-1'>{userDataLocal?.user.name}</h6>
@@ -171,7 +144,7 @@ export default function ThongTinCaNhan() {
                                     <p className='mb-1'>{userDataLocal?.user.email}</p>
                                     <p className='mb-1'>{userDataLocal?.user.phone}</p>
                                     <p className='mb-1'>{dayjs(userDataLocal?.user.birthday).format('DD-MM-YYYY')}</p>
-                                    <p className='mb-1'>{userDataLocal?.user.gender ? 'Nam' : "Nữ"}</p>
+                                    <p className='mb-1'>{userDataLocal?.user.gender === 'true' ? 'nam' : 'nữ'}</p>
                                     <p className='mb-1'>{userDataLocal?.user.role}</p>
                                 </div>
                             </div>

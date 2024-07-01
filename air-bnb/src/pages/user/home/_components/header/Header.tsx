@@ -17,7 +17,7 @@ export default function Header(props: any) {
   const [showProfile, setShowProfile] = useState(false);
 
   const userDataLocal = JSON.parse(localStorage.getItem('data') || '{}')
-  console.log(userDataLocal)
+  // console.log(userDataLocal)
 
   const handleLogout = () => {
     localStorage.removeItem('data');

@@ -7,7 +7,7 @@ export default function IndexAdmin() {
 
   const { data } = useSelector((state: any) => state.userReducer);
   if (!data) {
-    return <Navigate to={'/login'} />
+    return <Navigate to={'/'} />
   } else if (data && data.user.role !== "ADMIN") {
     return <Navigate to={'/admin'} />
   }

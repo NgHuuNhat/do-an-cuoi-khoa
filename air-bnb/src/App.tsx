@@ -8,6 +8,9 @@ import DanhSachPhong from './pages/user/home/danh-sach-phong/DanhSachPhong';
 import ChiTietPhong from './pages/user/home/chi-tiet-phong/ChiTietPhong';
 import TrangChu from './pages/user/home/trang-chu/TrangChu';
 import ThongTinCaNhan from './pages/user/home/thong-tin-ca-nhan/ThongTinCaNhan';
+import QuanLyNguoiDung from './pages/admin/AdminLayout/QuanLyNguoiDung/QuanLyNguoiDung';
+import QuanLyPhong from './pages/admin/AdminLayout/QuanLyPhong/QuanLyPhong';
+import QuanLyViTri from './pages/admin/AdminLayout/QuanLyViTri/QuanLyViTri';
 
 function App() {
   return (
@@ -22,7 +25,12 @@ function App() {
         </Route>
 
 
-        <Route path="/admin" element={<IndexAdmin />} />
+        {/* admin */}
+        <Route path="/admin" element={<IndexAdmin />} >
+          <Route path="/admin/QuanLyNguoiDung" element={<QuanLyNguoiDung />} />
+          <Route path="/admin/QuanLyPhong" element={<QuanLyPhong />} />
+          <Route path="/admin/QuanLyThongTin" element={<QuanLyViTri />} />
+        </Route>
 
       </Routes>
     </Router>

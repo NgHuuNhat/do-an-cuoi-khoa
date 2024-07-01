@@ -10,12 +10,14 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { actPutThongTinCaNhan } from '../../../../store/store-thong-tin-ca-nhan/thong-tin-ca-nhan-reducer/action';
+import Password from 'antd/es/input/Password';
 
 
 const schema = yup.object().shape({
     avatar: yup.string(),
     name: yup.string().required('Vui lòng nhập tên'),
     email: yup.string().email('Email không đúng định dạng').required('Vui lòng nhập email'),
+    password: yup.string(),
     phone: yup.string().matches(/^\+?(84|0)\d{9,10}$/, 'Số điện thoại không hợp lệ').required('Vui lòng nhập số điện thoại'),
     birthday: yup.string().required('Vui lòng nhập ngày sinh'),
     gender: yup.string().required('Vui lòng chọn giới tính'),
@@ -69,6 +71,7 @@ export default function ThongTinCaNhan() {
             avatar: '',
             name: '',
             email: '',
+            password: '',
             phone: '',
             birthday: '',
             gender: '',
@@ -84,6 +87,7 @@ export default function ThongTinCaNhan() {
                 avatar: data?.user?.avatar || '',
                 name: data?.user.name || '',
                 email: data?.user.email || '',
+                password: data?.user.password || '',
                 phone: data?.user.phone || '',
                 birthday: data?.user.birthday || '',
                 gender: data?.user.gender ? 'true' : 'false',
@@ -122,7 +126,7 @@ export default function ThongTinCaNhan() {
 
                     <div className='bg-light rounded p-3 col-span-1'>
                         <div className='w-40 h-40 mx-auto'>
-                            <img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={userDataLocal.user.avatar} alt="hinh-anh" />
+                            <img style={{ objectFit: 'cover' }} className='rounded-full w-100 h-100' src={avatarSrc} alt="hinh-anh" />
                         </div>
                         <div>
                             <h6 className='text-center pt-1'>{userDataLocal?.user.name}</h6>
@@ -134,6 +138,7 @@ export default function ThongTinCaNhan() {
                                 <div className='col-span-1 grid'>
                                     <span >ID:</span>
                                     <span >Email:</span>
+                                    {/* <span >Password:</span> */}
                                     <span >SĐT:</span>
                                     <span >Birthday:</span>
                                     <span >Gender:</span>
@@ -142,6 +147,7 @@ export default function ThongTinCaNhan() {
                                 <div className='col-span-3 ml-2'>
                                     <p className='mb-1'>{userDataLocal?.user.id}</p>
                                     <p className='mb-1'>{userDataLocal?.user.email}</p>
+                                    {/* <p className='mb-1'>{userDataLocal?.user.password}</p> */}
                                     <p className='mb-1'>{userDataLocal?.user.phone}</p>
                                     <p className='mb-1'>{dayjs(userDataLocal?.user.birthday).format('DD-MM-YYYY')}</p>
                                     <p className='mb-1'>{userDataLocal?.user.gender === 'true' ? 'nam' : 'nữ'}</p>
@@ -239,6 +245,11 @@ export default function ThongTinCaNhan() {
                                         <label htmlFor="email">Email</label>
                                         <input {...register('email')} type="email" className="form-control" placeholder="Enter email" />
                                         <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.email?.message as any}</span>
+                                    </div>
+                                    <div className="form-group mb-0">
+                                        <label htmlFor="password">Password</label>
+                                        <input {...register('password')} type="password" className="form-control" placeholder="Enter password" />
+                                        <span className='text-danger inline-block pl-1 text-sm'>{formState.errors.password?.message as any}</span>
                                     </div>
                                     <div className='grid grid-cols-2 gap-2'>
                                         <div className="form-group mb-0">
